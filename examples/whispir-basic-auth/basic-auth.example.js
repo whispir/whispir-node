@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { AuthApi } = require("@whispir/whispir-node")
+const { AuthApi } = require("@whispir/ztest-node-api")
 const { API_URL, API_KEY, WHISPIR_USERNAME, WHISPIR_PASSWORD } = process.env;
 
 async function main() {

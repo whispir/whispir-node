@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@whispir/whispir-node": "^1.0.0",
+    "@whispir/ztest-node-api": "^1.0.0",
     "dotenv": "^16.0.2"
   }
 }
