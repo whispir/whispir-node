@@ -1,0 +1,10 @@
+# OpenAPI generator files
+.openapi-generator/
+.openapi-generator-ignore
+
+# src
+api/
+node_modules/
+
+# recipes
+recipes/
