@@ -21,8 +21,9 @@ const createContact = async(contact, credentials) => {
             contact,
             httpOptions,
         )
-        // console.log('createContact result', result)
+
         return result
+
     } catch (error) {
         console.error('createContact error', error)
     }
@@ -42,13 +43,13 @@ const getContactById = async (contactId, credentials) => {
         null,
         httpOptions
     )
-    // console.log('getContactById result', result)
+
     return result
 }
 
 const parseContactIdFromCreateResponse = (createContactResponse) => {
     const link = createContactResponse.link.shift()
-    const contactId =  link.uri.split('/').pop()
+    const contactId = link.uri.split('/').pop()
     return contactId
 }
 

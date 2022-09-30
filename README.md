@@ -33,7 +33,7 @@ const createRequestOptions = (username, password) => {
 ```
 
 ## Usage Example
-This example 
+This example shows how to send a message using the `MessagesApi`
 
 See more examples [here](/examples)
 

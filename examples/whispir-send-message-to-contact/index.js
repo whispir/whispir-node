@@ -1,8 +1,7 @@
 require('dotenv').config()
-const { ContactsApi, MessagesApi } = require("@whispir/ztest-node-api")
-const { API_URL, API_KEY, WHISPIR_USERNAME, WHISPIR_PASSWORD, WORKSPACE_ID } = process.env;
+const { API_KEY, WHISPIR_USERNAME, WHISPIR_PASSWORD, WORKSPACE_ID } = process.env;
 
-const { createBasicAuthHeader, initCredentials } = require('../lib/auth.lib')
+const { initCredentials } = require('../lib/auth.lib')
 const {
     createContact,
     parseContactIdFromCreateResponse,
@@ -10,30 +9,6 @@ const {
     getContactById,
 } = require('../lib/contact.lib')
 const { sendMessage } = require('../lib/message.lib')
-
-// const getContactById = async () => {
-//     const contactApi = new ContactsApi(API_URL)
-//     const requestConfig = {
-//         headers: createBasicAuthHeader()
-//     }
-
-//     const params = {
-//         workspaceId: WORKSPACE_ID,
-//         xApiKey: API_KEY,
-//         contactId: 'B5589BB86E0DD79D',
-//         accept: 'application/vnd.whispir.contact-v1+json',
-//         options: requestConfig
-//     }
-
-//     const result = await contactApi.getContactsById(
-//         WORKSPACE_ID,
-//         API_KEY,
-//         'B5589BB86E0DD79D',
-//         "application/vnd.whispir.contact-v1+json", null, null, null, requestConfig)
-
-//     return result;
-// }
-
 
 async function main() {
     const credentials = initCredentials(WORKSPACE_ID, WHISPIR_USERNAME, WHISPIR_PASSWORD, API_KEY)

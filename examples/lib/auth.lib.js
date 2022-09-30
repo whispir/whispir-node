@@ -22,7 +22,6 @@ const initCredentials = (workspaceId, username, password, apiKey) => {
     }
 }
 
-
 module.exports = {
     createBasicAuthHeader,
     initCredentials,
