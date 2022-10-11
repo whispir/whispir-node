@@ -1,4 +1,4 @@
-const { ContactsApi } = require('@whispir/ztest-node-api')
+const { ContactsApi } = require('@whispir/whispir-node')
 const { createRequestOptions } = require('../lib/auth.lib')
 
 const { API_URL } = process.env;

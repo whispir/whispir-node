@@ -1,5 +1,5 @@
 {
-  "name": "@whispir-node/recipes",
+  "name": "@whispir/node-recipes",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@whispir/ztest-node-api": "^1.0.0",
+    "@whispir/whispir-node": "^1.0.0",
     "dotenv": "^16.0.2"
   }
 }
