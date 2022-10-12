@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { ContactsApi, MessagesApi } = require("@whispir/ztest-node-api")
+const { ContactsApi, MessagesApi } = require("@whispir/whispir-node")
 const { API_URL, API_KEY, WHISPIR_USERNAME, WHISPIR_PASSWORD, WORKSPACE_ID } = process.env;
 
 const { createBasicAuthHeader, initCredentials } = require('../lib/auth.lib')

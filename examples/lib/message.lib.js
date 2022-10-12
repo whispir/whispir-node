@@ -1,4 +1,4 @@
-const { MessagesApi } = require('@whispir/ztest-node-api')
+const { MessagesApi } = require('@whispir/whispir-node')
 const { createRequestOptions } = require('../lib/auth.lib')
 
 const { API_URL } = process.env;
