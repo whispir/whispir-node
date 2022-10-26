@@ -31,10 +31,10 @@ Please note that this project is released with a [Contributor Code of Conduct](/
 
 We have an official [Github Discussions](#) where Whispir Node API support and the community chimes in with helpful advice if you have questions.
 
-* [API Documentation](https://developers.whispir.com/)
-* [Github Discussions](#)
-* [Stackoverflow - Whispir related](https://stackoverflow.com/questions/tagged/whispir?sort=Newest)
-* [Submit requests for support](#) to our API Support team.
+- [API Documentation](https://developers.whispir.com/)
+- [Github Discussions](https://github.com/whispir/whispir-node/discussions)
+- [Stackoverflow - Whispir related](https://stackoverflow.com/questions/tagged/whispir?sort=Newest)
+- [Submit requests for support](mailto:support@whispir.com?subject=Whispir%Node%20SDK%20Support%20Request) to our API Support team.
 
 # How Can I Contribute?
 
