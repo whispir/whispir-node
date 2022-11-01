@@ -1,9 +1,10 @@
-name: Publish Package to npmjs
+name: publish
+
 on:
   release:
-    types: [created]
+
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
