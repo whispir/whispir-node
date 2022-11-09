@@ -13,3 +13,6 @@ jobs:
         with:
           release-type: node
           package-name: whispir-node
+          token: ${{ secrets.PAT }}
+          extra-files: |
+            version.ts
