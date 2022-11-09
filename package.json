@@ -1,20 +1,22 @@
 {
-    "name": "whispir-node",
+    "name": "whispir",
     "version": "1.0.0",
-    "description": "NodeJS client for whispir-node",
+    "description": "Whispir API wrapper",
+    "keywords": [
+        "whispir",
+        "api",
+        "messaging"
+    ],
+    "homepage": "https://github.com/whispir/whispir-node",
+    "author": "Whispir <support@whispir.com> (https://whispir.com)",
     "repository": {
         "type": "git",
-        "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+        "url": "git://github.com/whispir/whispir-node.git"
     },
+    "bugs": "https://github.com/whispir/whispir-node/issues",
     "main": "dist/api.js",
     "types": "dist/api.d.ts",
-    "scripts": {
-        "clean": "rm -Rf node_modules/ *.js",
-        "build": "tsc",
-        "test": "npm run build && node dist/client.js"
-    },
-    "author": "OpenAPI-Generator Contributors",
-    "license": "Unlicense",
+    "license": "MIT",
     "dependencies": {
         "bluebird": "^3.5.0",
         "request": "^2.81.0",
@@ -25,5 +27,10 @@
         "@types/node": "^12",
         "@types/request": "^2.48.8",
         "typescript": "^4.0"
+    },
+    "scripts": {
+        "clean": "rm -Rf node_modules/ *.js",
+        "build": "tsc",
+        "test": "npm run build && node dist/client.js"
     }
 }
