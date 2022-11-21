@@ -1,22 +1,21 @@
-import { VERSION } from "./version";
+import { VERSION } from "../version";
 import dotenv from "dotenv";
-dotenv.config({ path: ".env" });
+dotenv.config({ path: './test/.env' });
 
-import WhispirClient from "./api";
+import WhispirClient from "../api";
 
 let client;
-const workspaceId = process.env.WORKSPACE_ID || 'workspaceId';
-const messageId = "55294920E647F399";
+const workspaceId = '26E4E27F0360A8C9';
 
 beforeEach(() => {});
 
 describe("Whispir Client", () => {
   test("should accept username and password", async () => {
     client = WhispirClient({
-      host: "https://stage-ap-southeast-2.whispirdev.com/api",
-      username: process.env.WHISPIR_USERNAME,
-      password: process.env.WHISPIR_PASSWORD,
-      apiKey: process.env.API_KEY,
+      host: "http://127.0.0.1:4010",
+      username: 'whispir_user',
+      password: 'whispir_password',
+      apiKey: 'apiKeyMock',
     });
 
     client.addInterceptor((req) => {
@@ -29,7 +28,7 @@ describe("Whispir Client", () => {
       expect(headers["Accept"]).toBe("application/vnd.whispir.message-v1+json");
     });
 
-    const result = await client.messages.retrieve({ workspaceId, messageId });
+    const result = await client.messages.list({ workspaceId });
     const { lastResponse } = result;
     expect(lastResponse).toBeTruthy();
     expect(typeof lastResponse?.statusCode).toBe("number");
@@ -38,17 +37,18 @@ describe("Whispir Client", () => {
 
   test("should accept accessToken", async () => {
     client = WhispirClient({
-      host: "https://stage-ap-southeast-2.whispirdev.com/api",
-      username: process.env.WHISPIR_USERNAME,
-      password: process.env.WHISPIR_PASSWORD,
-      apiKey: process.env.API_KEY,
+      host: "http://127.0.0.1:4010",
+      username: 'whispir_user',
+      password: 'whispir_password',
+      apiKey: 'apiKeyMock',
     });
 
     const { token } = await client.auth.create({});
 
     const client2 = WhispirClient({
-      host: "https://stage-ap-southeast-2.whispirdev.com/api",
+      host: "http://127.0.0.1:4010",
       accessToken: token,
+      apiKey: 'apiKeyMock',
     });
 
     client2.addInterceptor((req) => {
@@ -60,11 +60,16 @@ describe("Whispir Client", () => {
         "application/vnd.whispir.message-v1+json"
       );
     });
+    
+    try {
+      const result = await client2.messages.list({ workspaceId });
+      const { lastResponse } = result;
+      expect(lastResponse).toBeTruthy();
+      expect(typeof lastResponse?.statusCode).toBe("number");
+      expect(lastResponse?.headers).toBeTruthy();
+    } catch (error) {
+      console.error(error)
+    }
 
-    const result = await client2.messages.retrieve({ workspaceId, messageId });
-    const { lastResponse } = result;
-    expect(lastResponse).toBeTruthy();
-    expect(typeof lastResponse?.statusCode).toBe("number");
-    expect(lastResponse?.headers).toBeTruthy();
   });
 });
