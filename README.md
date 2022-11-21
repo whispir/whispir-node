@@ -1,70 +1,90 @@
-# whispir-node
+# Whispir Node.js Library
 
-The whispir-node SDK enables developers to utilise the Whispir API with TypeScript code.
+[![Version](https://img.shields.io/npm/v/whispir.svg)](https://www.npmjs.org/package/whispir)
+[![Build Status](https://github.com/whispir/whispir-node/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/whispir/whispir-node/actions?query=branch%3Amain)
+[![Downloads](https://img.shields.io/npm/dm/whispir.svg)](https://www.npmjs.com/package/whispir)
+[![Try on RunKit](https://badge.runkitcdn.com/whispir.svg)](https://runkit.com/npm/whispir)
 
-## API Documentation
-You can find the complete documentation of the Whispir API in the [Whispir Platform REST API documentation](https://whispirrestapi.stoplight.io/docs/api).
+The Whispir Node library provides convenient access to the Whispir API from applications written in JavaScript & TypeScript.
+
+## Documentation
+You can find the complete documentation of the Whispir API at [developers.whispir.com](https://developers.whispir.com/).
 
 ## Installation
-To install whispir-node, enter the following in your project:
+
+Install the package with:
+
 ```sh
-npm install @whispir/whispir-node
+npm install whispir --save
+# or
+yarn add whispir
 ```
 
-## Authentication
-Create a basic authentication header using a `username` and `password` pair as shown below, and then add it to your HTTP request authentication header.
-```javascript
-const createBasicAuthHeader = (username, password) => {
-    return {
-        Authorization: `Basic ${Buffer.from(
-          `${username}:${password}`
-        ).toString("base64")}`,
-    }
-}
+## Usage
 
-const createRequestOptions = (username, password) => {
-    const requestConfig = {
-        headers: createBasicAuthHeader(username, password),
-    }
-    return requestConfig
-}
+The package needs to be configured with your account's username/password combination and API Key, which can be obtained by following the [Obtain an API Key](https://developers.whispir.com/2a21cad9e5da7-authentication#obtain-an-api-key) instructions.
+
+```ts
+const whispirClient = require('whispir')
+
+const whispir = whispirClient({
+    username: 'username...',
+    password: 'password...',
+    apiKey: 'apiKey...',
+    host: 'https://api.<region>.whispir.com', // e.g. https://api.au.whispir.com
+});
+
+whispir.messages.create({
+  to: '61400400400',
+  subject: 'My first message',
+  body: 'Hello from Whispir Node SDK!',
+})
+  .then(message => console.log(message.id))
+  .catch(error => console.error(error));
 ```
-## Usage Example
-The following example demonstrates how to send a message using the `MessagesApi` endpoint.
 
-```javascript
-const { MessagesApi } = require('@whispir/whispir-node')
+Or using ES modules and `async`/`await`:
 
-// Configuration
-const API_URL = ''
-const WORKSPACE_ID = ''
-const API_KEY = ''
-const CONTACT = ''
+```ts
+import whispirClient from 'whispir';
 
-// create an instance of MessagesApi
-const messageApi = new MessagesApi(API_URL)
+const whispir = whispirClient({
+    username: 'username...',
+    password: 'password...',
+    apiKey: 'apiKey...',
+    host: 'https://api.<region>.whispir.com', // e.g. https://api.au.whispir.com
+});
 
-// see Authentication above
-const httpOptions = createRequestOptions(USERNAME, PASSWORD) 
+(async () => {
+  const message = await whispir.messages.create({
+    to: '61400400400',
+    subject: 'My first message',
+    body: 'Hello from Whispir Node SDK!',
+  });
 
-// See how to create a message payload
-const sendMessagePayload = {
-    to: CONTACT,
-    subject: 'Message from Whispir',
-    body: 'Hi! Thank you for using the Whispir API SDK'
-}
-
-const result = await messageApi.postMessages(
-            WORKSPACE_ID,
-            API_KEY,
-            "application/vnd.whispir.message-v1+json",
-            "application/vnd.whispir.message-v1+json",
-            sendMessagePayload,
-            httpOptions
-        )
-
-return result.response.body
+  console.log(message.id);
+})();
 ```
-## More example
+## Configuration
 
-To see a few more examples, click [here](/examples).
+### Request Interceptor
+
+In certain scenarios it can be helpful to intercept the outgoing request and perform querying or mutation on the request object. Both the API Client and each Resource supports configuration for a request inteceptor.
+
+```ts
+whispir.addInteceptor((request) => {
+    console.log(request);
+})
+```
+
+Or for an individual resource:
+
+```ts
+whispir.messages.addInteceptor((request) => {
+    console.log(request);
+})
+```
+
+## Examples
+
+Visit the [examples](./examples) folder for a curated list of examples to help you get started quickly with Whispir.
