@@ -10,10 +10,8 @@ const client = WhispirClient({
     apiKey: process.env.API_KEY,
 });
 
-const workspaceId = process.env.WORKSPACE_ID || '';
-
 async function main() {
-    const result = await client.messages.retrieve({ workspaceId, messageId: '55294920E647F399' })
+    const result = await client.users.list({})
     console.log(result)
 }
 

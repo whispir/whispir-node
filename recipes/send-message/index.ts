@@ -13,13 +13,22 @@ const client = WhispirClient({
 const workspaceId = process.env.WORKSPACE_ID || '';
 
 async function main() {
+
+    const createContact = await client.contacts.create({
+        workspaceId: workspaceId,
+        firstName: 'Whispir Firstname',
+        lastName: 'Whispir Lastname',
+        workMobilePhone1: '639911234567',
+        workEmailAddress1: 'user@example.com',
+        workCountry: 'Australia',
+        timezone: 'Australia/Melbourne'
+    });
+
     const requestParams = {
         workspaceId: workspaceId,
-        message: {
-            to: '639911234567',
-            subject: `Hi there Buddy`,
-            body: `Hi there from Whispir"`,
-        },
+        to: createContact.id,
+        subject: `Hi there Buddy`,
+        body: `Hi there from Whispir"`,
     };
 
     const result = await client.messages.create(requestParams);

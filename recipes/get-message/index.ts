@@ -13,7 +13,16 @@ const client = WhispirClient({
 const workspaceId = process.env.WORKSPACE_ID || '';
 
 async function main() {
-    const result = await client.messages.retrieve({ workspaceId, messageId: '55294920E647F399' });
+    const requestParams = {
+        workspaceId: workspaceId,
+        to: '639911234567',
+        subject: `Hi there Buddy`,
+        body: `Hi there from Whispir"`,
+    };
+
+    const createResult = await client.messages.create(requestParams);
+
+    const result = await client.messages.retrieve({ workspaceId, messageId: createResult.id });
 
     console.log(result);
 }
