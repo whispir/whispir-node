@@ -10,6 +10,10 @@ The Whispir Node library provides convenient access to the Whispir API from appl
 ## Documentation
 You can find the complete documentation of the Whispir API at [developers.whispir.com](https://developers.whispir.com/).
 
+## Requirements
+
+Node 12 or higher.
+
 ## Installation
 
 Install the package with:
