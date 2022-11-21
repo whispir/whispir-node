@@ -1,9 +1,11 @@
-name: Check PR title
+name: conventional-commit
+
 on:
-  - pull_request
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
 
 jobs:
-  lint:
+  conventional-commit:
     runs-on: ubuntu-latest
     steps:
       - uses: aslafy-z/conventional-pr-title-action@v3
