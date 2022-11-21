@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 api.ts
 api/activitiesApi.ts
 api/apis.ts
@@ -22,11 +21,11 @@ model/activity.ts
 model/attachment.ts
 model/callback.ts
 model/callbackAuth.ts
+model/callbackCall.ts
+model/callbackCallCallback.ts
+model/callbackCallFrom.ts
+model/callbackCallResponseMessage.ts
 model/callbackCallbacks.ts
-model/callbackInstance.ts
-model/callbackInstanceCallback.ts
-model/callbackInstanceFrom.ts
-model/callbackInstanceResponseMessage.ts
 model/contact.ts
 model/customList.ts
 model/customListCustomlabellistsInner.ts
@@ -46,7 +45,7 @@ model/featuresPushOptionsApns.ts
 model/featuresPushOptionsFcm.ts
 model/fieldMapping.ts
 model/getActivities200Response.ts
-model/getCallbackInstances200Response.ts
+model/getCallbackCalls200Response.ts
 model/getCallbacks200Response.ts
 model/getCallbacks200ResponseCallbacksInner.ts
 model/getContacts200Response.ts
@@ -89,7 +88,7 @@ model/messageStatusMessageStatusesInnerStatusInner.ts
 model/messagingoptionsInner.ts
 model/models.ts
 model/postAuth200Response.ts
-model/putCallbackInstanceStatusRequest.ts
+model/putCallbackCallStatusRequest.ts
 model/resource.ts
 model/responseRule.ts
 model/responseTemplatePattern.ts
@@ -102,5 +101,4 @@ model/voice.ts
 model/voiceResources.ts
 model/web.ts
 model/workspace.ts
-package.json
 tsconfig.json

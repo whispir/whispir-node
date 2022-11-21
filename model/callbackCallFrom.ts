@@ -2,29 +2,29 @@
 import { RequestFile } from './models';
 
 /**
-* The message responder object.
+* The details about this particular message sender/responder
 */
-export class MessageResponseDetailedMessageresponsesInnerFrom {
+export class CallbackCallFrom {
     /**
-    * The message responder\'s name.
+    * The name of the sender of this message
     */
-    'name': string;
+    'name'?: string;
     /**
-    * The message responder\'s MRI.
+    * The unique identifier for this contact within Whispir
     */
-    'mri': string;
+    'mri'?: string;
     /**
-    * The message responder\'s mobile number.
+    * The mobile phone number associated with this sender
     */
-    'mobile': string;
+    'mobile'?: string;
     /**
-    * The message responder\'s email address.
+    * The phone number associated with the voice channel for this sender
     */
-    'email': string;
+    'voice'?: string;
     /**
-    * The message responder\'s voice number.
+    * The email address associated with the email channel for this sender
     */
-    'voice': string;
+    'email'?: string;
 
     static discriminator: string | undefined = undefined;
 
@@ -45,18 +45,18 @@ export class MessageResponseDetailedMessageresponsesInnerFrom {
             "type": "string"
         },
         {
-            "name": "email",
-            "baseName": "email",
+            "name": "voice",
+            "baseName": "voice",
             "type": "string"
         },
         {
-            "name": "voice",
-            "baseName": "voice",
+            "name": "email",
+            "baseName": "email",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return MessageResponseDetailedMessageresponsesInnerFrom.attributeTypeMap;
+        return CallbackCallFrom.attributeTypeMap;
     }
 }
 
