@@ -1,16 +1,20 @@
 
 import { RequestFile } from './models';
-import { Activity } from './activity';
+import { CallbackCall } from './callbackCall';
 import { LinkInner } from './linkInner';
 
 /**
-* Example
+* A list of callbacks
 */
-export class GetActivities200Response {
+export class GetCallbackCalls200Response {
     /**
-    * List of activities
+    * A list of callbacks
     */
-    'activities'?: Array<Activity>;
+    'calls'?: Array<CallbackCall>;
+    /**
+    * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no callbacks available.
+    */
+    'status'?: string;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
@@ -20,9 +24,14 @@ export class GetActivities200Response {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "activities",
-            "baseName": "activities",
-            "type": "Array<Activity>"
+            "name": "calls",
+            "baseName": "calls",
+            "type": "Array<CallbackCall>"
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string"
         },
         {
             "name": "link",
@@ -31,7 +40,7 @@ export class GetActivities200Response {
         }    ];
 
     static getAttributeTypeMap() {
-        return GetActivities200Response.attributeTypeMap;
+        return GetCallbackCalls200Response.attributeTypeMap;
     }
 }
 
