@@ -2,25 +2,25 @@
 import { RequestFile } from './models';
 
 /**
-* The internal server response object.
+* The status of this particular callback attempt.
 */
-export class GetMessages500Response {
+export class PutCallbackCallStatusRequest {
     /**
-    * The error message.
+    * The status of this particular callback attempt.
     */
-    'message'?: string;
+    'status': 'FAILED' | 'SUCCESS';
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "message",
-            "baseName": "message",
+            "name": "status",
+            "baseName": "status",
             "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return GetMessages500Response.attributeTypeMap;
+        return PutCallbackCallStatusRequest.attributeTypeMap;
     }
 }
 

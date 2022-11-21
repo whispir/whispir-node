@@ -4,11 +4,11 @@ export * from './activity';
 export * from './attachment';
 export * from './callback';
 export * from './callbackAuth';
+export * from './callbackCall';
+export * from './callbackCallCallback';
+export * from './callbackCallFrom';
+export * from './callbackCallResponseMessage';
 export * from './callbackCallbacks';
-export * from './callbackInstance';
-export * from './callbackInstanceCallback';
-export * from './callbackInstanceFrom';
-export * from './callbackInstanceResponseMessage';
 export * from './contact';
 export * from './customList';
 export * from './customListCustomlabellistsInner';
@@ -28,7 +28,7 @@ export * from './featuresPushOptionsApns';
 export * from './featuresPushOptionsFcm';
 export * from './fieldMapping';
 export * from './getActivities200Response';
-export * from './getCallbackInstances200Response';
+export * from './getCallbackCalls200Response';
 export * from './getCallbacks200Response';
 export * from './getCallbacks200ResponseCallbacksInner';
 export * from './getContacts200Response';
@@ -70,7 +70,7 @@ export * from './messageStatusMessageStatusesInnerCategoriesInner';
 export * from './messageStatusMessageStatusesInnerStatusInner';
 export * from './messagingoptionsInner';
 export * from './postAuth200Response';
-export * from './putCallbackInstanceStatusRequest';
+export * from './putCallbackCallStatusRequest';
 export * from './resource';
 export * from './responseRule';
 export * from './responseTemplatePattern';
@@ -101,11 +101,11 @@ import { Activity } from './activity';
 import { Attachment } from './attachment';
 import { Callback } from './callback';
 import { CallbackAuth } from './callbackAuth';
+import { CallbackCall } from './callbackCall';
+import { CallbackCallCallback } from './callbackCallCallback';
+import { CallbackCallFrom } from './callbackCallFrom';
+import { CallbackCallResponseMessage } from './callbackCallResponseMessage';
 import { CallbackCallbacks } from './callbackCallbacks';
-import { CallbackInstance } from './callbackInstance';
-import { CallbackInstanceCallback } from './callbackInstanceCallback';
-import { CallbackInstanceFrom } from './callbackInstanceFrom';
-import { CallbackInstanceResponseMessage } from './callbackInstanceResponseMessage';
 import { Contact } from './contact';
 import { CustomList } from './customList';
 import { CustomListCustomlabellistsInner } from './customListCustomlabellistsInner';
@@ -125,7 +125,7 @@ import { FeaturesPushOptionsApns } from './featuresPushOptionsApns';
 import { FeaturesPushOptionsFcm } from './featuresPushOptionsFcm';
 import { FieldMapping } from './fieldMapping';
 import { GetActivities200Response } from './getActivities200Response';
-import { GetCallbackInstances200Response } from './getCallbackInstances200Response';
+import { GetCallbackCalls200Response } from './getCallbackCalls200Response';
 import { GetCallbacks200Response } from './getCallbacks200Response';
 import { GetCallbacks200ResponseCallbacksInner } from './getCallbacks200ResponseCallbacksInner';
 import { GetContacts200Response } from './getContacts200Response';
@@ -167,7 +167,7 @@ import { MessageStatusMessageStatusesInnerCategoriesInner } from './messageStatu
 import { MessageStatusMessageStatusesInnerStatusInner } from './messageStatusMessageStatusesInnerStatusInner';
 import { MessagingoptionsInner } from './messagingoptionsInner';
 import { PostAuth200Response } from './postAuth200Response';
-import { PutCallbackInstanceStatusRequest } from './putCallbackInstanceStatusRequest';
+import { PutCallbackCallStatusRequest } from './putCallbackCallStatusRequest';
 import { Resource } from './resource';
 import { ResponseRule } from './responseRule';
 import { ResponseTemplatePattern } from './responseTemplatePattern';
@@ -193,62 +193,16 @@ let primitives = [
                     "any"
                  ];
 
-let enumsMap: {[index: string]: any} = {
-        "Activity.ActionEnum": Activity.ActionEnum,
-        "Activity.ModuleEnum": Activity.ModuleEnum,
-        "Callback.ContentTypeEnum": Callback.ContentTypeEnum,
-        "Callback.RemoveHTMLEnum": Callback.RemoveHTMLEnum,
-        "CallbackAuth.TypeEnum": CallbackAuth.TypeEnum,
-        "CallbackCallbacks.ReplyEnum": CallbackCallbacks.ReplyEnum,
-        "CallbackCallbacks.UndeliverableEnum": CallbackCallbacks.UndeliverableEnum,
-        "CallbackInstance.StatusEnum": CallbackInstance.StatusEnum,
-        "CallbackInstanceResponseMessage.ChannelEnum": CallbackInstanceResponseMessage.ChannelEnum,
-        "Contact.StatusEnum": Contact.StatusEnum,
-        "Contact.TypeEnum": Contact.TypeEnum,
-        "CustomList.TypeEnum": CustomList.TypeEnum,
-        "CustomList.SortTypeEnum": CustomList.SortTypeEnum,
-        "CustomList.LinkedEnum": CustomList.LinkedEnum,
-        "Email.TypeEnum": Email.TypeEnum,
-        "Event.StatusEnum": Event.StatusEnum,
-        "FeaturesPushOptions.NotificationsEnum": FeaturesPushOptions.NotificationsEnum,
-        "FeaturesPushOptions.PriorityEnum": FeaturesPushOptions.PriorityEnum,
-        "Import.ImportModeEnum": Import.ImportModeEnum,
-        "LinkInner.PortEnum": LinkInner.PortEnum,
-        "Message.TypeEnum": Message.TypeEnum,
-        "Message.MessageTypeEnum": Message.MessageTypeEnum,
-        "Message.ScheduleTypeEnum": Message.ScheduleTypeEnum,
-        "Message.DirectionEnum": Message.DirectionEnum,
-        "MessageResponseDetailedMessageresponsesInner.ResponseCategoryEnum": MessageResponseDetailedMessageresponsesInner.ResponseCategoryEnum,
-        "MessageResponseDetailedMessageresponsesInnerResponseMessage.ChannelEnum": MessageResponseDetailedMessageresponsesInnerResponseMessage.ChannelEnum,
-        "MessageResponseSummaryMessageresponsesInner.TypeEnum": MessageResponseSummaryMessageresponsesInner.TypeEnum,
-        "MessageStatusMessageStatusesInnerCategoriesInner.NameEnum": MessageStatusMessageStatusesInnerCategoriesInner.NameEnum,
-        "MessageStatusMessageStatusesInnerStatusInner.TypeEnum": MessageStatusMessageStatusesInnerStatusInner.TypeEnum,
-        "MessageStatusMessageStatusesInnerStatusInner.StatusEnum": MessageStatusMessageStatusesInnerStatusInner.StatusEnum,
-        "MessagingoptionsInner.ChannelEnum": MessagingoptionsInner.ChannelEnum,
-        "MessagingoptionsInner.PrimaryEnum": MessagingoptionsInner.PrimaryEnum,
-        "MessagingoptionsInner.SecondaryEnum": MessagingoptionsInner.SecondaryEnum,
-        "MessagingoptionsInner.TertiaryEnum": MessagingoptionsInner.TertiaryEnum,
-        "PutCallbackInstanceStatusRequest.StatusEnum": PutCallbackInstanceStatusRequest.StatusEnum,
-        "Resource.ScopeEnum": Resource.ScopeEnum,
-        "Scenario.AllowedUsersEnum": Scenario.AllowedUsersEnum,
-        "SocialSocialInner.IdEnum": SocialSocialInner.IdEnum,
-        "SocialSocialInner.TypeEnum": SocialSocialInner.TypeEnum,
-        "User.StatusEnum": User.StatusEnum,
-        "Voice.FooterEnum": Voice.FooterEnum,
-        "Voice.OtherEnum": Voice.OtherEnum,
-        "Web.TypeEnum": Web.TypeEnum,
-}
-
 let typeMap: {[index: string]: any} = {
     "Activity": Activity,
     "Attachment": Attachment,
     "Callback": Callback,
     "CallbackAuth": CallbackAuth,
+    "CallbackCall": CallbackCall,
+    "CallbackCallCallback": CallbackCallCallback,
+    "CallbackCallFrom": CallbackCallFrom,
+    "CallbackCallResponseMessage": CallbackCallResponseMessage,
     "CallbackCallbacks": CallbackCallbacks,
-    "CallbackInstance": CallbackInstance,
-    "CallbackInstanceCallback": CallbackInstanceCallback,
-    "CallbackInstanceFrom": CallbackInstanceFrom,
-    "CallbackInstanceResponseMessage": CallbackInstanceResponseMessage,
     "Contact": Contact,
     "CustomList": CustomList,
     "CustomListCustomlabellistsInner": CustomListCustomlabellistsInner,
@@ -268,7 +222,7 @@ let typeMap: {[index: string]: any} = {
     "FeaturesPushOptionsFcm": FeaturesPushOptionsFcm,
     "FieldMapping": FieldMapping,
     "GetActivities200Response": GetActivities200Response,
-    "GetCallbackInstances200Response": GetCallbackInstances200Response,
+    "GetCallbackCalls200Response": GetCallbackCalls200Response,
     "GetCallbacks200Response": GetCallbacks200Response,
     "GetCallbacks200ResponseCallbacksInner": GetCallbacks200ResponseCallbacksInner,
     "GetContacts200Response": GetContacts200Response,
@@ -310,7 +264,7 @@ let typeMap: {[index: string]: any} = {
     "MessageStatusMessageStatusesInnerStatusInner": MessageStatusMessageStatusesInnerStatusInner,
     "MessagingoptionsInner": MessagingoptionsInner,
     "PostAuth200Response": PostAuth200Response,
-    "PutCallbackInstanceStatusRequest": PutCallbackInstanceStatusRequest,
+    "PutCallbackCallStatusRequest": PutCallbackCallStatusRequest,
     "Resource": Resource,
     "ResponseRule": ResponseRule,
     "ResponseTemplatePattern": ResponseTemplatePattern,
@@ -334,14 +288,9 @@ export class ObjectSerializer {
         } else if (expectedType === "Date") {
             return expectedType;
         } else {
-            if (enumsMap[expectedType]) {
-                return expectedType;
-            }
-
             if (!typeMap[expectedType]) {
                 return expectedType; // w/e we don't know the type
             }
-
             // Check the discriminator
             let discriminatorProperty = typeMap[expectedType].discriminator;
             if (discriminatorProperty == null) {
@@ -360,7 +309,6 @@ export class ObjectSerializer {
             }
         }
     }
-
     public static serialize(data: any, type: string) {
         if (data == undefined) {
             return data;
@@ -378,16 +326,11 @@ export class ObjectSerializer {
         } else if (type === "Date") {
             return data.toISOString();
         } else {
-            if (enumsMap[type]) {
-                return data;
-            }
             if (!typeMap[type]) { // in case we dont know the type
                 return data;
             }
-
             // Get the actual type of this object
             type = this.findCorrectType(data, type);
-
             // get the map for the correct type.
             let attributeTypes = typeMap[type].getAttributeTypeMap();
             let instance: {[index: string]: any} = {};
@@ -398,7 +341,6 @@ export class ObjectSerializer {
             return instance;
         }
     }
-
     public static deserialize(data: any, type: string) {
         // polymorphism may change the actual type.
         type = ObjectSerializer.findCorrectType(data, type);
@@ -418,10 +360,6 @@ export class ObjectSerializer {
         } else if (type === "Date") {
             return new Date(data);
         } else {
-            if (enumsMap[type]) {// is Enum
-                return data;
-            }
-
             if (!typeMap[type]) { // dont know the type
                 return data;
             }
@@ -433,78 +371,6 @@ export class ObjectSerializer {
             }
             return instance;
         }
-    }
-}
-
-export interface Authentication {
-    /**
-    * Apply authentication settings to header and query params.
-    */
-    applyToRequest(requestOptions: localVarRequest.Options): Promise<void> | void;
-}
-
-export class HttpBasicAuth implements Authentication {
-    public username: string = '';
-    public password: string = '';
-
-    applyToRequest(requestOptions: localVarRequest.Options): void {
-        requestOptions.auth = {
-            username: this.username, password: this.password
-        }
-    }
-}
-
-export class HttpBearerAuth implements Authentication {
-    public accessToken: string | (() => string) = '';
-
-    applyToRequest(requestOptions: localVarRequest.Options): void {
-        if (requestOptions && requestOptions.headers) {
-            const accessToken = typeof this.accessToken === 'function'
-                            ? this.accessToken()
-                            : this.accessToken;
-            requestOptions.headers["Authorization"] = "Bearer " + accessToken;
-        }
-    }
-}
-
-export class ApiKeyAuth implements Authentication {
-    public apiKey: string = '';
-
-    constructor(private location: string, private paramName: string) {
-    }
-
-    applyToRequest(requestOptions: localVarRequest.Options): void {
-        if (this.location == "query") {
-            (<any>requestOptions.qs)[this.paramName] = this.apiKey;
-        } else if (this.location == "header" && requestOptions && requestOptions.headers) {
-            requestOptions.headers[this.paramName] = this.apiKey;
-        } else if (this.location == 'cookie' && requestOptions && requestOptions.headers) {
-            if (requestOptions.headers['Cookie']) {
-                requestOptions.headers['Cookie'] += '; ' + this.paramName + '=' + encodeURIComponent(this.apiKey);
-            }
-            else {
-                requestOptions.headers['Cookie'] = this.paramName + '=' + encodeURIComponent(this.apiKey);
-            }
-        }
-    }
-}
-
-export class OAuth implements Authentication {
-    public accessToken: string = '';
-
-    applyToRequest(requestOptions: localVarRequest.Options): void {
-        if (requestOptions && requestOptions.headers) {
-            requestOptions.headers["Authorization"] = "Bearer " + this.accessToken;
-        }
-    }
-}
-
-export class VoidAuth implements Authentication {
-    public username: string = '';
-    public password: string = '';
-
-    applyToRequest(_: localVarRequest.Options): void {
-        // Do nothing
     }
 }
 
