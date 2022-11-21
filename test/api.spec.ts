@@ -1,6 +1,4 @@
 import { VERSION } from "../version";
-import dotenv from "dotenv";
-dotenv.config({ path: './test/.env' });
 
 import WhispirClient from "../api";
 
