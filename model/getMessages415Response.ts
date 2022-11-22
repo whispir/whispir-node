@@ -1,10 +1,8 @@
 
 import { RequestFile } from './models';
 
-/**
-* The unsupported media type response object.
-*/
-export class GetMessages415Response {
+
+export type GetMessages415ResponseWrite = {
     /**
     * The summary of the error encountered.
     */
@@ -17,6 +15,24 @@ export class GetMessages415Response {
     * The additional details describing the error.
     */
     'errorDetail'?: string;
+}
+
+/**
+* The unsupported media type response object.
+*/
+export class GetMessages415Response {
+    /**
+    * The summary of the error encountered.
+    */
+    'errorSummary': string;
+    /**
+    * The detailed description of the error encountered.
+    */
+    'errorText': string;
+    /**
+    * The additional details describing the error.
+    */
+    'errorDetail': string;
 
     static discriminator: string | undefined = undefined;
 

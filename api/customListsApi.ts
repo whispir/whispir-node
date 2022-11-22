@@ -2,17 +2,17 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { CustomList } from '../model/customList';
-import { GetCustomLists200Response } from '../model/getCustomLists200Response';
-import { GetMessages400Response } from '../model/getMessages400Response';
-import { GetMessages401Response } from '../model/getMessages401Response';
-import { GetMessages403Response } from '../model/getMessages403Response';
-import { GetMessages404Response } from '../model/getMessages404Response';
-import { GetMessages405Response } from '../model/getMessages405Response';
-import { GetMessages415Response } from '../model/getMessages415Response';
-import { GetMessages422Response } from '../model/getMessages422Response';
-import { GetMessages500Response } from '../model/getMessages500Response';
-import { GetMessages501Response } from '../model/getMessages501Response';
+import { CustomList, CustomListWrite } from '../model/customList';
+import { GetCustomLists200Response, GetCustomLists200ResponseWrite } from '../model/getCustomLists200Response';
+import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
+import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
+import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
+import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
+import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
+import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
+import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
+import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
+import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 

@@ -1,9 +1,20 @@
 
 import { RequestFile } from './models';
-import { CallbackCallCallback } from './callbackCallCallback';
-import { CallbackCallFrom } from './callbackCallFrom';
-import { CallbackCallResponseMessage } from './callbackCallResponseMessage';
-import { LinkInner } from './linkInner';
+import { CallbackCallCallback, CallbackCallCallbackWrite } from './callbackCallCallback';
+import { CallbackCallFrom, CallbackCallFromWrite } from './callbackCallFrom';
+import { CallbackCallResponseMessage, CallbackCallResponseMessageWrite } from './callbackCallResponseMessage';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type CallbackCallWrite = {
+    /**
+    * The status of this particular callback attempt.
+    */
+    'status': 'SUCCESS' | 'FAILED';
+    'from'?: CallbackCallFromWrite;
+    'responseMessage'?: CallbackCallResponseMessageWrite;
+    'callback'?: CallbackCallCallbackWrite;
+}
 
 /**
 * A callback call object
@@ -12,26 +23,26 @@ export class CallbackCall {
     /**
     * The unique ID of the specific call within Whispir
     */
-    'id'?: string;
+    'id': string;
     /**
     * The unique ID of the message within Whispir
     */
-    'messageId'?: string;
+    'messageId': string;
     /**
     * The status of this particular callback attempt.
     */
-    'status'?: 'SUCCESS' | 'FAILED';
+    'status': 'SUCCESS' | 'FAILED';
     /**
     * The fully qualified URL to the original message within Whispir
     */
-    'messageLocation'?: string;
-    'from'?: CallbackCallFrom;
-    'responseMessage'?: CallbackCallResponseMessage;
-    'callback'?: CallbackCallCallback;
+    'messageLocation': string;
+    'from': CallbackCallFrom;
+    'responseMessage': CallbackCallResponseMessage;
+    'callback': CallbackCallCallback;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link'?: Array<LinkInner>;
+    'link': Array<LinkInner>;
 
     static discriminator: string | undefined = undefined;
 

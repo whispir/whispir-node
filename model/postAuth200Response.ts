@@ -1,6 +1,14 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type PostAuth200ResponseWrite = {
+    /**
+    * The JWT token.
+    */
+    'token'?: string;
+}
 
 /**
 * The create auth response object.

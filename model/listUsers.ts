@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type ListUsersWrite = {
+}
 
 /**
 * List users response object
@@ -29,7 +33,7 @@ export class ListUsers {
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link'?: Array<LinkInner>;
+    'link': Array<LinkInner>;
 
     static discriminator: string | undefined = undefined;
 

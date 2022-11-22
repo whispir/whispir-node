@@ -51,7 +51,7 @@ model/getCallbacks200ResponseCallbacksInner.ts
 model/getContacts200Response.ts
 model/getCustomLists200Response.ts
 model/getDistributionLists200Response.ts
-model/getDistributionLists200ResponseDistributionLists.ts
+model/getDistributionLists200ResponseDistributionListsInner.ts
 model/getEvents200Response.ts
 model/getMessageResponsesById200Response.ts
 model/getMessages200Response.ts
@@ -65,10 +65,12 @@ model/getMessages422Response.ts
 model/getMessages500Response.ts
 model/getMessages501Response.ts
 model/getResources200Response.ts
+model/getResponseRules200Response.ts
 model/getScenarios200Response.ts
 model/getTemplates200Response.ts
 model/getTemplates200ResponseMessagetemplatesInner.ts
 model/getUsers200Response.ts
+model/getWorkspaceActivities200Response.ts
 model/getWorkspaces200Response.ts
 model/import.ts
 model/linkInner.ts
@@ -84,11 +86,10 @@ model/messageResponseSummaryMessageresponsesInner.ts
 model/messageStatus.ts
 model/messageStatusMessageStatusesInner.ts
 model/messageStatusMessageStatusesInnerCategoriesInner.ts
-model/messageStatusMessageStatusesInnerStatusInner.ts
 model/messagingoptionsInner.ts
 model/models.ts
 model/postAuth200Response.ts
-model/putCallbackCallStatusRequest.ts
+model/postDistributionListsRequest.ts
 model/resource.ts
 model/responseRule.ts
 model/responseTemplatePattern.ts
