@@ -1,31 +1,33 @@
-import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' });
+import WhispirClient from 'whispir';
+import env from 'dotenv';
 
-import WhispirClient from '../../api';
+env.config();
 
 const client = WhispirClient({
-    host: 'https://stage-ap-southeast-2.whispirdev.com/api',
+    host: process.env.WHISPIR_HOST as string,
     username: process.env.WHISPIR_USERNAME,
     password: process.env.WHISPIR_PASSWORD,
-    apiKey: process.env.API_KEY,
+    apiKey: process.env.WHISPIR_API_KEY,
 });
 
-const workspaceId = process.env.WORKSPACE_ID || '';
-
 async function main() {
-    const requestParams = {
-        workspaceId: workspaceId,
-        to: '639911234567',
-        subject: `Hi there Buddy`,
-        body: `Hi there from Whispir"`,
-    };
+    const response = await client.workspaces.list();
+    const defaultWorkspaceId = response.workspaces[0].id;
 
-    const createResult = await client.messages.create(requestParams);
+    const message = await client.messages.create({
+        workspaceId: defaultWorkspaceId,
+        to: '61400400400',
+        subject: 'Hello & Welcome!',
+        body: 'Your first message from the Whispir Node SDK. Congrats!',
+    });
 
-    const result = await client.messages.retrieve({ workspaceId, messageId: createResult.id });
+    const retrievedMessage = await client.messages.retrieve({
+        workspaceId: defaultWorkspaceId,
+        messageId: message.id,
+    });
 
-    console.log(result);
-}
+    console.log(retrievedMessage);
+};
 
 main()
-    .catch(console.error)
+    .catch(console.error);

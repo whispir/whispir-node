@@ -1,19 +1,19 @@
-import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' });
+import WhispirClient from 'whispir';
+import env from 'dotenv';
 
-import WhispirClient from '../../api';
+env.config();
 
-const client = WhispirClient({
-    host: 'https://stage-ap-southeast-2.whispirdev.com/api',
+const whispir = WhispirClient({
+    host: process.env.WHISPIR_HOST as string,
     username: process.env.WHISPIR_USERNAME,
     password: process.env.WHISPIR_PASSWORD,
-    apiKey: process.env.API_KEY,
+    apiKey: process.env.WHISPIR_API_KEY,
 });
 
 async function main() {
-    const result = await client.users.list({})
-    console.log(result)
-}
+    const result = await whispir.users.list();
+    console.log(result);
+};
 
 main()
-    .catch(console.error)
+    .catch(console.error);

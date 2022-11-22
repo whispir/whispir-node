@@ -1,38 +1,37 @@
-import dotenv from 'dotenv';
-dotenv.config({ path: '../.env' });
+import WhispirClient from 'whispir';
+import env from 'dotenv';
 
-import WhispirClient from '../../api';
+env.config();
 
 const client = WhispirClient({
-    host: 'https://stage-ap-southeast-2.whispirdev.com/api',
+    host: process.env.WHISPIR_HOST as string,
     username: process.env.WHISPIR_USERNAME,
     password: process.env.WHISPIR_PASSWORD,
-    apiKey: process.env.API_KEY,
+    apiKey: process.env.WHISPIR_API_KEY,
 });
 
-const workspaceId = process.env.WORKSPACE_ID || '';
-
 async function main() {
+    const response = await client.workspaces.list();
+    const defaultWorkspaceId = response.workspaces[0].id;
 
-    const createContact = await client.contacts.create({
-        workspaceId: workspaceId,
-        firstName: 'Whispir Firstname',
-        lastName: 'Whispir Lastname',
-        workMobilePhone1: '639911234567',
-        workEmailAddress1: 'user@example.com',
+    const contact = await client.contacts.create({
+        workspaceId: defaultWorkspaceId,
+        firstName: 'Joe',
+        lastName: 'Bloggs2',
+        workMobilePhone1: '61400400400',
+        workEmailAddress1: 'joe@bloggs.com',
         workCountry: 'Australia',
         timezone: 'Australia/Melbourne'
     });
 
-    const requestParams = {
-        workspaceId: workspaceId,
-        to: createContact.id,
-        subject: `Hi there Buddy`,
-        body: `Hi there from Whispir"`,
-    };
+    const message = await client.messages.create({
+        workspaceId: defaultWorkspaceId,
+        to: contact.mri,
+        subject: 'Welcome!',
+        body: `Hello ${contact.firstName}, I hear you're from ${contact.workCountry}!`,
+    });
 
-    const result = await client.messages.create(requestParams);
-    console.log(result);
+    console.log(message.id);
 }
 
 main()

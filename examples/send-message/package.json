@@ -1,16 +1,17 @@
 {
-  "name": "@whispir-recipes/send-message",
+  "name": "@whispir/send-message",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Send a message using the Whispir SDK",
   "scripts": {
-    "start": "npx ts-node index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node index.ts"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "whispir": "^1.0.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
   }
 }
