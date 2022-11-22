@@ -2,6 +2,7 @@ name: publish
 
 on:
   release:
+    types: [published]
 
 jobs:
   publish:
@@ -11,13 +12,10 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
-      - name: Build whispir-node
-        working-directory: ./whispir-node
-        run: npm ci && npm run build
-      - name: Publish to NPM
-        working-directory: ./whispir-node
-        run: npm publish --access public
+      - run: yarn install
+      - run: yarn build
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
