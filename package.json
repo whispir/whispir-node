@@ -33,6 +33,6 @@
         "clean": "rm -Rf node_modules/ *.js",
         "build": "tsc",
         "mock:server": "prism mock https://raw.githubusercontent.com/whispir/openapi/fix/prism-spec-update/openapi.yaml",
-        "test": "jest --watchAll"
+        "test": "jest"
     }
 }
