@@ -1,7 +1,7 @@
 # Whispir Node.js Library
 
 [![Version](https://img.shields.io/npm/v/whispir.svg)](https://www.npmjs.org/package/whispir)
-[![Build Status](https://github.com/whispir/whispir-node/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/whispir/whispir-node/actions?query=branch%3Amain)
+[![Build Status](https://github.com/whispir/whispir-node/actions/workflows/ci.yml/badge.svg)](https://github.com/whispir/whispir-node/actions?query=branch%3Amain)
 [![Downloads](https://img.shields.io/npm/dm/whispir.svg)](https://www.npmjs.com/package/whispir)
 [![Try on RunKit](https://badge.runkitcdn.com/whispir.svg)](https://runkit.com/npm/whispir)
 
