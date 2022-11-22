@@ -5,7 +5,7 @@ import WhispirClient from "../api";
 let client;
 const workspaceId = '26E4E27F0360A8C9';
 
-beforeEach(() => {});
+beforeEach(() => { });
 
 describe("Whispir Client", () => {
   test("should accept username and password", async () => {
@@ -18,7 +18,7 @@ describe("Whispir Client", () => {
 
     client.addInterceptor((req) => {
       expect(req).toHaveProperty("headers");
-      const { headers } = req;
+      const { headers = {} } = req;
 
       expect(headers["User-Agent"]).toBe(`whispir-node-${VERSION}`);
       expect(headers["Authorization"]).toBeTruthy();
@@ -58,7 +58,7 @@ describe("Whispir Client", () => {
         "application/vnd.whispir.message-v1+json"
       );
     });
-    
+
     try {
       const result = await client2.messages.list({ workspaceId });
       const { lastResponse } = result;
