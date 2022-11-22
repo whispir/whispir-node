@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/whispir/whispir-node/compare/v1.0.1...v1.0.2) (2022-11-22)
+
+
+### Bug Fixes
+
+* Removed unnecessary package artefacts ([#28](https://github.com/whispir/whispir-node/issues/28)) ([397cb99](https://github.com/whispir/whispir-node/commit/397cb99244affcdb555c24934dee33664bb3ee4c))
+* updated to use yarn and node 16 version ([#26](https://github.com/whispir/whispir-node/issues/26)) ([1b3e9fd](https://github.com/whispir/whispir-node/commit/1b3e9fd8e9f0c68c5fe0cd471864b86e8c574139))
+
 ## [1.0.1](https://github.com/whispir/whispir-node/compare/v1.0.0...v1.0.1) (2022-11-22)
 
 
