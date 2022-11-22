@@ -1,6 +1,23 @@
 
 import { RequestFile } from './models';
-import { FieldMapping } from './fieldMapping';
+import { FieldMapping, FieldMappingWrite } from './fieldMapping';
+
+
+export type ImportWrite = {
+    /**
+    * The resource identifier returned from the POST to /resources. Resource referred to must be a valid CSV, XML, or JSON file.
+    */
+    'resourceId': string;
+    /**
+    * This defines the resource that will be created through this import process.   *\'contact\'* is the only supported *importType* at this stage.
+    */
+    'importType': string;
+    'importOptions': FieldMappingWrite;
+    /**
+    * The type of contact import that is occurring.
+    */
+    'importMode': 'replace' | 'duplicate' | 'ignore';
+}
 
 /**
 * Import model object

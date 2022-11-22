@@ -2,17 +2,17 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { Contact } from '../model/contact';
-import { GetContacts200Response } from '../model/getContacts200Response';
-import { GetMessages400Response } from '../model/getMessages400Response';
-import { GetMessages401Response } from '../model/getMessages401Response';
-import { GetMessages403Response } from '../model/getMessages403Response';
-import { GetMessages404Response } from '../model/getMessages404Response';
-import { GetMessages405Response } from '../model/getMessages405Response';
-import { GetMessages415Response } from '../model/getMessages415Response';
-import { GetMessages422Response } from '../model/getMessages422Response';
-import { GetMessages500Response } from '../model/getMessages500Response';
-import { GetMessages501Response } from '../model/getMessages501Response';
+import { Contact, ContactWrite } from '../model/contact';
+import { GetContacts200Response, GetContacts200ResponseWrite } from '../model/getContacts200Response';
+import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
+import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
+import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
+import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
+import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
+import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
+import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
+import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
+import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -229,7 +229,7 @@ export class ContactsApi {
         fields?: string,
         sortOrder?: 'asc' | 'desc',
         sortFields?: string,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & Contact> {
         const {
             workspaceId,
             contactId,
@@ -290,6 +290,7 @@ export class ContactsApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
+                            body = ObjectSerializer.deserialize(body, "Contact");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
@@ -311,7 +312,7 @@ export class ContactsApi {
      */
     public async create(params?: {
         workspaceId: string,
-    } & Contact, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & Contact> {
+    } & ContactWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & Contact> {
         const {
             workspaceId,
             ...contact
@@ -389,7 +390,7 @@ export class ContactsApi {
     public async update(params?: {
         workspaceId: string,
         contactId: string,
-    } & Contact, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
+    } & ContactWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
         const {
             workspaceId,
             contactId,

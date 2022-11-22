@@ -1,6 +1,14 @@
 
 import { RequestFile } from './models';
-import { Attachment } from './attachment';
+import { Attachment, AttachmentWrite } from './attachment';
+
+
+export type EmailResourcesWrite = {
+    /**
+    * A list of attachments to attach to the email Message.
+    */
+    'attachments'?: Array<AttachmentWrite>;
+}
 
 /**
 * The resources to attach to the email Message.
@@ -9,7 +17,7 @@ export class EmailResources {
     /**
     * A list of attachments to attach to the email Message.
     */
-    'attachments'?: Array<Attachment>;
+    'attachments': Array<Attachment>;
 
     static discriminator: string | undefined = undefined;
 

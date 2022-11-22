@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
-import { Event } from './event';
+import { Event, EventWrite } from './event';
+
+
+export type GetEvents200ResponseWrite = {
+}
 
 /**
 * List of events
@@ -9,11 +13,11 @@ export class GetEvents200Response {
     /**
     * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no events available.
     */
-    'status'?: string;
+    'status': string;
     /**
     * List of events
     */
-    'events'?: Array<Event>;
+    'events': Array<Event>;
 
     static discriminator: string | undefined = undefined;
 

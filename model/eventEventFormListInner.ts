@@ -1,6 +1,18 @@
 
 import { RequestFile } from './models';
-import { EventEventFormListInnerEventFieldListInner } from './eventEventFormListInnerEventFieldListInner';
+import { EventEventFormListInnerEventFieldListInner, EventEventFormListInnerEventFieldListInnerWrite } from './eventEventFormListInnerEventFieldListInner';
+
+
+export type EventEventFormListInnerWrite = {
+    /**
+    * Specifies the name of the event form
+    */
+    'formName'?: string;
+    /**
+    * Contains a list of event fields, see create /POST event endpoint to learn more about the available fields
+    */
+    'eventFieldList'?: Array<EventEventFormListInnerEventFieldListInnerWrite>;
+}
 
 /**
 * Constitutes the name of the form and its fields
@@ -9,11 +21,11 @@ export class EventEventFormListInner {
     /**
     * Specifies the name of the event form
     */
-    'formName'?: string;
+    'formName': string;
     /**
     * Contains a list of event fields, see create /POST event endpoint to learn more about the available fields
     */
-    'eventFieldList'?: Array<EventEventFormListInnerEventFieldListInner>;
+    'eventFieldList': Array<EventEventFormListInnerEventFieldListInner>;
 
     static discriminator: string | undefined = undefined;
 

@@ -1,6 +1,22 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type GetMessages401ResponseWrite = {
+    /**
+    * The summary of the error encountered.
+    */
+    'errorSummary': string;
+    /**
+    * The detailed description of the error encountered.
+    */
+    'errorText': string;
+    /**
+    * The additional details describing the error.
+    */
+    'errorDetail': string;
+}
 
 /**
 * The unauthorised response object.
@@ -9,7 +25,7 @@ export class GetMessages401Response {
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'links'?: Array<LinkInner>;
+    'links': Array<LinkInner>;
     /**
     * The summary of the error encountered.
     */

@@ -2,19 +2,19 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { Callback } from '../model/callback';
-import { GetCallbackCalls200Response } from '../model/getCallbackCalls200Response';
-import { GetCallbacks200Response } from '../model/getCallbacks200Response';
-import { GetMessages400Response } from '../model/getMessages400Response';
-import { GetMessages401Response } from '../model/getMessages401Response';
-import { GetMessages403Response } from '../model/getMessages403Response';
-import { GetMessages404Response } from '../model/getMessages404Response';
-import { GetMessages405Response } from '../model/getMessages405Response';
-import { GetMessages415Response } from '../model/getMessages415Response';
-import { GetMessages422Response } from '../model/getMessages422Response';
-import { GetMessages500Response } from '../model/getMessages500Response';
-import { GetMessages501Response } from '../model/getMessages501Response';
-import { PutCallbackCallStatusRequest } from '../model/putCallbackCallStatusRequest';
+import { Callback, CallbackWrite } from '../model/callback';
+import { CallbackCall, CallbackCallWrite } from '../model/callbackCall';
+import { GetCallbackCalls200Response, GetCallbackCalls200ResponseWrite } from '../model/getCallbackCalls200Response';
+import { GetCallbacks200Response, GetCallbacks200ResponseWrite } from '../model/getCallbacks200Response';
+import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
+import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
+import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
+import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
+import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
+import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
+import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
+import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
+import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -365,7 +365,7 @@ export class CallbacksApi {
      * @param callback Callbacks list object that needs to be create Callbacks
      */
     public async create(params?: {
-    } & Callback, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & Callback> {
+    } & CallbackWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & Callback> {
         const {
             ...callback
         } = params || {};
@@ -439,7 +439,7 @@ export class CallbacksApi {
      */
     public async update(params?: {
         callbackId: string,
-    } & Callback, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
+    } & CallbackWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
         const {
             callbackId,
             ...callback
@@ -507,16 +507,16 @@ export class CallbacksApi {
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param id The unique ID of the specific call within Whispir
-     * @param putCallbackCallStatusRequest The Status can be either of SUCCESS or FAILED only, and you can update the status to a singular value for upto 100 ids in a single call by passing the IDs in the URL
+     * @param callbackCall The Status can be either of SUCCESS or FAILED only, and you can update the status to a singular value for upto 100 ids in a single call by passing the IDs in the URL
      */
     public async updateCall(params?: {
         callbackId: string,
         id: string,
-    } & PutCallbackCallStatusRequest, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
+    } & CallbackCallWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
         const {
             callbackId,
             id,
-            ...putCallbackCallStatusRequest
+            ...callbackCall
         } = params || {};
 
         const localVarPath = this.host + '/callbacks/{callbackId}/calls'
@@ -541,7 +541,7 @@ export class CallbacksApi {
             uri: localVarPath,
             useQuerystring: this.useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(putCallbackCallStatusRequest, "PutCallbackCallStatusRequest")
+            body: ObjectSerializer.serialize(callbackCall, "CallbackCall")
         };
 
         let authenticationPromise = Promise.resolve();
