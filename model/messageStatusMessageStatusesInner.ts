@@ -1,18 +1,14 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
-import { MessageStatusMessageStatusesInnerCategoriesInner } from './messageStatusMessageStatusesInnerCategoriesInner';
-import { MessageStatusMessageStatusesInnerStatusInner } from './messageStatusMessageStatusesInnerStatusInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+import { MessageStatusMessageStatusesInnerCategoriesInner, MessageStatusMessageStatusesInnerCategoriesInnerWrite } from './messageStatusMessageStatusesInnerCategoriesInner';
 
-export class MessageStatusMessageStatusesInner {
-    /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
-    */
-    'link': Array<LinkInner>;
+
+export type MessageStatusMessageStatusesInnerWrite = {
     /**
     * Present when `view` is `summary`.
     */
-    'categories'?: Set<MessageStatusMessageStatusesInnerCategoriesInner>;
+    'categories'?: Set<MessageStatusMessageStatusesInnerCategoriesInner>Write;
     /**
     * Present when `view` is `detailed`.
     */
@@ -24,7 +20,30 @@ export class MessageStatusMessageStatusesInner {
     /**
     * Present when `view` is `detailed`.
     */
-    'status'?: Array<MessageStatusMessageStatusesInnerStatusInner>;
+    'status'?: Array<any>;
+}
+
+export class MessageStatusMessageStatusesInner {
+    /**
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    */
+    'link': Array<LinkInner>;
+    /**
+    * Present when `view` is `summary`.
+    */
+    'categories': Set<MessageStatusMessageStatusesInnerCategoriesInner>;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'name': string;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'info': string;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'status': Array<any>;
 
     static discriminator: string | undefined = undefined;
 
@@ -52,7 +71,7 @@ export class MessageStatusMessageStatusesInner {
         {
             "name": "status",
             "baseName": "status",
-            "type": "Array<MessageStatusMessageStatusesInnerStatusInner>"
+            "type": "Array<any>"
         }    ];
 
     static getAttributeTypeMap() {

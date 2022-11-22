@@ -1,7 +1,11 @@
 
 import { RequestFile } from './models';
-import { CustomListCustomlabellistsInner } from './customListCustomlabellistsInner';
-import { LinkInner } from './linkInner';
+import { CustomListCustomlabellistsInner, CustomListCustomlabellistsInnerWrite } from './customListCustomlabellistsInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type CustomListWrite = {
+}
 
 /**
 * A custom list is a predefined list of options that can be inserted into a message or template. A list might be made up of capital city names, days of the week, incident types, business phone numbers and so on. Custom lists make it easy to add information quickly and consistently to your message content.
@@ -34,7 +38,7 @@ export class CustomList {
     /**
     * Contains the individual items that make up this list
     */
-    'customlabellists'?: Array<CustomListCustomlabellistsInner>;
+    'customlabellists': Array<CustomListCustomlabellistsInner>;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */

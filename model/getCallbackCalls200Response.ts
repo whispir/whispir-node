@@ -1,7 +1,19 @@
 
 import { RequestFile } from './models';
-import { CallbackCall } from './callbackCall';
-import { LinkInner } from './linkInner';
+import { CallbackCall, CallbackCallWrite } from './callbackCall';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type GetCallbackCalls200ResponseWrite = {
+    /**
+    * A list of callbacks
+    */
+    'calls'?: Array<CallbackCall>Write;
+    /**
+    * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no callbacks available.
+    */
+    'status'?: string;
+}
 
 /**
 * A list of callbacks
@@ -10,15 +22,15 @@ export class GetCallbackCalls200Response {
     /**
     * A list of callbacks
     */
-    'calls'?: Array<CallbackCall>;
+    'calls': Array<CallbackCall>;
     /**
     * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no callbacks available.
     */
-    'status'?: string;
+    'status': string;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link'?: Array<LinkInner>;
+    'link': Array<LinkInner>;
 
     static discriminator: string | undefined = undefined;
 

@@ -1,10 +1,8 @@
 
 import { RequestFile } from './models';
 
-/**
-* The social channel object.
-*/
-export class SocialSocialInner {
+
+export type SocialSocialInnerWrite = {
     /**
     * The identifier for the social content channel. Read the following section for information on each channel.  | Channel        | id | | -------------- |--------------- | | Twitter        | `\"social\"` | | Facebook       | `\"social_long\"` |
     */
@@ -17,6 +15,24 @@ export class SocialSocialInner {
     * The social message content type.
     */
     'type'?: 'text/plain' | 'text/html';
+}
+
+/**
+* The social channel object.
+*/
+export class SocialSocialInner {
+    /**
+    * The identifier for the social content channel. Read the following section for information on each channel.  | Channel        | id | | -------------- |--------------- | | Twitter        | `\"social\"` | | Facebook       | `\"social_long\"` |
+    */
+    'id': 'social' | 'social_long';
+    /**
+    * The social content body.
+    */
+    'body': string;
+    /**
+    * The social message content type.
+    */
+    'type': 'text/plain' | 'text/html';
 
     static discriminator: string | undefined = undefined;
 

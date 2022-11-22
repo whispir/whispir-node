@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
 
+
+export type LinkInnerWrite = {
+}
+
 /**
 * The HATEOAS link object.
 */

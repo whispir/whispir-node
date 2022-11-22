@@ -1,10 +1,8 @@
 
 import { RequestFile } from './models';
 
-/**
-* The web channel payload, used when attaching web content to a Message.  Not required when a template is provided.
-*/
-export class Web {
+
+export type WebWrite = {
     /**
     * The linked web content body.
     */
@@ -13,6 +11,20 @@ export class Web {
     * The web Message content type.
     */
     'type'?: 'text/plain' | 'text/html';
+}
+
+/**
+* The web channel payload, used when attaching web content to a Message.  Not required when a template is provided.
+*/
+export class Web {
+    /**
+    * The linked web content body.
+    */
+    'body': string;
+    /**
+    * The web Message content type.
+    */
+    'type': 'text/plain' | 'text/html';
 
     static discriminator: string | undefined = undefined;
 

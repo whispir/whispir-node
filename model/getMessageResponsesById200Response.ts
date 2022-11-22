@@ -1,9 +1,13 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
-import { MessageResponseDetailed } from './messageResponseDetailed';
-import { MessageResponseSummary } from './messageResponseSummary';
-import { MessageResponseSummaryMessageresponsesInner } from './messageResponseSummaryMessageresponsesInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+import { MessageResponseDetailed, MessageResponseDetailedWrite } from './messageResponseDetailed';
+import { MessageResponseSummary, MessageResponseSummaryWrite } from './messageResponseSummary';
+import { MessageResponseSummaryMessageresponsesInner, MessageResponseSummaryMessageresponsesInnerWrite } from './messageResponseSummaryMessageresponsesInner';
+
+
+export type GetMessageResponsesById200ResponseWrite = {
+}
 
 /**
 * The message response object.
@@ -20,7 +24,7 @@ export class GetMessageResponsesById200Response {
     /**
     * The message response pagination status.
     */
-    'status'?: string;
+    'status': string;
 
     static discriminator: string | undefined = undefined;
 

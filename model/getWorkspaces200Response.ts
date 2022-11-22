@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
-import { Workspace } from './workspace';
+import { Workspace, WorkspaceWrite } from './workspace';
+
+
+export type GetWorkspaces200ResponseWrite = {
+}
 
 /**
 * List of workspaces

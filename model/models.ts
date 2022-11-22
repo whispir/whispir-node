@@ -34,7 +34,7 @@ export * from './getCallbacks200ResponseCallbacksInner';
 export * from './getContacts200Response';
 export * from './getCustomLists200Response';
 export * from './getDistributionLists200Response';
-export * from './getDistributionLists200ResponseDistributionLists';
+export * from './getDistributionLists200ResponseDistributionListsInner';
 export * from './getEvents200Response';
 export * from './getMessageResponsesById200Response';
 export * from './getMessages200Response';
@@ -48,10 +48,12 @@ export * from './getMessages422Response';
 export * from './getMessages500Response';
 export * from './getMessages501Response';
 export * from './getResources200Response';
+export * from './getResponseRules200Response';
 export * from './getScenarios200Response';
 export * from './getTemplates200Response';
 export * from './getTemplates200ResponseMessagetemplatesInner';
 export * from './getUsers200Response';
+export * from './getWorkspaceActivities200Response';
 export * from './getWorkspaces200Response';
 export * from './import';
 export * from './linkInner';
@@ -67,10 +69,9 @@ export * from './messageResponseSummaryMessageresponsesInner';
 export * from './messageStatus';
 export * from './messageStatusMessageStatusesInner';
 export * from './messageStatusMessageStatusesInnerCategoriesInner';
-export * from './messageStatusMessageStatusesInnerStatusInner';
 export * from './messagingoptionsInner';
 export * from './postAuth200Response';
-export * from './putCallbackCallStatusRequest';
+export * from './postDistributionListsRequest';
 export * from './resource';
 export * from './responseRule';
 export * from './responseTemplatePattern';
@@ -131,7 +132,7 @@ import { GetCallbacks200ResponseCallbacksInner } from './getCallbacks200Response
 import { GetContacts200Response } from './getContacts200Response';
 import { GetCustomLists200Response } from './getCustomLists200Response';
 import { GetDistributionLists200Response } from './getDistributionLists200Response';
-import { GetDistributionLists200ResponseDistributionLists } from './getDistributionLists200ResponseDistributionLists';
+import { GetDistributionLists200ResponseDistributionListsInner } from './getDistributionLists200ResponseDistributionListsInner';
 import { GetEvents200Response } from './getEvents200Response';
 import { GetMessageResponsesById200Response } from './getMessageResponsesById200Response';
 import { GetMessages200Response } from './getMessages200Response';
@@ -145,10 +146,12 @@ import { GetMessages422Response } from './getMessages422Response';
 import { GetMessages500Response } from './getMessages500Response';
 import { GetMessages501Response } from './getMessages501Response';
 import { GetResources200Response } from './getResources200Response';
+import { GetResponseRules200Response } from './getResponseRules200Response';
 import { GetScenarios200Response } from './getScenarios200Response';
 import { GetTemplates200Response } from './getTemplates200Response';
 import { GetTemplates200ResponseMessagetemplatesInner } from './getTemplates200ResponseMessagetemplatesInner';
 import { GetUsers200Response } from './getUsers200Response';
+import { GetWorkspaceActivities200Response } from './getWorkspaceActivities200Response';
 import { GetWorkspaces200Response } from './getWorkspaces200Response';
 import { Import } from './import';
 import { LinkInner } from './linkInner';
@@ -164,10 +167,9 @@ import { MessageResponseSummaryMessageresponsesInner } from './messageResponseSu
 import { MessageStatus } from './messageStatus';
 import { MessageStatusMessageStatusesInner } from './messageStatusMessageStatusesInner';
 import { MessageStatusMessageStatusesInnerCategoriesInner } from './messageStatusMessageStatusesInnerCategoriesInner';
-import { MessageStatusMessageStatusesInnerStatusInner } from './messageStatusMessageStatusesInnerStatusInner';
 import { MessagingoptionsInner } from './messagingoptionsInner';
 import { PostAuth200Response } from './postAuth200Response';
-import { PutCallbackCallStatusRequest } from './putCallbackCallStatusRequest';
+import { PostDistributionListsRequest } from './postDistributionListsRequest';
 import { Resource } from './resource';
 import { ResponseRule } from './responseRule';
 import { ResponseTemplatePattern } from './responseTemplatePattern';
@@ -228,7 +230,7 @@ let typeMap: {[index: string]: any} = {
     "GetContacts200Response": GetContacts200Response,
     "GetCustomLists200Response": GetCustomLists200Response,
     "GetDistributionLists200Response": GetDistributionLists200Response,
-    "GetDistributionLists200ResponseDistributionLists": GetDistributionLists200ResponseDistributionLists,
+    "GetDistributionLists200ResponseDistributionListsInner": GetDistributionLists200ResponseDistributionListsInner,
     "GetEvents200Response": GetEvents200Response,
     "GetMessageResponsesById200Response": GetMessageResponsesById200Response,
     "GetMessages200Response": GetMessages200Response,
@@ -242,10 +244,12 @@ let typeMap: {[index: string]: any} = {
     "GetMessages500Response": GetMessages500Response,
     "GetMessages501Response": GetMessages501Response,
     "GetResources200Response": GetResources200Response,
+    "GetResponseRules200Response": GetResponseRules200Response,
     "GetScenarios200Response": GetScenarios200Response,
     "GetTemplates200Response": GetTemplates200Response,
     "GetTemplates200ResponseMessagetemplatesInner": GetTemplates200ResponseMessagetemplatesInner,
     "GetUsers200Response": GetUsers200Response,
+    "GetWorkspaceActivities200Response": GetWorkspaceActivities200Response,
     "GetWorkspaces200Response": GetWorkspaces200Response,
     "Import": Import,
     "LinkInner": LinkInner,
@@ -261,10 +265,9 @@ let typeMap: {[index: string]: any} = {
     "MessageStatus": MessageStatus,
     "MessageStatusMessageStatusesInner": MessageStatusMessageStatusesInner,
     "MessageStatusMessageStatusesInnerCategoriesInner": MessageStatusMessageStatusesInnerCategoriesInner,
-    "MessageStatusMessageStatusesInnerStatusInner": MessageStatusMessageStatusesInnerStatusInner,
     "MessagingoptionsInner": MessagingoptionsInner,
     "PostAuth200Response": PostAuth200Response,
-    "PutCallbackCallStatusRequest": PutCallbackCallStatusRequest,
+    "PostDistributionListsRequest": PostDistributionListsRequest,
     "Resource": Resource,
     "ResponseRule": ResponseRule,
     "ResponseTemplatePattern": ResponseTemplatePattern,

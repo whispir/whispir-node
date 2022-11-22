@@ -1,24 +1,28 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type DistributionlistDistlistdetailsInnerWrite = {
+}
 
 export class DistributionlistDistlistdetailsInner {
     /**
     * Id of contact
     */
-    'id'?: string;
+    'id': string;
     /**
     * Name of Contact
     */
-    'name'?: string;
+    'name': string;
     /**
     * Type of Contact
     */
-    'type'?: string;
+    'type': string;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link'?: Array<LinkInner>;
+    'link': Array<LinkInner>;
 
     static discriminator: string | undefined = undefined;
 
