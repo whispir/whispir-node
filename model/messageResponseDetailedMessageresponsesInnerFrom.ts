@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
 
+
+export type MessageResponseDetailedMessageresponsesInnerFromWrite = {
+}
+
 /**
 * The message responder object.
 */

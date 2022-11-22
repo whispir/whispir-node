@@ -1,7 +1,13 @@
 
 import { RequestFile } from './models';
-import { MessageResponseDetailedMessageresponsesInnerFrom } from './messageResponseDetailedMessageresponsesInnerFrom';
-import { MessageResponseDetailedMessageresponsesInnerResponseMessage } from './messageResponseDetailedMessageresponsesInnerResponseMessage';
+import { MessageResponseDetailedMessageresponsesInnerFrom, MessageResponseDetailedMessageresponsesInnerFromWrite } from './messageResponseDetailedMessageresponsesInnerFrom';
+import { MessageResponseDetailedMessageresponsesInnerResponseMessage, MessageResponseDetailedMessageresponsesInnerResponseMessageWrite } from './messageResponseDetailedMessageresponsesInnerResponseMessage';
+
+
+export type MessageResponseDetailedMessageresponsesInnerWrite = {
+    'from': MessageResponseDetailedMessageresponsesInnerFromWrite;
+    'responseMessage': MessageResponseDetailedMessageresponsesInnerResponseMessageWrite;
+}
 
 export class MessageResponseDetailedMessageresponsesInner {
     'from': MessageResponseDetailedMessageresponsesInnerFrom;

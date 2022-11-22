@@ -1,7 +1,11 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
-import { MessageResponseSummaryMessageresponsesInner } from './messageResponseSummaryMessageresponsesInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+import { MessageResponseSummaryMessageresponsesInner, MessageResponseSummaryMessageresponsesInnerWrite } from './messageResponseSummaryMessageresponsesInner';
+
+
+export type MessageResponseSummaryWrite = {
+}
 
 /**
 * The summary message response object.

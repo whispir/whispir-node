@@ -1,6 +1,14 @@
 
 import { RequestFile } from './models';
-import { Contact } from './contact';
+import { Contact, ContactWrite } from './contact';
+
+
+export type GetContacts200ResponseWrite = {
+    /**
+    * list of contacts
+    */
+    'contacts'?: Array<ContactWrite>;
+}
 
 /**
 * List contacts object
@@ -9,11 +17,11 @@ export class GetContacts200Response {
     /**
     * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no callbacks available.
     */
-    'status'?: string;
+    'status': string;
     /**
     * list of contacts
     */
-    'contacts'?: Array<Contact>;
+    'contacts': Array<Contact>;
 
     static discriminator: string | undefined = undefined;
 

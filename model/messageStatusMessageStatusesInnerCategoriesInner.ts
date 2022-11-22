@@ -1,6 +1,22 @@
 
 import { RequestFile } from './models';
 
+
+export type MessageStatusMessageStatusesInnerCategoriesInnerWrite = {
+    /**
+    * The delivery status of the message.
+    */
+    'name'?: 'Sent' | 'Pending' | 'Received' | 'Acknowledged' | 'Undeliverable';
+    /**
+    * The number of recipients with the given `name` status.
+    */
+    'recipientCount'?: number;
+    /**
+    * The percentage of recipients with the given `name` status.
+    */
+    'percentageTotal'?: string;
+}
+
 export class MessageStatusMessageStatusesInnerCategoriesInner {
     /**
     * The delivery status of the message.

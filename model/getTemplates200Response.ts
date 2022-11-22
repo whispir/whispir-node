@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
-import { GetTemplates200ResponseMessagetemplatesInner } from './getTemplates200ResponseMessagetemplatesInner';
+import { GetTemplates200ResponseMessagetemplatesInner, GetTemplates200ResponseMessagetemplatesInnerWrite } from './getTemplates200ResponseMessagetemplatesInner';
+
+
+export type GetTemplates200ResponseWrite = {
+}
 
 /**
 * Returns a list of templates

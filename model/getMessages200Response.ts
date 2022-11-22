@@ -1,7 +1,11 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
-import { Message } from './message';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+import { Message, MessageWrite } from './message';
+
+
+export type GetMessages200ResponseWrite = {
+}
 
 /**
 * The list messages response object.

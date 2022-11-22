@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type MessageResponseSummaryMessageresponsesInnerWrite = {
+}
 
 /**
 * First object if `view` is `summary`, second object if `view` is `detailed`.

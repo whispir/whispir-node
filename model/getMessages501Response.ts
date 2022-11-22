@@ -1,6 +1,22 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type GetMessages501ResponseWrite = {
+    /**
+    * The summary of the error encountered.
+    */
+    'errorSummary'?: string;
+    /**
+    * The detailed description of the error encountered.
+    */
+    'errorText'?: string;
+    /**
+    * The additional details describing the error.
+    */
+    'errorDetail'?: string;
+}
 
 /**
 * The method not implemented response object.

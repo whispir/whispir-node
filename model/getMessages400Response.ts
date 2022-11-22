@@ -1,6 +1,22 @@
 
 import { RequestFile } from './models';
 
+
+export type GetMessages400ResponseWrite = {
+    /**
+    * The summary of the error encountered.
+    */
+    'errorSummary': string;
+    /**
+    * The detailed description of the error encountered.
+    */
+    'errorText': string;
+    /**
+    * The additional details describing the error.
+    */
+    'errorDetail': string;
+}
+
 /**
 * The bad request response object.
 */

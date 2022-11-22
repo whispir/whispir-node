@@ -1,7 +1,19 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
-import { MessageStatusMessageStatusesInner } from './messageStatusMessageStatusesInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+import { MessageStatusMessageStatusesInner, MessageStatusMessageStatusesInnerWrite } from './messageStatusMessageStatusesInner';
+
+
+export type MessageStatusWrite = {
+    /**
+    * The object defining the message delivery status.
+    */
+    'messageStatuses'?: Array<MessageStatusMessageStatusesInnerWrite>;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'status'?: string;
+}
 
 /**
 * The message status object, describing the delivery of the sent message.
@@ -18,7 +30,7 @@ export class MessageStatus {
     /**
     * Present when `view` is `detailed`.
     */
-    'status'?: string;
+    'status': string;
 
     static discriminator: string | undefined = undefined;
 

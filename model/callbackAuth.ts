@@ -1,6 +1,18 @@
 
 import { RequestFile } from './models';
 
+
+export type CallbackAuthWrite = {
+    /**
+    * The type of authentication allowed by Whispir at the Destination URL
+    */
+    'type': 'queryparam' | 'httpheader' | 'basicauth' | 'bearertoken';
+    /**
+    * The value that will be passed with the authentication key
+    */
+    'key': string;
+}
+
 /**
 * The authentication model details. You will receive -   For `queryparam` - `?Auth={{KeyValue}}`  For `httpheader` - `X-Whispir-Callback-Key: {{KeyValue}}`  For `basicauth` - `Authorization: Basic {{KeyValue}}`  For `bearertoken` - `Authorization: Bearer {{KeyValue}}`
 */
