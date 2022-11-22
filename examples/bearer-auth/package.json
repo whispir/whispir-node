@@ -1,0 +1,17 @@
+{
+  "name": "@whispir/bearer-auth",
+  "version": "1.0.0",
+  "description": "Use bearer auth to authenticate with the Whispir API",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "whispir": "^1.0.3"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}

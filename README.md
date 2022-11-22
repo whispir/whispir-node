@@ -91,4 +91,4 @@ whispir.messages.addInteceptor((request) => {
 
 ## Examples
 
-Visit the [examples](./examples) folder for a curated list of examples to help you get started quickly with Whispir.
+Visit the [examples](https://github.com/whispir/whispir-node/tree/main/examples) folder for a curated list of examples to help you get started quickly with Whispir.
