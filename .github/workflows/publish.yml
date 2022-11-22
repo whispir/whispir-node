@@ -2,6 +2,7 @@ name: publish
 
 on:
   release:
+    types: [published]
 
 jobs:
   publish:
