@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 16
       - name: Build Node artifacts
-        run: yarn
+        run: yarn install && yarn build
   test:
     runs-on: ubuntu-latest
     strategy:
@@ -31,5 +31,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+      - run: yarn install && yarn build
       - run: yarn mock:server
       - run: yarn test
