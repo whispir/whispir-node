@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/whispir/whispir-node/compare/v1.0.0...v1.0.1) (2022-11-22)
+
+
+### Bug Fixes
+
+* **release:** Working directory ([#24](https://github.com/whispir/whispir-node/issues/24)) ([75a5bd6](https://github.com/whispir/whispir-node/commit/75a5bd61df0438f0362219754a52bccb62e847f5))
+
 ## 1.0.0 (2022-11-22)
 
 
