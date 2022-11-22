@@ -27,11 +27,9 @@ jobs:
     name: Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Node
+      - name: Run test
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - name: Run test suite
-        run: yarn test
-      - name: Run Prism test suite
-        run: yarn test
+      - run: yarn mock:server
+      - run: yarn test
