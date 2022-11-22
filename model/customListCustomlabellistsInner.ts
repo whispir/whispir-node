@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
 
+
+export type CustomListCustomlabellistsInnerWrite = {
+}
+
 /**
 * Contains the individual items that make up this list  The ‘name’ is the text that is shown to the user The ‘value’ is the internally passed in value
 */
@@ -8,11 +12,11 @@ export class CustomListCustomlabellistsInner {
     /**
     * Specifies the text that is show to the user
     */
-    'name'?: string;
+    'name': string;
     /**
     * Specifies the value that is passed internally
     */
-    'value'?: string;
+    'value': string;
 
     static discriminator: string | undefined = undefined;
 

@@ -1,7 +1,11 @@
 
 import { RequestFile } from './models';
-import { LinkInner } from './linkInner';
-import { MessageResponseDetailedMessageresponsesInner } from './messageResponseDetailedMessageresponsesInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+import { MessageResponseDetailedMessageresponsesInner, MessageResponseDetailedMessageresponsesInnerWrite } from './messageResponseDetailedMessageresponsesInner';
+
+
+export type MessageResponseDetailedWrite = {
+}
 
 /**
 * The detailed message response object.
@@ -18,7 +22,7 @@ export class MessageResponseDetailed {
     /**
     * The message response pagination status.
     */
-    'status'?: string;
+    'status': string;
 
     static discriminator: string | undefined = undefined;
 

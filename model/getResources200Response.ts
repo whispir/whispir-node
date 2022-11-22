@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
-import { Resource } from './resource';
+import { Resource, ResourceWrite } from './resource';
+
+
+export type GetResources200ResponseWrite = {
+}
 
 /**
 * List of resources object
@@ -9,11 +13,11 @@ export class GetResources200Response {
     /**
     * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no callbacks available.
     */
-    'status'?: string;
+    'status': string;
     /**
     * List of resources
     */
-    'resources'?: Array<Resource>;
+    'resources': Array<Resource>;
 
     static discriminator: string | undefined = undefined;
 

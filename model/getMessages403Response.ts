@@ -1,6 +1,14 @@
 
 import { RequestFile } from './models';
 
+
+export type GetMessages403ResponseWrite = {
+    /**
+    * The error message.
+    */
+    'message': string;
+}
+
 /**
 * The forbidden response object.
 */

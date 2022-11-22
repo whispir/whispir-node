@@ -1,13 +1,24 @@
 
 import { RequestFile } from './models';
-import { GetDistributionLists200ResponseDistributionLists } from './getDistributionLists200ResponseDistributionLists';
-import { LinkInner } from './linkInner';
+import { GetDistributionLists200ResponseDistributionListsInner, GetDistributionLists200ResponseDistributionListsInnerWrite } from './getDistributionLists200ResponseDistributionListsInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type GetDistributionLists200ResponseWrite = {
+    /**
+    * Either a static or dynamic distribution list
+    */
+    'distributionLists'?: Array<GetDistributionLists200ResponseDistributionListsInnerWrite>;
+}
 
 /**
 * list of distribution lists
 */
 export class GetDistributionLists200Response {
-    'distributionLists': GetDistributionLists200ResponseDistributionLists;
+    /**
+    * Either a static or dynamic distribution list
+    */
+    'distributionLists': Array<GetDistributionLists200ResponseDistributionListsInner>;
     /**
     * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no callbacks available.
     */
@@ -23,7 +34,7 @@ export class GetDistributionLists200Response {
         {
             "name": "distributionLists",
             "baseName": "distributionLists",
-            "type": "GetDistributionLists200ResponseDistributionLists"
+            "type": "Array<GetDistributionLists200ResponseDistributionListsInner>"
         },
         {
             "name": "status",

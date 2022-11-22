@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
 
+
+export type CallbackCallFromWrite = {
+}
+
 /**
 * The details about this particular message sender/responder
 */
@@ -8,23 +12,23 @@ export class CallbackCallFrom {
     /**
     * The name of the sender of this message
     */
-    'name'?: string;
+    'name': string;
     /**
     * The unique identifier for this contact within Whispir
     */
-    'mri'?: string;
+    'mri': string;
     /**
     * The mobile phone number associated with this sender
     */
-    'mobile'?: string;
+    'mobile': string;
     /**
     * The phone number associated with the voice channel for this sender
     */
-    'voice'?: string;
+    'voice': string;
     /**
     * The email address associated with the email channel for this sender
     */
-    'email'?: string;
+    'email': string;
 
     static discriminator: string | undefined = undefined;
 

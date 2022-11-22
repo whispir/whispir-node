@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
-import { CustomList } from './customList';
+import { CustomList, CustomListWrite } from './customList';
+
+
+export type GetCustomLists200ResponseWrite = {
+}
 
 /**
 * List of custom lists

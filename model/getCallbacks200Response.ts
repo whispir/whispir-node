@@ -1,7 +1,11 @@
 
 import { RequestFile } from './models';
-import { GetCallbacks200ResponseCallbacksInner } from './getCallbacks200ResponseCallbacksInner';
-import { LinkInner } from './linkInner';
+import { GetCallbacks200ResponseCallbacksInner, GetCallbacks200ResponseCallbacksInnerWrite } from './getCallbacks200ResponseCallbacksInner';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+
+
+export type GetCallbacks200ResponseWrite = {
+}
 
 /**
 * The callback object.

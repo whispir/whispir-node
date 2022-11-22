@@ -1,6 +1,14 @@
 
 import { RequestFile } from './models';
 
+
+export type GetMessages500ResponseWrite = {
+    /**
+    * The error message.
+    */
+    'message'?: string;
+}
+
 /**
 * The internal server response object.
 */
@@ -8,7 +16,7 @@ export class GetMessages500Response {
     /**
     * The error message.
     */
-    'message'?: string;
+    'message': string;
 
     static discriminator: string | undefined = undefined;
 

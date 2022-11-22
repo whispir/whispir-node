@@ -1,21 +1,15 @@
 
 import { RequestFile } from './models';
-import { Dlr } from './dlr';
-import { Email } from './email';
-import { Features } from './features';
-import { LinkInner } from './linkInner';
-import { Social } from './social';
-import { Voice } from './voice';
-import { Web } from './web';
+import { Dlr, DlrWrite } from './dlr';
+import { Email, EmailWrite } from './email';
+import { Features, FeaturesWrite } from './features';
+import { LinkInner, LinkInnerWrite } from './linkInner';
+import { Social, SocialWrite } from './social';
+import { Voice, VoiceWrite } from './voice';
+import { Web, WebWrite } from './web';
 
-/**
-* The template object.
-*/
-export class Template {
-    /**
-    * Specifies the name of the message template to be used within message requests.
-    */
-    'messageTemplateName': string;
+
+export type TemplateWrite = {
     /**
     * Specifies the description of the message template for others to understand its purpose.
     */
@@ -32,28 +26,64 @@ export class Template {
     * Specifies the content of the SMS message.
     */
     'body': string;
-    'email'?: Email;
-    'voice'?: Voice;
-    'web'?: Web;
-    'social'?: Social;
+    'email'?: EmailWrite;
+    'voice'?: VoiceWrite;
+    'web'?: WebWrite;
+    'social'?: SocialWrite;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts)
     */
     'type'?: string;
-    'features'?: Features;
-    'dlr'?: Dlr;
+    'features'?: FeaturesWrite;
+    'dlr'?: DlrWrite;
+}
+
+/**
+* The template object.
+*/
+export class Template {
+    /**
+    * Specifies the name of the message template to be used within message requests.
+    */
+    'messageTemplateName': string;
+    /**
+    * Specifies the description of the message template for others to understand its purpose.
+    */
+    'messageTemplateDescription': string;
+    /**
+    * Specifies the ID of the Response Rule that should be associated with this Message Template.
+    */
+    'responseTemplateId': string;
+    /**
+    * Specifies the first line of the SMS message or Voice call, and the subject of the Email message.
+    */
+    'subject': string;
+    /**
+    * Specifies the content of the SMS message.
+    */
+    'body': string;
+    'email': Email;
+    'voice': Voice;
+    'web': Web;
+    'social': Social;
+    /**
+    * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts)
+    */
+    'type': string;
+    'features': Features;
+    'dlr': Dlr;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link'?: Array<LinkInner>;
+    'link': Array<LinkInner>;
     /**
     * Information which helps to label related message templates together
     */
-    'tags'?: string;
+    'tags': string;
     /**
     * specifies the id of the message template
     */
-    'id'?: string;
+    'id': string;
 
     static discriminator: string | undefined = undefined;
 

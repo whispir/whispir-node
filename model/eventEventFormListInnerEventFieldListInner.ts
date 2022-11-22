@@ -1,10 +1,8 @@
 
 import { RequestFile } from './models';
 
-/**
-* A key-value pair of name and its value
-*/
-export class EventEventFormListInnerEventFieldListInner {
+
+export type EventEventFormListInnerEventFieldListInnerWrite = {
     /**
     * Specifies the name of the event field
     */
@@ -13,6 +11,20 @@ export class EventEventFormListInnerEventFieldListInner {
     * Specifies the value of a given field
     */
     'value'?: string;
+}
+
+/**
+* A key-value pair of name and its value
+*/
+export class EventEventFormListInnerEventFieldListInner {
+    /**
+    * Specifies the name of the event field
+    */
+    'name': string;
+    /**
+    * Specifies the value of a given field
+    */
+    'value': string;
 
     static discriminator: string | undefined = undefined;
 

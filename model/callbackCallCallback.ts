@@ -1,6 +1,10 @@
 
 import { RequestFile } from './models';
 
+
+export type CallbackCallCallbackWrite = {
+}
+
 /**
 * The details about this particular callback attempt
 */
@@ -8,27 +12,27 @@ export class CallbackCallCallback {
     /**
     * The ID of the callback attempting to be invoked
     */
-    'id'?: string;
+    'id': string;
     /**
     * The name of the callback server attempting to be invoked
     */
-    'name'?: string;
+    'name': string;
     /**
     * The URL of the callback server attempting to be invoked
     */
-    'url'?: string;
+    'url': string;
     /**
     * The date/time that the callback server was attempted to be invoked
     */
-    'attemptedDate'?: string;
+    'attemptedDate': string;
     /**
     * The statuscode that was returned from the callback service
     */
-    'statusCode'?: number;
+    'statusCode': number;
     /**
     * The status message that was returned from the callback service
     */
-    'statusMessage'?: string;
+    'statusMessage': string;
 
     static discriminator: string | undefined = undefined;
 

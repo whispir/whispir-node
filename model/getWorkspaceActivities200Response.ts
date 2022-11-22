@@ -1,24 +1,20 @@
 
 import { RequestFile } from './models';
 import { Activity, ActivityWrite } from './activity';
-import { LinkInner, LinkInnerWrite } from './linkInner';
 
 
-export type GetActivities200ResponseWrite = {
+export type GetWorkspaceActivities200ResponseWrite = {
 }
 
-/**
-* Example
-*/
-export class GetActivities200Response {
+export class GetWorkspaceActivities200Response {
     /**
     * List of activities
     */
     'activities': Array<Activity>;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no activities available.
     */
-    'link': Array<LinkInner>;
+    'status': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -29,13 +25,13 @@ export class GetActivities200Response {
             "type": "Array<Activity>"
         },
         {
-            "name": "link",
-            "baseName": "link",
-            "type": "Array<LinkInner>"
+            "name": "status",
+            "baseName": "status",
+            "type": "string"
         }    ];
 
     static getAttributeTypeMap() {
-        return GetActivities200Response.attributeTypeMap;
+        return GetWorkspaceActivities200Response.attributeTypeMap;
     }
 }
 
