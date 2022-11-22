@@ -2,6 +2,7 @@ name: publish
 
 on:
   release:
+    types: [published]
 
 jobs:
   publish:
@@ -13,11 +14,8 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - name: Build whispir-node
-        working-directory: ./whispir-node
-        run: npm ci && npm run build
-      - name: Publish to NPM
-        working-directory: ./whispir-node
-        run: npm publish --access public
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
