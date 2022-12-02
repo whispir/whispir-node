@@ -11,7 +11,19 @@ You’ll need the following:
 
 ### Setup
 
-In this directory (`cd examples/basic-auth`), copy the environment variables file:
+Clone the repository:
+
+```bash
+git clone https://github.com/whispir/whispir-node.git
+```
+
+Move into the project's directory:
+
+```bash
+cd examples/get-message
+```
+
+Copy the environment variables file:
 
 ```bash
 cp .env.example .env
