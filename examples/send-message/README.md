@@ -11,15 +11,27 @@ You’ll need the following:
 
 ### Setup
 
-In this directory (`cd examples/basic-auth`), copy the environment variables file:
+Clone the repository:
+
+```bash
+git clone https://github.com/whispir/whispir-node.git
+```
+
+Move into the project's directory:
+
+```bash
+cd examples/send-message
+```
+
+Copy the environment variables file:
 
 ```bash
 cp .env.example .env
 ```
 
-Update `.env` with your own username, password, [Whispir API keys](https://developers.whispir.com/2a21cad9e5da7-authentication#obtain-an-api-key), and host (depending on your Whispir region).
+Update `.env` with your own username, password, [Whispir API key](https://developers.whispir.com/2a21cad9e5da7-authentication#obtain-an-api-key), and host (depending on your Whispir region).
 
-### Install and run
+### Usage
 
 Install dependencies:
 
