@@ -2,18 +2,10 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { GetMessageResponsesById200Response, GetMessageResponsesById200ResponseWrite } from '../model/getMessageResponsesById200Response';
-import { GetMessages200Response, GetMessages200ResponseWrite } from '../model/getMessages200Response';
-import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
-import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
-import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
-import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
-import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
-import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
-import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
-import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
-import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
+import { ApiError, ApiErrorWrite } from '../model/apiError';
 import { Message, MessageWrite } from '../model/message';
+import { MessageCollection, MessageCollectionWrite } from '../model/messageCollection';
+import { MessageResponse, MessageResponseWrite } from '../model/messageResponse';
 import { MessageStatus, MessageStatusWrite } from '../model/messageStatus';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
@@ -131,7 +123,7 @@ export class MessagesApi {
         sortFields?: string,
         view?: 'summary' | 'detailed',
         filter?: 'noresponse' | 'notmatched' | 'responserule',
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetMessageResponsesById200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & MessageResponse> {
         const {
             workspaceId,
             messageId,
@@ -204,7 +196,7 @@ export class MessagesApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetMessageResponsesById200Response");
+                            body = ObjectSerializer.deserialize(body, "MessageResponse");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
@@ -339,7 +331,7 @@ export class MessagesApi {
         offset?: number,
         sortOrder?: 'asc' | 'desc',
         sortFields?: string,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetMessages200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & MessageCollection> {
         const {
             workspaceId,
             limit = 20,
@@ -402,7 +394,7 @@ export class MessagesApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetMessages200Response");
+                            body = ObjectSerializer.deserialize(body, "MessageCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {

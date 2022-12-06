@@ -1,89 +1,79 @@
 import localVarRequest from 'request';
 
 export * from './activity';
-export * from './attachment';
+export * from './activityCollection';
+export * from './apiError';
+export * from './auth';
 export * from './callback';
 export * from './callbackAuth';
 export * from './callbackCall';
-export * from './callbackCallCallback';
+export * from './callbackCallCollection';
+export * from './callbackCallEvent';
 export * from './callbackCallFrom';
 export * from './callbackCallResponseMessage';
-export * from './callbackCallbacks';
+export * from './callbackCollection';
+export * from './callbackEvent';
+export * from './callbackShort';
 export * from './contact';
+export * from './contactCollection';
+export * from './contactLocation';
+export * from './contactMessagingOption';
 export * from './customList';
-export * from './customListCustomlabellistsInner';
-export * from './distributionlist';
-export * from './distributionlistDistlistdetailsInner';
-export * from './dlr';
-export * from './dynamicdistributionlist';
-export * from './email';
-export * from './emailResources';
+export * from './customListCollection';
+export * from './customListItem';
+export * from './distributionList';
+export * from './distributionListCollection';
+export * from './distributionListDetails';
+export * from './distributionListDynamic';
+export * from './distributionListStatic';
 export * from './event';
-export * from './eventEventFormListInner';
-export * from './eventEventFormListInnerEventFieldListInner';
-export * from './features';
-export * from './featuresAliasOption';
-export * from './featuresPushOptions';
-export * from './featuresPushOptionsApns';
-export * from './featuresPushOptionsFcm';
+export * from './eventCollection';
+export * from './eventForm';
+export * from './eventFormField';
 export * from './fieldMapping';
-export * from './getActivities200Response';
-export * from './getCallbackCalls200Response';
-export * from './getCallbacks200Response';
-export * from './getCallbacks200ResponseCallbacksInner';
-export * from './getContacts200Response';
-export * from './getCustomLists200Response';
-export * from './getDistributionLists200Response';
-export * from './getDistributionLists200ResponseDistributionListsInner';
-export * from './getEvents200Response';
-export * from './getMessageResponsesById200Response';
-export * from './getMessages200Response';
-export * from './getMessages400Response';
-export * from './getMessages401Response';
-export * from './getMessages403Response';
-export * from './getMessages404Response';
-export * from './getMessages405Response';
-export * from './getMessages415Response';
-export * from './getMessages422Response';
-export * from './getMessages500Response';
-export * from './getMessages501Response';
-export * from './getResources200Response';
-export * from './getResponseRules200Response';
-export * from './getScenarios200Response';
-export * from './getTemplates200Response';
-export * from './getTemplates200ResponseMessagetemplatesInner';
-export * from './getUsers200Response';
-export * from './getWorkspaceActivities200Response';
-export * from './getWorkspaces200Response';
 export * from './import';
-export * from './linkInner';
-export * from './listUsers';
-export * from './locationsInner';
+export * from './link';
 export * from './message';
+export * from './messageAttachment';
+export * from './messageCollection';
+export * from './messageDlr';
+export * from './messageEmail';
+export * from './messageEmailResources';
+export * from './messageFeatures';
+export * from './messageFeaturesAliasOption';
+export * from './messageFeaturesPushOptions';
+export * from './messageFeaturesPushOptionsAPNS';
+export * from './messageFeaturesPushOptionsFCM';
+export * from './messageResponse';
 export * from './messageResponseDetailed';
-export * from './messageResponseDetailedMessageresponsesInner';
-export * from './messageResponseDetailedMessageresponsesInnerFrom';
-export * from './messageResponseDetailedMessageresponsesInnerResponseMessage';
+export * from './messageResponseDetailedStatus';
+export * from './messageResponseDetailedStatusFrom';
+export * from './messageResponseDetailedStatusResponseMessage';
 export * from './messageResponseSummary';
-export * from './messageResponseSummaryMessageresponsesInner';
+export * from './messageResponseSummaryStatus';
+export * from './messageSocial';
+export * from './messageSocialChannel';
 export * from './messageStatus';
-export * from './messageStatusMessageStatusesInner';
-export * from './messageStatusMessageStatusesInnerCategoriesInner';
-export * from './messagingoptionsInner';
-export * from './postAuth200Response';
-export * from './postDistributionListsRequest';
+export * from './messageStatusChannel';
+export * from './messageStatusSummary';
+export * from './messageStatusSummaryCategory';
+export * from './messageTemplateShort';
+export * from './messageVoice';
+export * from './messageVoiceResources';
+export * from './messageWeb';
 export * from './resource';
+export * from './resourceCollection';
 export * from './responseRule';
+export * from './responseRuleCollection';
 export * from './responseTemplatePattern';
 export * from './scenario';
-export * from './social';
-export * from './socialSocialInner';
+export * from './scenarioCollection';
 export * from './template';
+export * from './templateCollection';
 export * from './user';
-export * from './voice';
-export * from './voiceResources';
-export * from './web';
+export * from './userCollection';
 export * from './workspace';
+export * from './workspaceCollection';
 
 import * as fs from 'fs';
 
@@ -99,89 +89,79 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 
 import { Activity } from './activity';
-import { Attachment } from './attachment';
+import { ActivityCollection } from './activityCollection';
+import { ApiError } from './apiError';
+import { Auth } from './auth';
 import { Callback } from './callback';
 import { CallbackAuth } from './callbackAuth';
 import { CallbackCall } from './callbackCall';
-import { CallbackCallCallback } from './callbackCallCallback';
+import { CallbackCallCollection } from './callbackCallCollection';
+import { CallbackCallEvent } from './callbackCallEvent';
 import { CallbackCallFrom } from './callbackCallFrom';
 import { CallbackCallResponseMessage } from './callbackCallResponseMessage';
-import { CallbackCallbacks } from './callbackCallbacks';
+import { CallbackCollection } from './callbackCollection';
+import { CallbackEvent } from './callbackEvent';
+import { CallbackShort } from './callbackShort';
 import { Contact } from './contact';
+import { ContactCollection } from './contactCollection';
+import { ContactLocation } from './contactLocation';
+import { ContactMessagingOption } from './contactMessagingOption';
 import { CustomList } from './customList';
-import { CustomListCustomlabellistsInner } from './customListCustomlabellistsInner';
-import { Distributionlist } from './distributionlist';
-import { DistributionlistDistlistdetailsInner } from './distributionlistDistlistdetailsInner';
-import { Dlr } from './dlr';
-import { Dynamicdistributionlist } from './dynamicdistributionlist';
-import { Email } from './email';
-import { EmailResources } from './emailResources';
+import { CustomListCollection } from './customListCollection';
+import { CustomListItem } from './customListItem';
+import { DistributionList } from './distributionList';
+import { DistributionListCollection } from './distributionListCollection';
+import { DistributionListDetails } from './distributionListDetails';
+import { DistributionListDynamic } from './distributionListDynamic';
+import { DistributionListStatic } from './distributionListStatic';
 import { Event } from './event';
-import { EventEventFormListInner } from './eventEventFormListInner';
-import { EventEventFormListInnerEventFieldListInner } from './eventEventFormListInnerEventFieldListInner';
-import { Features } from './features';
-import { FeaturesAliasOption } from './featuresAliasOption';
-import { FeaturesPushOptions } from './featuresPushOptions';
-import { FeaturesPushOptionsApns } from './featuresPushOptionsApns';
-import { FeaturesPushOptionsFcm } from './featuresPushOptionsFcm';
+import { EventCollection } from './eventCollection';
+import { EventForm } from './eventForm';
+import { EventFormField } from './eventFormField';
 import { FieldMapping } from './fieldMapping';
-import { GetActivities200Response } from './getActivities200Response';
-import { GetCallbackCalls200Response } from './getCallbackCalls200Response';
-import { GetCallbacks200Response } from './getCallbacks200Response';
-import { GetCallbacks200ResponseCallbacksInner } from './getCallbacks200ResponseCallbacksInner';
-import { GetContacts200Response } from './getContacts200Response';
-import { GetCustomLists200Response } from './getCustomLists200Response';
-import { GetDistributionLists200Response } from './getDistributionLists200Response';
-import { GetDistributionLists200ResponseDistributionListsInner } from './getDistributionLists200ResponseDistributionListsInner';
-import { GetEvents200Response } from './getEvents200Response';
-import { GetMessageResponsesById200Response } from './getMessageResponsesById200Response';
-import { GetMessages200Response } from './getMessages200Response';
-import { GetMessages400Response } from './getMessages400Response';
-import { GetMessages401Response } from './getMessages401Response';
-import { GetMessages403Response } from './getMessages403Response';
-import { GetMessages404Response } from './getMessages404Response';
-import { GetMessages405Response } from './getMessages405Response';
-import { GetMessages415Response } from './getMessages415Response';
-import { GetMessages422Response } from './getMessages422Response';
-import { GetMessages500Response } from './getMessages500Response';
-import { GetMessages501Response } from './getMessages501Response';
-import { GetResources200Response } from './getResources200Response';
-import { GetResponseRules200Response } from './getResponseRules200Response';
-import { GetScenarios200Response } from './getScenarios200Response';
-import { GetTemplates200Response } from './getTemplates200Response';
-import { GetTemplates200ResponseMessagetemplatesInner } from './getTemplates200ResponseMessagetemplatesInner';
-import { GetUsers200Response } from './getUsers200Response';
-import { GetWorkspaceActivities200Response } from './getWorkspaceActivities200Response';
-import { GetWorkspaces200Response } from './getWorkspaces200Response';
 import { Import } from './import';
-import { LinkInner } from './linkInner';
-import { ListUsers } from './listUsers';
-import { LocationsInner } from './locationsInner';
+import { Link } from './link';
 import { Message } from './message';
+import { MessageAttachment } from './messageAttachment';
+import { MessageCollection } from './messageCollection';
+import { MessageDlr } from './messageDlr';
+import { MessageEmail } from './messageEmail';
+import { MessageEmailResources } from './messageEmailResources';
+import { MessageFeatures } from './messageFeatures';
+import { MessageFeaturesAliasOption } from './messageFeaturesAliasOption';
+import { MessageFeaturesPushOptions } from './messageFeaturesPushOptions';
+import { MessageFeaturesPushOptionsAPNS } from './messageFeaturesPushOptionsAPNS';
+import { MessageFeaturesPushOptionsFCM } from './messageFeaturesPushOptionsFCM';
+import { MessageResponse } from './messageResponse';
 import { MessageResponseDetailed } from './messageResponseDetailed';
-import { MessageResponseDetailedMessageresponsesInner } from './messageResponseDetailedMessageresponsesInner';
-import { MessageResponseDetailedMessageresponsesInnerFrom } from './messageResponseDetailedMessageresponsesInnerFrom';
-import { MessageResponseDetailedMessageresponsesInnerResponseMessage } from './messageResponseDetailedMessageresponsesInnerResponseMessage';
+import { MessageResponseDetailedStatus } from './messageResponseDetailedStatus';
+import { MessageResponseDetailedStatusFrom } from './messageResponseDetailedStatusFrom';
+import { MessageResponseDetailedStatusResponseMessage } from './messageResponseDetailedStatusResponseMessage';
 import { MessageResponseSummary } from './messageResponseSummary';
-import { MessageResponseSummaryMessageresponsesInner } from './messageResponseSummaryMessageresponsesInner';
+import { MessageResponseSummaryStatus } from './messageResponseSummaryStatus';
+import { MessageSocial } from './messageSocial';
+import { MessageSocialChannel } from './messageSocialChannel';
 import { MessageStatus } from './messageStatus';
-import { MessageStatusMessageStatusesInner } from './messageStatusMessageStatusesInner';
-import { MessageStatusMessageStatusesInnerCategoriesInner } from './messageStatusMessageStatusesInnerCategoriesInner';
-import { MessagingoptionsInner } from './messagingoptionsInner';
-import { PostAuth200Response } from './postAuth200Response';
-import { PostDistributionListsRequest } from './postDistributionListsRequest';
+import { MessageStatusChannel } from './messageStatusChannel';
+import { MessageStatusSummary } from './messageStatusSummary';
+import { MessageStatusSummaryCategory } from './messageStatusSummaryCategory';
+import { MessageTemplateShort } from './messageTemplateShort';
+import { MessageVoice } from './messageVoice';
+import { MessageVoiceResources } from './messageVoiceResources';
+import { MessageWeb } from './messageWeb';
 import { Resource } from './resource';
+import { ResourceCollection } from './resourceCollection';
 import { ResponseRule } from './responseRule';
+import { ResponseRuleCollection } from './responseRuleCollection';
 import { ResponseTemplatePattern } from './responseTemplatePattern';
 import { Scenario } from './scenario';
-import { Social } from './social';
-import { SocialSocialInner } from './socialSocialInner';
+import { ScenarioCollection } from './scenarioCollection';
 import { Template } from './template';
+import { TemplateCollection } from './templateCollection';
 import { User } from './user';
-import { Voice } from './voice';
-import { VoiceResources } from './voiceResources';
-import { Web } from './web';
+import { UserCollection } from './userCollection';
 import { Workspace } from './workspace';
+import { WorkspaceCollection } from './workspaceCollection';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -197,89 +177,79 @@ let primitives = [
 
 let typeMap: {[index: string]: any} = {
     "Activity": Activity,
-    "Attachment": Attachment,
+    "ActivityCollection": ActivityCollection,
+    "ApiError": ApiError,
+    "Auth": Auth,
     "Callback": Callback,
     "CallbackAuth": CallbackAuth,
     "CallbackCall": CallbackCall,
-    "CallbackCallCallback": CallbackCallCallback,
+    "CallbackCallCollection": CallbackCallCollection,
+    "CallbackCallEvent": CallbackCallEvent,
     "CallbackCallFrom": CallbackCallFrom,
     "CallbackCallResponseMessage": CallbackCallResponseMessage,
-    "CallbackCallbacks": CallbackCallbacks,
+    "CallbackCollection": CallbackCollection,
+    "CallbackEvent": CallbackEvent,
+    "CallbackShort": CallbackShort,
     "Contact": Contact,
+    "ContactCollection": ContactCollection,
+    "ContactLocation": ContactLocation,
+    "ContactMessagingOption": ContactMessagingOption,
     "CustomList": CustomList,
-    "CustomListCustomlabellistsInner": CustomListCustomlabellistsInner,
-    "Distributionlist": Distributionlist,
-    "DistributionlistDistlistdetailsInner": DistributionlistDistlistdetailsInner,
-    "Dlr": Dlr,
-    "Dynamicdistributionlist": Dynamicdistributionlist,
-    "Email": Email,
-    "EmailResources": EmailResources,
+    "CustomListCollection": CustomListCollection,
+    "CustomListItem": CustomListItem,
+    "DistributionList": DistributionList,
+    "DistributionListCollection": DistributionListCollection,
+    "DistributionListDetails": DistributionListDetails,
+    "DistributionListDynamic": DistributionListDynamic,
+    "DistributionListStatic": DistributionListStatic,
     "Event": Event,
-    "EventEventFormListInner": EventEventFormListInner,
-    "EventEventFormListInnerEventFieldListInner": EventEventFormListInnerEventFieldListInner,
-    "Features": Features,
-    "FeaturesAliasOption": FeaturesAliasOption,
-    "FeaturesPushOptions": FeaturesPushOptions,
-    "FeaturesPushOptionsApns": FeaturesPushOptionsApns,
-    "FeaturesPushOptionsFcm": FeaturesPushOptionsFcm,
+    "EventCollection": EventCollection,
+    "EventForm": EventForm,
+    "EventFormField": EventFormField,
     "FieldMapping": FieldMapping,
-    "GetActivities200Response": GetActivities200Response,
-    "GetCallbackCalls200Response": GetCallbackCalls200Response,
-    "GetCallbacks200Response": GetCallbacks200Response,
-    "GetCallbacks200ResponseCallbacksInner": GetCallbacks200ResponseCallbacksInner,
-    "GetContacts200Response": GetContacts200Response,
-    "GetCustomLists200Response": GetCustomLists200Response,
-    "GetDistributionLists200Response": GetDistributionLists200Response,
-    "GetDistributionLists200ResponseDistributionListsInner": GetDistributionLists200ResponseDistributionListsInner,
-    "GetEvents200Response": GetEvents200Response,
-    "GetMessageResponsesById200Response": GetMessageResponsesById200Response,
-    "GetMessages200Response": GetMessages200Response,
-    "GetMessages400Response": GetMessages400Response,
-    "GetMessages401Response": GetMessages401Response,
-    "GetMessages403Response": GetMessages403Response,
-    "GetMessages404Response": GetMessages404Response,
-    "GetMessages405Response": GetMessages405Response,
-    "GetMessages415Response": GetMessages415Response,
-    "GetMessages422Response": GetMessages422Response,
-    "GetMessages500Response": GetMessages500Response,
-    "GetMessages501Response": GetMessages501Response,
-    "GetResources200Response": GetResources200Response,
-    "GetResponseRules200Response": GetResponseRules200Response,
-    "GetScenarios200Response": GetScenarios200Response,
-    "GetTemplates200Response": GetTemplates200Response,
-    "GetTemplates200ResponseMessagetemplatesInner": GetTemplates200ResponseMessagetemplatesInner,
-    "GetUsers200Response": GetUsers200Response,
-    "GetWorkspaceActivities200Response": GetWorkspaceActivities200Response,
-    "GetWorkspaces200Response": GetWorkspaces200Response,
     "Import": Import,
-    "LinkInner": LinkInner,
-    "ListUsers": ListUsers,
-    "LocationsInner": LocationsInner,
+    "Link": Link,
     "Message": Message,
+    "MessageAttachment": MessageAttachment,
+    "MessageCollection": MessageCollection,
+    "MessageDlr": MessageDlr,
+    "MessageEmail": MessageEmail,
+    "MessageEmailResources": MessageEmailResources,
+    "MessageFeatures": MessageFeatures,
+    "MessageFeaturesAliasOption": MessageFeaturesAliasOption,
+    "MessageFeaturesPushOptions": MessageFeaturesPushOptions,
+    "MessageFeaturesPushOptionsAPNS": MessageFeaturesPushOptionsAPNS,
+    "MessageFeaturesPushOptionsFCM": MessageFeaturesPushOptionsFCM,
+    "MessageResponse": MessageResponse,
     "MessageResponseDetailed": MessageResponseDetailed,
-    "MessageResponseDetailedMessageresponsesInner": MessageResponseDetailedMessageresponsesInner,
-    "MessageResponseDetailedMessageresponsesInnerFrom": MessageResponseDetailedMessageresponsesInnerFrom,
-    "MessageResponseDetailedMessageresponsesInnerResponseMessage": MessageResponseDetailedMessageresponsesInnerResponseMessage,
+    "MessageResponseDetailedStatus": MessageResponseDetailedStatus,
+    "MessageResponseDetailedStatusFrom": MessageResponseDetailedStatusFrom,
+    "MessageResponseDetailedStatusResponseMessage": MessageResponseDetailedStatusResponseMessage,
     "MessageResponseSummary": MessageResponseSummary,
-    "MessageResponseSummaryMessageresponsesInner": MessageResponseSummaryMessageresponsesInner,
+    "MessageResponseSummaryStatus": MessageResponseSummaryStatus,
+    "MessageSocial": MessageSocial,
+    "MessageSocialChannel": MessageSocialChannel,
     "MessageStatus": MessageStatus,
-    "MessageStatusMessageStatusesInner": MessageStatusMessageStatusesInner,
-    "MessageStatusMessageStatusesInnerCategoriesInner": MessageStatusMessageStatusesInnerCategoriesInner,
-    "MessagingoptionsInner": MessagingoptionsInner,
-    "PostAuth200Response": PostAuth200Response,
-    "PostDistributionListsRequest": PostDistributionListsRequest,
+    "MessageStatusChannel": MessageStatusChannel,
+    "MessageStatusSummary": MessageStatusSummary,
+    "MessageStatusSummaryCategory": MessageStatusSummaryCategory,
+    "MessageTemplateShort": MessageTemplateShort,
+    "MessageVoice": MessageVoice,
+    "MessageVoiceResources": MessageVoiceResources,
+    "MessageWeb": MessageWeb,
     "Resource": Resource,
+    "ResourceCollection": ResourceCollection,
     "ResponseRule": ResponseRule,
+    "ResponseRuleCollection": ResponseRuleCollection,
     "ResponseTemplatePattern": ResponseTemplatePattern,
     "Scenario": Scenario,
-    "Social": Social,
-    "SocialSocialInner": SocialSocialInner,
+    "ScenarioCollection": ScenarioCollection,
     "Template": Template,
+    "TemplateCollection": TemplateCollection,
     "User": User,
-    "Voice": Voice,
-    "VoiceResources": VoiceResources,
-    "Web": Web,
+    "UserCollection": UserCollection,
     "Workspace": Workspace,
+    "WorkspaceCollection": WorkspaceCollection,
 }
 
 export class ObjectSerializer {

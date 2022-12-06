@@ -1,13 +1,13 @@
 
 import { RequestFile } from './models';
-import { Dlr, DlrWrite } from './dlr';
-import { Email, EmailWrite } from './email';
-import { Features, FeaturesWrite } from './features';
-import { LinkInner, LinkInnerWrite } from './linkInner';
+import { Link, LinkWrite } from './link';
+import { MessageDlr, MessageDlrWrite } from './messageDlr';
+import { MessageEmail, MessageEmailWrite } from './messageEmail';
+import { MessageFeatures, MessageFeaturesWrite } from './messageFeatures';
+import { MessageSocial, MessageSocialWrite } from './messageSocial';
+import { MessageVoice, MessageVoiceWrite } from './messageVoice';
+import { MessageWeb, MessageWebWrite } from './messageWeb';
 import { Resource, ResourceWrite } from './resource';
-import { Social, SocialWrite } from './social';
-import { Voice, VoiceWrite } from './voice';
-import { Web, WebWrite } from './web';
 
 
 export type MessageWrite = {
@@ -23,15 +23,15 @@ export type MessageWrite = {
     * The SMS body.  The maximum payload size rule applies.  IMPORTANT: The total SMS length is 1570 characters for english text and 800 when UTF-8 characters are used (primarily non-english)  The 1570 length is a combination of subject and body.
     */
     'body'?: string;
-    'email'?: EmailWrite;
-    'voice'?: VoiceWrite;
-    'web'?: WebWrite;
-    'social'?: SocialWrite;
+    'email'?: MessageEmailWrite;
+    'voice'?: MessageVoiceWrite;
+    'web'?: MessageWebWrite;
+    'social'?: MessageSocialWrite;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts).  - `defaultNoReply`: Used to reject any replies to this message. - `noDlr`: Used to specify that DLRs should not be enabled for this message.
     */
     'type'?: 'default' | 'defaultNoReply' | 'noDlr';
-    'features'?: FeaturesWrite;
+    'features'?: MessageFeaturesWrite;
     'resource'?: ResourceWrite;
     /**
     * The identifier for the Message Template. Specification of this attribute is preferred over the `messageTemplateName`, to provide an absolute and non-changing reference to the Message Template.
@@ -85,7 +85,7 @@ export type MessageWrite = {
     * The interval in minutes between each scheduled message repetition.
     */
     'repeatMin'?: number;
-    'dlr'?: DlrWrite;
+    'dlr'?: MessageDlrWrite;
 }
 
 /**
@@ -104,15 +104,15 @@ export class Message {
     * The SMS body.  The maximum payload size rule applies.  IMPORTANT: The total SMS length is 1570 characters for english text and 800 when UTF-8 characters are used (primarily non-english)  The 1570 length is a combination of subject and body.
     */
     'body': string;
-    'email': Email;
-    'voice': Voice;
-    'web': Web;
-    'social': Social;
+    'email': MessageEmail;
+    'voice': MessageVoice;
+    'web': MessageWeb;
+    'social': MessageSocial;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts).  - `defaultNoReply`: Used to reject any replies to this message. - `noDlr`: Used to specify that DLRs should not be enabled for this message.
     */
     'type': 'default' | 'defaultNoReply' | 'noDlr';
-    'features': Features;
+    'features': MessageFeatures;
     'resource': Resource;
     /**
     * The identifier for the Message Template. Specification of this attribute is preferred over the `messageTemplateName`, to provide an absolute and non-changing reference to the Message Template.
@@ -194,11 +194,11 @@ export class Message {
     * The validity of the message subject.
     */
     'validSubject': boolean;
-    'dlr': Dlr;
+    'dlr': MessageDlr;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
@@ -221,22 +221,22 @@ export class Message {
         {
             "name": "email",
             "baseName": "email",
-            "type": "Email"
+            "type": "MessageEmail"
         },
         {
             "name": "voice",
             "baseName": "voice",
-            "type": "Voice"
+            "type": "MessageVoice"
         },
         {
             "name": "web",
             "baseName": "web",
-            "type": "Web"
+            "type": "MessageWeb"
         },
         {
             "name": "social",
             "baseName": "social",
-            "type": "Social"
+            "type": "MessageSocial"
         },
         {
             "name": "type",
@@ -246,7 +246,7 @@ export class Message {
         {
             "name": "features",
             "baseName": "features",
-            "type": "Features"
+            "type": "MessageFeatures"
         },
         {
             "name": "resource",
@@ -356,12 +356,12 @@ export class Message {
         {
             "name": "dlr",
             "baseName": "dlr",
-            "type": "Dlr"
+            "type": "MessageDlr"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {

@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
-import { EventEventFormListInner, EventEventFormListInnerWrite } from './eventEventFormListInner';
-import { LinkInner, LinkInnerWrite } from './linkInner';
+import { EventForm, EventFormWrite } from './eventForm';
+import { Link, LinkWrite } from './link';
 
 
 export type EventWrite = {
@@ -16,7 +16,7 @@ export type EventWrite = {
     /**
     * Event form list
     */
-    'eventFormList'?: Array<EventEventFormListInnerWrite>;
+    'eventFormList'?: Array<EventFormWrite>;
 }
 
 /**
@@ -38,11 +38,11 @@ export class Event {
     /**
     * Event form list
     */
-    'eventFormList': Array<EventEventFormListInner>;
+    'eventFormList': Array<EventForm>;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
@@ -65,12 +65,12 @@ export class Event {
         {
             "name": "eventFormList",
             "baseName": "eventFormList",
-            "type": "Array<EventEventFormListInner>"
+            "type": "Array<EventForm>"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {

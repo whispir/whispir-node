@@ -2,19 +2,11 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
+import { ApiError, ApiErrorWrite } from '../model/apiError';
 import { Callback, CallbackWrite } from '../model/callback';
 import { CallbackCall, CallbackCallWrite } from '../model/callbackCall';
-import { GetCallbackCalls200Response, GetCallbackCalls200ResponseWrite } from '../model/getCallbackCalls200Response';
-import { GetCallbacks200Response, GetCallbacks200ResponseWrite } from '../model/getCallbacks200Response';
-import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
-import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
-import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
-import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
-import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
-import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
-import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
-import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
-import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
+import { CallbackCallCollection, CallbackCallCollectionWrite } from '../model/callbackCallCollection';
+import { CallbackCollection, CallbackCollectionWrite } from '../model/callbackCollection';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -191,7 +183,7 @@ export class CallbacksApi {
         sortOrder?: 'asc' | 'desc',
         sortFields?: string,
         status?: 'SUCCESS' | 'FAILED',
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetCallbackCalls200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & CallbackCallCollection> {
         const {
             callbackId,
             limit = 20,
@@ -258,7 +250,7 @@ export class CallbacksApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetCallbackCalls200Response");
+                            body = ObjectSerializer.deserialize(body, "CallbackCallCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
@@ -284,7 +276,7 @@ export class CallbacksApi {
         offset?: number,
         sortOrder?: 'asc' | 'desc',
         sortFields?: string,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetCallbacks200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & CallbackCollection> {
         const {
             limit = 20,
             offset = 0,
@@ -345,7 +337,7 @@ export class CallbacksApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetCallbacks200Response");
+                            body = ObjectSerializer.deserialize(body, "CallbackCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {

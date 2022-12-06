@@ -1,10 +1,10 @@
 
 import { RequestFile } from './models';
-import { Email, EmailWrite } from './email';
 import { Message, MessageWrite } from './message';
-import { Social, SocialWrite } from './social';
-import { Voice, VoiceWrite } from './voice';
-import { Web, WebWrite } from './web';
+import { MessageEmail, MessageEmailWrite } from './messageEmail';
+import { MessageSocial, MessageSocialWrite } from './messageSocial';
+import { MessageVoice, MessageVoiceWrite } from './messageVoice';
+import { MessageWeb, MessageWebWrite } from './messageWeb';
 
 
 export type ScenarioWrite = {
@@ -37,10 +37,10 @@ export type ScenarioWrite = {
     * Specifies the label for the message (to view during reporting)
     */
     'label'?: string;
-    'email'?: EmailWrite;
-    'voice'?: VoiceWrite;
-    'web'?: WebWrite;
-    'social'?: SocialWrite;
+    'email'?: MessageEmailWrite;
+    'voice'?: MessageVoiceWrite;
+    'web'?: MessageWebWrite;
+    'social'?: MessageSocialWrite;
 }
 
 /**
@@ -76,10 +76,10 @@ export class Scenario {
     * Specifies the label for the message (to view during reporting)
     */
     'label': string;
-    'email': Email;
-    'voice': Voice;
-    'web': Web;
-    'social': Social;
+    'email': MessageEmail;
+    'voice': MessageVoice;
+    'web': MessageWeb;
+    'social': MessageSocial;
 
     static discriminator: string | undefined = undefined;
 
@@ -127,22 +127,22 @@ export class Scenario {
         {
             "name": "email",
             "baseName": "email",
-            "type": "Email"
+            "type": "MessageEmail"
         },
         {
             "name": "voice",
             "baseName": "voice",
-            "type": "Voice"
+            "type": "MessageVoice"
         },
         {
             "name": "web",
             "baseName": "web",
-            "type": "Web"
+            "type": "MessageWeb"
         },
         {
             "name": "social",
             "baseName": "social",
-            "type": "Social"
+            "type": "MessageSocial"
         }    ];
 
     static getAttributeTypeMap() {

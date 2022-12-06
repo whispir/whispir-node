@@ -1,14 +1,14 @@
 
 import { RequestFile } from './models';
-import { LinkInner, LinkInnerWrite } from './linkInner';
-import { MessageStatusMessageStatusesInner, MessageStatusMessageStatusesInnerWrite } from './messageStatusMessageStatusesInner';
+import { Link, LinkWrite } from './link';
+import { MessageStatusSummary, MessageStatusSummaryWrite } from './messageStatusSummary';
 
 
 export type MessageStatusWrite = {
     /**
     * The object defining the message delivery status.
     */
-    'messageStatuses'?: Array<MessageStatusMessageStatusesInnerWrite>;
+    'messageStatuses'?: Array<MessageStatusSummaryWrite>;
     /**
     * Present when `view` is `detailed`.
     */
@@ -22,11 +22,11 @@ export class MessageStatus {
     /**
     * The object defining the message delivery status.
     */
-    'messageStatuses': Set<MessageStatusMessageStatusesInner>;
+    'messageStatuses': Set<MessageStatusSummary>;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
     /**
     * Present when `view` is `detailed`.
     */
@@ -38,12 +38,12 @@ export class MessageStatus {
         {
             "name": "messageStatuses",
             "baseName": "messageStatuses",
-            "type": "Set<MessageStatusMessageStatusesInner>"
+            "type": "Set<MessageStatusSummary>"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         },
         {
             "name": "status",

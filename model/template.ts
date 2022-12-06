@@ -1,12 +1,12 @@
 
 import { RequestFile } from './models';
-import { Dlr, DlrWrite } from './dlr';
-import { Email, EmailWrite } from './email';
-import { Features, FeaturesWrite } from './features';
-import { LinkInner, LinkInnerWrite } from './linkInner';
-import { Social, SocialWrite } from './social';
-import { Voice, VoiceWrite } from './voice';
-import { Web, WebWrite } from './web';
+import { Link, LinkWrite } from './link';
+import { MessageDlr, MessageDlrWrite } from './messageDlr';
+import { MessageEmail, MessageEmailWrite } from './messageEmail';
+import { MessageFeatures, MessageFeaturesWrite } from './messageFeatures';
+import { MessageSocial, MessageSocialWrite } from './messageSocial';
+import { MessageVoice, MessageVoiceWrite } from './messageVoice';
+import { MessageWeb, MessageWebWrite } from './messageWeb';
 
 
 export type TemplateWrite = {
@@ -26,16 +26,16 @@ export type TemplateWrite = {
     * Specifies the content of the SMS message.
     */
     'body': string;
-    'email'?: EmailWrite;
-    'voice'?: VoiceWrite;
-    'web'?: WebWrite;
-    'social'?: SocialWrite;
+    'email'?: MessageEmailWrite;
+    'voice'?: MessageVoiceWrite;
+    'web'?: MessageWebWrite;
+    'social'?: MessageSocialWrite;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts)
     */
     'type'?: string;
-    'features'?: FeaturesWrite;
-    'dlr'?: DlrWrite;
+    'features'?: MessageFeaturesWrite;
+    'dlr'?: MessageDlrWrite;
 }
 
 /**
@@ -62,20 +62,20 @@ export class Template {
     * Specifies the content of the SMS message.
     */
     'body': string;
-    'email': Email;
-    'voice': Voice;
-    'web': Web;
-    'social': Social;
+    'email': MessageEmail;
+    'voice': MessageVoice;
+    'web': MessageWeb;
+    'social': MessageSocial;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts)
     */
     'type': string;
-    'features': Features;
-    'dlr': Dlr;
+    'features': MessageFeatures;
+    'dlr': MessageDlr;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
     /**
     * Information which helps to label related message templates together
     */
@@ -116,22 +116,22 @@ export class Template {
         {
             "name": "email",
             "baseName": "email",
-            "type": "Email"
+            "type": "MessageEmail"
         },
         {
             "name": "voice",
             "baseName": "voice",
-            "type": "Voice"
+            "type": "MessageVoice"
         },
         {
             "name": "web",
             "baseName": "web",
-            "type": "Web"
+            "type": "MessageWeb"
         },
         {
             "name": "social",
             "baseName": "social",
-            "type": "Social"
+            "type": "MessageSocial"
         },
         {
             "name": "type",
@@ -141,17 +141,17 @@ export class Template {
         {
             "name": "features",
             "baseName": "features",
-            "type": "Features"
+            "type": "MessageFeatures"
         },
         {
             "name": "dlr",
             "baseName": "dlr",
-            "type": "Dlr"
+            "type": "MessageDlr"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         },
         {
             "name": "tags",

@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
-import { LinkInner, LinkInnerWrite } from './linkInner';
-import { MessageResponseSummaryMessageresponsesInner, MessageResponseSummaryMessageresponsesInnerWrite } from './messageResponseSummaryMessageresponsesInner';
+import { Link, LinkWrite } from './link';
+import { MessageResponseSummaryStatus, MessageResponseSummaryStatusWrite } from './messageResponseSummaryStatus';
 
 
 export type MessageResponseSummaryWrite = {
@@ -14,11 +14,11 @@ export class MessageResponseSummary {
     /**
     * The message response statuses.
     */
-    'messageresponses': Set<MessageResponseSummaryMessageresponsesInner>;
+    'messageresponses': Set<MessageResponseSummaryStatus>;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
@@ -26,12 +26,12 @@ export class MessageResponseSummary {
         {
             "name": "messageresponses",
             "baseName": "messageresponses",
-            "type": "Set<MessageResponseSummaryMessageresponsesInner>"
+            "type": "Set<MessageResponseSummaryStatus>"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {
