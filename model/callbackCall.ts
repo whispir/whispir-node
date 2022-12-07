@@ -1,9 +1,9 @@
 
 import { RequestFile } from './models';
-import { CallbackCallCallback, CallbackCallCallbackWrite } from './callbackCallCallback';
+import { CallbackCallEvent, CallbackCallEventWrite } from './callbackCallEvent';
 import { CallbackCallFrom, CallbackCallFromWrite } from './callbackCallFrom';
 import { CallbackCallResponseMessage, CallbackCallResponseMessageWrite } from './callbackCallResponseMessage';
-import { LinkInner, LinkInnerWrite } from './linkInner';
+import { Link, LinkWrite } from './link';
 
 
 export type CallbackCallWrite = {
@@ -13,7 +13,7 @@ export type CallbackCallWrite = {
     'status': 'SUCCESS' | 'FAILED';
     'from'?: CallbackCallFromWrite;
     'responseMessage'?: CallbackCallResponseMessageWrite;
-    'callback'?: CallbackCallCallbackWrite;
+    'callback'?: CallbackCallEventWrite;
 }
 
 /**
@@ -38,11 +38,11 @@ export class CallbackCall {
     'messageLocation': string;
     'from': CallbackCallFrom;
     'responseMessage': CallbackCallResponseMessage;
-    'callback': CallbackCallCallback;
+    'callback': CallbackCallEvent;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
@@ -80,12 +80,12 @@ export class CallbackCall {
         {
             "name": "callback",
             "baseName": "callback",
-            "type": "CallbackCallCallback"
+            "type": "CallbackCallEvent"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {

@@ -2,17 +2,9 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { GetDistributionLists200Response, GetDistributionLists200ResponseWrite } from '../model/getDistributionLists200Response';
-import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
-import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
-import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
-import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
-import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
-import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
-import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
-import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
-import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
-import { PostDistributionListsRequest, PostDistributionListsRequestWrite } from '../model/postDistributionListsRequest';
+import { ApiError, ApiErrorWrite } from '../model/apiError';
+import { DistributionList, DistributionListWrite } from '../model/distributionList';
+import { DistributionListCollection, DistributionListCollectionWrite } from '../model/distributionListCollection';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -124,7 +116,7 @@ export class DistributionListsApi {
         sortFields?: string,
         name?: string,
         description?: string,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetDistributionLists200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & DistributionListCollection> {
         const {
             workspaceId,
             limit = 20,
@@ -195,7 +187,7 @@ export class DistributionListsApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetDistributionLists200Response");
+                            body = ObjectSerializer.deserialize(body, "DistributionListCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
@@ -217,7 +209,7 @@ export class DistributionListsApi {
     public async retrieve(params?: {
         workspaceId: string,
         distributionlistId: string,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & PostDistributionListsRequest> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & DistributionList> {
         const {
             workspaceId,
             distributionlistId,
@@ -266,7 +258,7 @@ export class DistributionListsApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "PostDistributionListsRequest");
+                            body = ObjectSerializer.deserialize(body, "DistributionList");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
@@ -284,14 +276,14 @@ export class DistributionListsApi {
      * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
-     * @param postDistributionListsRequest Distribution list object that needs to be create Distribution list
+     * @param distributionList Distribution list object that needs to be create Distribution list
      */
     public async create(params?: {
         workspaceId: string,
-    } & PostDistributionListsRequestWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & PostDistributionListsRequest> {
+    } & DistributionListWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & DistributionList> {
         const {
             workspaceId,
-            ...postDistributionListsRequest
+            ...distributionList
         } = params || {};
 
         const localVarPath = this.host + '/workspaces/{workspaceId}/distributionlists'
@@ -313,7 +305,7 @@ export class DistributionListsApi {
             uri: localVarPath,
             useQuerystring: this.useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(postDistributionListsRequest, "PostDistributionListsRequest")
+            body: ObjectSerializer.serialize(distributionList, "DistributionList")
         };
 
         let authenticationPromise = Promise.resolve();
@@ -338,7 +330,7 @@ export class DistributionListsApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "PostDistributionListsRequest");
+                            body = ObjectSerializer.deserialize(body, "DistributionList");
                             
                             // Special case to extract the resource identifier from the `Location` header.
                             const checkLocation = response?.headers?.location?.match(/\/([^\/]+)\/?$/);
@@ -361,16 +353,16 @@ export class DistributionListsApi {
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param distributionlistId Enter Distribution id.
-     * @param postDistributionListsRequest Distribution list object that needs to be update Distribution list
+     * @param distributionList Distribution list object that needs to be update Distribution list
      */
     public async update(params?: {
         workspaceId: string,
         distributionlistId: string,
-    } & PostDistributionListsRequestWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
+    } & DistributionListWrite, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
         const {
             workspaceId,
             distributionlistId,
-            ...postDistributionListsRequest
+            ...distributionList
         } = params || {};
 
         const localVarPath = this.host + '/workspaces/{workspaceId}/distributionlists/{distributionlistId}'
@@ -393,7 +385,7 @@ export class DistributionListsApi {
             uri: localVarPath,
             useQuerystring: this.useQuerystring,
             json: true,
-            body: ObjectSerializer.serialize(postDistributionListsRequest, "PostDistributionListsRequest")
+            body: ObjectSerializer.serialize(distributionList, "DistributionList")
         };
 
         let authenticationPromise = Promise.resolve();

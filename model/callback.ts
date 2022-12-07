@@ -1,8 +1,8 @@
 
 import { RequestFile } from './models';
 import { CallbackAuth, CallbackAuthWrite } from './callbackAuth';
-import { CallbackCallbacks, CallbackCallbacksWrite } from './callbackCallbacks';
-import { LinkInner, LinkInnerWrite } from './linkInner';
+import { CallbackEvent, CallbackEventWrite } from './callbackEvent';
+import { Link, LinkWrite } from './link';
 
 
 export type CallbackWrite = {
@@ -31,7 +31,7 @@ export type CallbackWrite = {
     * Whispir notify this email address that a callback has failed (only when retries are disabled).   The email will contain the details of the callback content.
     */
     'email': string;
-    'callbacks': CallbackCallbacksWrite;
+    'callbacks': CallbackEventWrite;
 }
 
 /**
@@ -67,11 +67,11 @@ export class Callback {
     * Whispir notify this email address that a callback has failed (only when retries are disabled).   The email will contain the details of the callback content.
     */
     'email': string;
-    'callbacks': CallbackCallbacks;
+    'callbacks': CallbackEvent;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
@@ -119,12 +119,12 @@ export class Callback {
         {
             "name": "callbacks",
             "baseName": "callbacks",
-            "type": "CallbackCallbacks"
+            "type": "CallbackEvent"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {

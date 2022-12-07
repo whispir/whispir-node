@@ -2,17 +2,9 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
-import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
-import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
-import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
-import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
-import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
-import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
-import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
-import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
-import { GetScenarios200Response, GetScenarios200ResponseWrite } from '../model/getScenarios200Response';
+import { ApiError, ApiErrorWrite } from '../model/apiError';
 import { Scenario, ScenarioWrite } from '../model/scenario';
+import { ScenarioCollection, ScenarioCollectionWrite } from '../model/scenarioCollection';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -120,7 +112,7 @@ export class ScenariosApi {
         offset?: number,
         sortOrder?: 'asc' | 'desc',
         sortFields?: string,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetScenarios200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & ScenarioCollection> {
         const {
             workspaceId,
             limit = 20,
@@ -183,7 +175,7 @@ export class ScenariosApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetScenarios200Response");
+                            body = ObjectSerializer.deserialize(body, "ScenarioCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
@@ -349,7 +341,7 @@ export class ScenariosApi {
      * @param accept Application specific mime-type.
      * @param scenarioId Enter Scenarios id.
      */
-    public async run(params?: {
+    public async createRun(params?: {
         workspaceId: string,
         scenarioId: string,
     }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {

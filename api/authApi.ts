@@ -2,16 +2,8 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
-import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
-import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
-import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
-import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
-import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
-import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
-import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
-import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
-import { PostAuth200Response, PostAuth200ResponseWrite } from '../model/postAuth200Response';
+import { ApiError, ApiErrorWrite } from '../model/apiError';
+import { Auth, AuthWrite } from '../model/auth';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -40,7 +32,7 @@ export class AuthApi {
      * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type
      */
-    public async verify(params?: {
+    public async retrieveVerification(params?: {
     }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage }> {
         const {
         } = params || {};
@@ -104,7 +96,7 @@ export class AuthApi {
      * @param accept Application specific mime-type
      */
     public async create(params?: {
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & PostAuth200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage, id: string } & Auth> {
         const {
         } = params || {};
 
@@ -150,7 +142,7 @@ export class AuthApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "PostAuth200Response");
+                            body = ObjectSerializer.deserialize(body, "Auth");
                             
                             // Special case to extract the resource identifier from the `Location` header.
                             const checkLocation = response?.headers?.location?.match(/\/([^\/]+)\/?$/);

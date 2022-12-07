@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
-import { LinkInner, LinkInnerWrite } from './linkInner';
-import { MessageResponseDetailedMessageresponsesInner, MessageResponseDetailedMessageresponsesInnerWrite } from './messageResponseDetailedMessageresponsesInner';
+import { Link, LinkWrite } from './link';
+import { MessageResponseDetailedStatusFrom, MessageResponseDetailedStatusFromWrite } from './messageResponseDetailedStatusFrom';
 
 
 export type MessageResponseDetailedWrite = {
@@ -14,11 +14,11 @@ export class MessageResponseDetailed {
     /**
     * The message response statuses.
     */
-    'messageresponses': Set<MessageResponseDetailedMessageresponsesInner>;
+    'messageresponses': Set<MessageResponseDetailedStatusFrom>;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
     /**
     * The message response pagination status.
     */
@@ -30,12 +30,12 @@ export class MessageResponseDetailed {
         {
             "name": "messageresponses",
             "baseName": "messageresponses",
-            "type": "Set<MessageResponseDetailedMessageresponsesInner>"
+            "type": "Set<MessageResponseDetailedStatusFrom>"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         },
         {
             "name": "status",

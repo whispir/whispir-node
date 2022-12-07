@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
-import { CustomListCustomlabellistsInner, CustomListCustomlabellistsInnerWrite } from './customListCustomlabellistsInner';
-import { LinkInner, LinkInnerWrite } from './linkInner';
+import { CustomListItem, CustomListItemWrite } from './customListItem';
+import { Link, LinkWrite } from './link';
 
 
 export type CustomListWrite = {
@@ -38,11 +38,11 @@ export class CustomList {
     /**
     * Contains the individual items that make up this list
     */
-    'customlabellists': Array<CustomListCustomlabellistsInner>;
+    'customlabellists': Array<CustomListItem>;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
@@ -80,12 +80,12 @@ export class CustomList {
         {
             "name": "customlabellists",
             "baseName": "customlabellists",
-            "type": "Array<CustomListCustomlabellistsInner>"
+            "type": "Array<CustomListItem>"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {

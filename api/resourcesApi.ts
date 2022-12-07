@@ -2,17 +2,9 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
-import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
-import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
-import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
-import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
-import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
-import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
-import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
-import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
-import { GetResources200Response, GetResources200ResponseWrite } from '../model/getResources200Response';
+import { ApiError, ApiErrorWrite } from '../model/apiError';
 import { Resource, ResourceWrite } from '../model/resource';
+import { ResourceCollection, ResourceCollectionWrite } from '../model/resourceCollection';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -124,7 +116,7 @@ export class ResourcesApi {
         sortFields?: string,
         scope?: 'private' | 'public',
         name?: string,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetResources200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & ResourceCollection> {
         const {
             workspaceId,
             limit = 20,
@@ -195,7 +187,7 @@ export class ResourcesApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetResources200Response");
+                            body = ObjectSerializer.deserialize(body, "ResourceCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {

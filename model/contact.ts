@@ -1,8 +1,8 @@
 
 import { RequestFile } from './models';
-import { LinkInner, LinkInnerWrite } from './linkInner';
-import { LocationsInner, LocationsInnerWrite } from './locationsInner';
-import { MessagingoptionsInner, MessagingoptionsInnerWrite } from './messagingoptionsInner';
+import { ContactLocation, ContactLocationWrite } from './contactLocation';
+import { ContactMessagingOption, ContactMessagingOptionWrite } from './contactMessagingOption';
+import { Link, LinkWrite } from './link';
 
 
 export type ContactWrite = {
@@ -237,11 +237,11 @@ export type ContactWrite = {
     /**
     * The locations for the contact.
     */
-    'locations'?: Array<LocationsInnerWrite>;
+    'locations'?: Array<ContactLocationWrite>;
     /**
     * The message channel options for the contact.
     */
-    'messagingoptions'?: Array<MessagingoptionsInnerWrite>;
+    'messagingoptions'?: Array<ContactMessagingOptionWrite>;
 }
 
 /**
@@ -479,11 +479,11 @@ export class Contact {
     /**
     * The locations for the contact.
     */
-    'locations': Array<LocationsInner>;
+    'locations': Array<ContactLocation>;
     /**
     * The message channel options for the contact.
     */
-    'messagingoptions': Array<MessagingoptionsInner>;
+    'messagingoptions': Array<ContactMessagingOption>;
     /**
     * - PROJECT - for Contacts stored in a User-defined workspace - COMPANY - for Contacts stored in the default workspace
     */
@@ -495,11 +495,11 @@ export class Contact {
     /**
     * Specifies the devices associated to this contact. See Contact Devices for more details about it
     */
-    'devices': Array<any>;
+    'devices': Array<object>;
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
     /**
     * Last Modified data and time
     */
@@ -796,12 +796,12 @@ export class Contact {
         {
             "name": "locations",
             "baseName": "locations",
-            "type": "Array<LocationsInner>"
+            "type": "Array<ContactLocation>"
         },
         {
             "name": "messagingoptions",
             "baseName": "messagingoptions",
-            "type": "Array<MessagingoptionsInner>"
+            "type": "Array<ContactMessagingOption>"
         },
         {
             "name": "type",
@@ -816,12 +816,12 @@ export class Contact {
         {
             "name": "devices",
             "baseName": "devices",
-            "type": "Array<any>"
+            "type": "Array<object>"
         },
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         },
         {
             "name": "lastModifiedTime",

@@ -1,6 +1,6 @@
 
 import { RequestFile } from './models';
-import { LinkInner, LinkInnerWrite } from './linkInner';
+import { Link, LinkWrite } from './link';
 
 
 export type UserWrite = {
@@ -497,7 +497,7 @@ export class User {
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
     */
-    'link': Array<LinkInner>;
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
@@ -815,7 +815,7 @@ export class User {
         {
             "name": "link",
             "baseName": "link",
-            "type": "Array<LinkInner>"
+            "type": "Array<Link>"
         }    ];
 
     static getAttributeTypeMap() {

@@ -2,17 +2,9 @@ import localVarRequest from 'request';
 import http from 'http';
 
 /* tslint:disable:no-unused-locals */
-import { GetMessages400Response, GetMessages400ResponseWrite } from '../model/getMessages400Response';
-import { GetMessages401Response, GetMessages401ResponseWrite } from '../model/getMessages401Response';
-import { GetMessages403Response, GetMessages403ResponseWrite } from '../model/getMessages403Response';
-import { GetMessages404Response, GetMessages404ResponseWrite } from '../model/getMessages404Response';
-import { GetMessages405Response, GetMessages405ResponseWrite } from '../model/getMessages405Response';
-import { GetMessages415Response, GetMessages415ResponseWrite } from '../model/getMessages415Response';
-import { GetMessages422Response, GetMessages422ResponseWrite } from '../model/getMessages422Response';
-import { GetMessages500Response, GetMessages500ResponseWrite } from '../model/getMessages500Response';
-import { GetMessages501Response, GetMessages501ResponseWrite } from '../model/getMessages501Response';
-import { GetUsers200Response, GetUsers200ResponseWrite } from '../model/getUsers200Response';
+import { ApiError, ApiErrorWrite } from '../model/apiError';
 import { User, UserWrite } from '../model/user';
+import { UserCollection, UserCollectionWrite } from '../model/userCollection';
 import { ObjectSerializer, Interceptor } from '../model/models';
 import { HttpError, RequestFile, ApiConfig, RequestOptions } from './apis';
 
@@ -184,7 +176,7 @@ export class UsersApi {
         sortFields?: string,
         limit?: number,
         offset?: number,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetUsers200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & UserCollection> {
         const {
             fieldname,
             sortOrder,
@@ -249,7 +241,7 @@ export class UsersApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetUsers200Response");
+                            body = ObjectSerializer.deserialize(body, "UserCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
@@ -344,7 +336,7 @@ export class UsersApi {
         sortFields?: string,
         limit?: number,
         offset?: number,
-    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & GetUsers200Response> {
+    }, options?: RequestOptions): Promise<{ lastResponse: http.IncomingMessage } & UserCollection> {
         const {
             workspaceId,
             sortOrder,
@@ -407,7 +399,7 @@ export class UsersApi {
                         reject(error);
                     } else {
                         if (response.statusCode && response.statusCode >= 200 && response.statusCode <= 299) {
-                            body = ObjectSerializer.deserialize(body, "GetUsers200Response");
+                            body = ObjectSerializer.deserialize(body, "UserCollection");
                             
                             resolve({ lastResponse: response.toJSON(), ...body });
                         } else {
