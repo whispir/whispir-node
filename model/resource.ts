@@ -43,7 +43,7 @@ export class Resource {
     */
     'mimeType': string;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 

@@ -1,37 +1,26 @@
 
 import { RequestFile } from './models';
 import { Link, LinkWrite } from './link';
+import { User, UserWrite } from './user';
 
 
 export type UserCollectionWrite = {
 }
 
 /**
-* List users response object
+* List users object
 */
 export class UserCollection {
     /**
-    * The ID of the user.
+    * List of retrieved users
     */
-    'id': string;
+    'users': Array<User>;
     /**
-    * The first name of the user.
+    * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no users available.
     */
-    'firstName': string;
+    'status': string;
     /**
-    * The last name of the user.
-    */
-    'lastName': string;
-    /**
-    * The company name of the user.
-    */
-    'companyName': string;
-    /**
-    * The primary work email address of the user.
-    */
-    'workEmailAddress1': string;
-    /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -39,28 +28,13 @@ export class UserCollection {
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "string"
+            "name": "users",
+            "baseName": "users",
+            "type": "Array<User>"
         },
         {
-            "name": "firstName",
-            "baseName": "firstName",
-            "type": "string"
-        },
-        {
-            "name": "lastName",
-            "baseName": "lastName",
-            "type": "string"
-        },
-        {
-            "name": "companyName",
-            "baseName": "companyName",
-            "type": "string"
-        },
-        {
-            "name": "workEmailAddress1",
-            "baseName": "workEmailAddress1",
+            "name": "status",
+            "baseName": "status",
             "type": "string"
         },
         {

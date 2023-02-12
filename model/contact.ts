@@ -1,8 +1,8 @@
 
 import { RequestFile } from './models';
-import { ContactLocation, ContactLocationWrite } from './contactLocation';
-import { ContactMessagingOption, ContactMessagingOptionWrite } from './contactMessagingOption';
 import { Link, LinkWrite } from './link';
+import { Location, LocationWrite } from './location';
+import { MessagingOption, MessagingOptionWrite } from './messagingOption';
 
 
 export type ContactWrite = {
@@ -237,11 +237,11 @@ export type ContactWrite = {
     /**
     * The locations for the contact.
     */
-    'locations'?: Array<ContactLocationWrite>;
+    'locations'?: Array<LocationWrite>;
     /**
     * The message channel options for the contact.
     */
-    'messagingoptions'?: Array<ContactMessagingOptionWrite>;
+    'messagingoptions'?: Array<MessagingOptionWrite>;
 }
 
 /**
@@ -479,11 +479,11 @@ export class Contact {
     /**
     * The locations for the contact.
     */
-    'locations': Array<ContactLocation>;
+    'locations': Array<Location>;
     /**
     * The message channel options for the contact.
     */
-    'messagingoptions': Array<ContactMessagingOption>;
+    'messagingoptions': Array<MessagingOption>;
     /**
     * - PROJECT - for Contacts stored in a User-defined workspace - COMPANY - for Contacts stored in the default workspace
     */
@@ -497,7 +497,7 @@ export class Contact {
     */
     'devices': Array<object>;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
     /**
@@ -796,12 +796,12 @@ export class Contact {
         {
             "name": "locations",
             "baseName": "locations",
-            "type": "Array<ContactLocation>"
+            "type": "Array<Location>"
         },
         {
             "name": "messagingoptions",
             "baseName": "messagingoptions",
-            "type": "Array<ContactMessagingOption>"
+            "type": "Array<MessagingOption>"
         },
         {
             "name": "type",

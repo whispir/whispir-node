@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
-import { CustomListItem, CustomListItemWrite } from './customListItem';
 import { Link, LinkWrite } from './link';
+import { ListLabel, ListLabelWrite } from './listLabel';
 
 
 export type CustomListWrite = {
@@ -38,9 +38,9 @@ export class CustomList {
     /**
     * Contains the individual items that make up this list
     */
-    'customlabellists': Array<CustomListItem>;
+    'customlabellists': Array<ListLabel>;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -80,7 +80,7 @@ export class CustomList {
         {
             "name": "customlabellists",
             "baseName": "customlabellists",
-            "type": "Array<CustomListItem>"
+            "type": "Array<ListLabel>"
         },
         {
             "name": "link",

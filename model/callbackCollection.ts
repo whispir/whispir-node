@@ -1,6 +1,6 @@
 
 import { RequestFile } from './models';
-import { CallbackShort, CallbackShortWrite } from './callbackShort';
+import { Callback, CallbackWrite } from './callback';
 import { Link, LinkWrite } from './link';
 
 
@@ -18,9 +18,9 @@ export class CallbackCollection {
     /**
     * A list of callbacks
     */
-    'callbacks': Set<CallbackShort>;
+    'callbacks': Set<Callback>;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -35,7 +35,7 @@ export class CallbackCollection {
         {
             "name": "callbacks",
             "baseName": "callbacks",
-            "type": "Set<CallbackShort>"
+            "type": "Set<Callback>"
         },
         {
             "name": "link",
