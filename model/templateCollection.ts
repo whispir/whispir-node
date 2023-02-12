@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
 import { Link, LinkWrite } from './link';
-import { MessageTemplateShort, MessageTemplateShortWrite } from './messageTemplateShort';
+import { Template, TemplateWrite } from './template';
 
 
 export type TemplateCollectionWrite = {
@@ -18,9 +18,9 @@ export class TemplateCollection {
     /**
     * Specifies the name of the message template
     */
-    'messagetemplates': Set<MessageTemplateShort>;
+    'messagetemplates': Set<Template>;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -35,7 +35,7 @@ export class TemplateCollection {
         {
             "name": "messagetemplates",
             "baseName": "messagetemplates",
-            "type": "Set<MessageTemplateShort>"
+            "type": "Set<Template>"
         },
         {
             "name": "link",

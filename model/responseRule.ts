@@ -1,6 +1,6 @@
 
 import { RequestFile } from './models';
-import { ResponseTemplatePattern, ResponseTemplatePatternWrite } from './responseTemplatePattern';
+import { TemplatePattern, TemplatePatternWrite } from './templatePattern';
 
 
 export type ResponseRuleWrite = {
@@ -12,7 +12,7 @@ export type ResponseRuleWrite = {
     * Specifies the description of the response rule for others to understand its purpose
     */
     'description'?: string;
-    'responseTemplatePatterns': ResponseTemplatePatternWrite;
+    'responseTemplatePatterns': TemplatePatternWrite;
 }
 
 /**
@@ -27,7 +27,7 @@ export class ResponseRule {
     * Specifies the description of the response rule for others to understand its purpose
     */
     'description': string;
-    'responseTemplatePatterns': ResponseTemplatePattern;
+    'responseTemplatePatterns': TemplatePattern;
 
     static discriminator: string | undefined = undefined;
 
@@ -45,7 +45,7 @@ export class ResponseRule {
         {
             "name": "responseTemplatePatterns",
             "baseName": "responseTemplatePatterns",
-            "type": "ResponseTemplatePattern"
+            "type": "TemplatePattern"
         }    ];
 
     static getAttributeTypeMap() {

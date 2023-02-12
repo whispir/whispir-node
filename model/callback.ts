@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
 import { CallbackAuth, CallbackAuthWrite } from './callbackAuth';
-import { CallbackEvent, CallbackEventWrite } from './callbackEvent';
+import { CallbackOptions, CallbackOptionsWrite } from './callbackOptions';
 import { Link, LinkWrite } from './link';
 
 
@@ -31,7 +31,7 @@ export type CallbackWrite = {
     * Whispir notify this email address that a callback has failed (only when retries are disabled).   The email will contain the details of the callback content.
     */
     'email': string;
-    'callbacks': CallbackEventWrite;
+    'callbacks': CallbackOptionsWrite;
 }
 
 /**
@@ -67,9 +67,9 @@ export class Callback {
     * Whispir notify this email address that a callback has failed (only when retries are disabled).   The email will contain the details of the callback content.
     */
     'email': string;
-    'callbacks': CallbackEvent;
+    'callbacks': CallbackOptions;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -119,7 +119,7 @@ export class Callback {
         {
             "name": "callbacks",
             "baseName": "callbacks",
-            "type": "CallbackEvent"
+            "type": "CallbackOptions"
         },
         {
             "name": "link",

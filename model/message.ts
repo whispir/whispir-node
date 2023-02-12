@@ -1,13 +1,13 @@
 
 import { RequestFile } from './models';
+import { DeliveryReceipt, DeliveryReceiptWrite } from './deliveryReceipt';
+import { Email, EmailWrite } from './email';
+import { Features, FeaturesWrite } from './features';
 import { Link, LinkWrite } from './link';
-import { MessageDlr, MessageDlrWrite } from './messageDlr';
-import { MessageEmail, MessageEmailWrite } from './messageEmail';
-import { MessageFeatures, MessageFeaturesWrite } from './messageFeatures';
-import { MessageSocial, MessageSocialWrite } from './messageSocial';
-import { MessageVoice, MessageVoiceWrite } from './messageVoice';
-import { MessageWeb, MessageWebWrite } from './messageWeb';
 import { Resource, ResourceWrite } from './resource';
+import { Social, SocialWrite } from './social';
+import { Voice, VoiceWrite } from './voice';
+import { Web, WebWrite } from './web';
 
 
 export type MessageWrite = {
@@ -23,15 +23,15 @@ export type MessageWrite = {
     * The SMS body.  The maximum payload size rule applies.  IMPORTANT: The total SMS length is 1570 characters for english text and 800 when UTF-8 characters are used (primarily non-english)  The 1570 length is a combination of subject and body.
     */
     'body'?: string;
-    'email'?: MessageEmailWrite;
-    'voice'?: MessageVoiceWrite;
-    'web'?: MessageWebWrite;
-    'social'?: MessageSocialWrite;
+    'email'?: EmailWrite;
+    'voice'?: VoiceWrite;
+    'web'?: WebWrite;
+    'social'?: SocialWrite;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts).  - `defaultNoReply`: Used to reject any replies to this message. - `noDlr`: Used to specify that DLRs should not be enabled for this message.
     */
     'type'?: 'default' | 'defaultNoReply' | 'noDlr';
-    'features'?: MessageFeaturesWrite;
+    'features'?: FeaturesWrite;
     'resource'?: ResourceWrite;
     /**
     * The identifier for the Message Template. Specification of this attribute is preferred over the `messageTemplateName`, to provide an absolute and non-changing reference to the Message Template.
@@ -85,7 +85,7 @@ export type MessageWrite = {
     * The interval in minutes between each scheduled message repetition.
     */
     'repeatMin'?: number;
-    'dlr'?: MessageDlrWrite;
+    'dlr'?: DeliveryReceiptWrite;
 }
 
 /**
@@ -104,15 +104,15 @@ export class Message {
     * The SMS body.  The maximum payload size rule applies.  IMPORTANT: The total SMS length is 1570 characters for english text and 800 when UTF-8 characters are used (primarily non-english)  The 1570 length is a combination of subject and body.
     */
     'body': string;
-    'email': MessageEmail;
-    'voice': MessageVoice;
-    'web': MessageWeb;
-    'social': MessageSocial;
+    'email': Email;
+    'voice': Voice;
+    'web': Web;
+    'social': Social;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts).  - `defaultNoReply`: Used to reject any replies to this message. - `noDlr`: Used to specify that DLRs should not be enabled for this message.
     */
     'type': 'default' | 'defaultNoReply' | 'noDlr';
-    'features': MessageFeatures;
+    'features': Features;
     'resource': Resource;
     /**
     * The identifier for the Message Template. Specification of this attribute is preferred over the `messageTemplateName`, to provide an absolute and non-changing reference to the Message Template.
@@ -194,9 +194,9 @@ export class Message {
     * The validity of the message subject.
     */
     'validSubject': boolean;
-    'dlr': MessageDlr;
+    'dlr': DeliveryReceipt;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -221,22 +221,22 @@ export class Message {
         {
             "name": "email",
             "baseName": "email",
-            "type": "MessageEmail"
+            "type": "Email"
         },
         {
             "name": "voice",
             "baseName": "voice",
-            "type": "MessageVoice"
+            "type": "Voice"
         },
         {
             "name": "web",
             "baseName": "web",
-            "type": "MessageWeb"
+            "type": "Web"
         },
         {
             "name": "social",
             "baseName": "social",
-            "type": "MessageSocial"
+            "type": "Social"
         },
         {
             "name": "type",
@@ -246,7 +246,7 @@ export class Message {
         {
             "name": "features",
             "baseName": "features",
-            "type": "MessageFeatures"
+            "type": "Features"
         },
         {
             "name": "resource",
@@ -356,7 +356,7 @@ export class Message {
         {
             "name": "dlr",
             "baseName": "dlr",
-            "type": "MessageDlr"
+            "type": "DeliveryReceipt"
         },
         {
             "name": "link",

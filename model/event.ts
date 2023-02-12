@@ -1,6 +1,6 @@
 
 import { RequestFile } from './models';
-import { EventForm, EventFormWrite } from './eventForm';
+import { Form, FormWrite } from './form';
 import { Link, LinkWrite } from './link';
 
 
@@ -16,7 +16,7 @@ export type EventWrite = {
     /**
     * Event form list
     */
-    'eventFormList'?: Array<EventFormWrite>;
+    'eventFormList'?: Array<FormWrite>;
 }
 
 /**
@@ -38,9 +38,9 @@ export class Event {
     /**
     * Event form list
     */
-    'eventFormList': Array<EventForm>;
+    'eventFormList': Array<Form>;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -65,7 +65,7 @@ export class Event {
         {
             "name": "eventFormList",
             "baseName": "eventFormList",
-            "type": "Array<EventForm>"
+            "type": "Array<Form>"
         },
         {
             "name": "link",

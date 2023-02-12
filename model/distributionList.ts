@@ -1,8 +1,6 @@
 
 import { RequestFile } from './models';
-import { DistributionListDetails, DistributionListDetailsWrite } from './distributionListDetails';
-import { DistributionListDynamic, DistributionListDynamicWrite } from './distributionListDynamic';
-import { DistributionListStatic, DistributionListStaticWrite } from './distributionListStatic';
+import { DistributionListContacts, DistributionListContactsWrite } from './distributionListContacts';
 import { Link, LinkWrite } from './link';
 
 
@@ -22,11 +20,11 @@ export type DistributionListWrite = {
     /**
     * Allows you to specify the access type for this DL  - Open: anyone can subscribe to this distribution list via the Whispir Contact Portal - ByApproval: anyone can subscribe using the Whispir Contact Portal. However, they are not officially on the list until their access is approved - Restricted: the distribution list is not visible in the Whispir Contact Portal
     */
-    'access': string;
+    'access'?: string;
     /**
     * Allows you to specify the visibility for this DL  - Public: Any user or active contact in any workspace can map themselves to this DL in the Whispir Contact Portal - Private: Only users or active contacts in the current workspace can map themselves to this DL
     */
-    'visibility': string;
+    'visibility'?: string;
     /**
     * Comma separated list of Contacts to be associated to this DL. This information can be provided at the time of the DL creation or updated later via a PUT request
     */
@@ -42,19 +40,15 @@ export type DistributionListWrite = {
     /**
     * Allows you to specify the type for this DL  - Static: The contacts on the list don’t change unless you manually add or remove them (unlike a dynamic DL)  NOTE: \"static\" is also the default value for this parameter when this field is omitted
     */
-    'type': string;
+    'type'?: 'static' | 'dynamic';
     /**
-    * The value is currently strictly limited to \"contact\"
+    * Present when `type` is `dynamic`.  The array that specify the rules that should be applied on the entityType values to pick the appropriate contacts at the moment of usage [not creation]  Each rule is an object with 3 keys in it. At least one rule must be specified when creating a Dynamic Distribution List  - ruleFilter: contains any of the contact profile elements that are available for searching. For example, division, department, role. More details on the values for this field can be found below [required] - ruleFilterActualName: Contains the matching string to be compared for the DL. More details on the the values for this field can be found below [required] - ruleContent: Contains the matching string to be compared with the contact element for being a part of the DL [required]
     */
-    'entityType': string;
-    /**
-    * The array that specify the rules that should be applied on the entityType values to pick the appropriate contacts at the moment of usage [not creation]  Each rule is an object with 3 keys in it. At least one rule must be specified when creating a Dynamic Distribution List  - ruleFilter: contains any of the contact profile elements that are available for searching. For example, division, department, role. More details on the values for this field can be found below [required] - ruleFilterActualName: Contains the matching string to be compared for the DL. More details on the the values for this field can be found below [required] - ruleContent: Contains the matching string to be compared with the contact element for being a part of the DL [required]
-    */
-    'rules': string;
+    'rules'?: string;
 }
 
 /**
-* Either a static or dynamic distribution list
+* Static Distribution Lists are manually managed and maintained. They can include Contacts, Users and other Distribution Lists
 */
 export class DistributionList {
     /**
@@ -86,29 +80,25 @@ export class DistributionList {
     */
     'visibility': string;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
-    */
-    'link': Array<Link>;
-    /**
     * Comma separated list of Distribution List IDs that can be nested under this DL. This information can be provided at the time of the DL creation or later updated via a PUT request
     */
     'distListIds': string;
     /**
     * Details of Contacts included in the Distribution List
     */
-    'distlistdetails': Array<DistributionListDetails>;
+    'distlistdetails': Array<DistributionListContacts>;
     /**
-    * The value is currently strictly limited to \"contact\"
-    */
-    'entityType': string;
-    /**
-    * The array that specify the rules that should be applied on the entityType values to pick the appropriate contacts at the moment of usage [not creation]  Each rule is an object with 3 keys in it. At least one rule must be specified when creating a Dynamic Distribution List  - ruleFilter: contains any of the contact profile elements that are available for searching. For example, division, department, role. More details on the values for this field can be found below [required] - ruleFilterActualName: Contains the matching string to be compared for the DL. More details on the the values for this field can be found below [required] - ruleContent: Contains the matching string to be compared with the contact element for being a part of the DL [required]
+    * Present when `type` is `dynamic`.  The array that specify the rules that should be applied on the entityType values to pick the appropriate contacts at the moment of usage [not creation]  Each rule is an object with 3 keys in it. At least one rule must be specified when creating a Dynamic Distribution List  - ruleFilter: contains any of the contact profile elements that are available for searching. For example, division, department, role. More details on the values for this field can be found below [required] - ruleFilterActualName: Contains the matching string to be compared for the DL. More details on the the values for this field can be found below [required] - ruleContent: Contains the matching string to be compared with the contact element for being a part of the DL [required]
     */
     'rules': string;
+    /**
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
+    */
+    'link': Array<Link>;
 
     static discriminator: string | undefined = undefined;
 
-    static attributeTypeMap: Array<{ name: string, baseName: string, type: string }> = [
+    static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "id",
             "baseName": "id",
@@ -145,11 +135,6 @@ export class DistributionList {
             "type": "string"
         },
         {
-            "name": "link",
-            "baseName": "link",
-            "type": "Array<Link>"
-        },
-        {
             "name": "contactIds",
             "baseName": "contactIds",
             "type": "string"
@@ -172,18 +157,18 @@ export class DistributionList {
         {
             "name": "distlistdetails",
             "baseName": "distlistdetails",
-            "type": "Array<DistributionListDetails>"
-        },
-        {
-            "name": "entityType",
-            "baseName": "entityType",
-            "type": "string"
+            "type": "Array<DistributionListContacts>"
         },
         {
             "name": "rules",
             "baseName": "rules",
             "type": "string"
-        }];
+        },
+        {
+            "name": "link",
+            "baseName": "link",
+            "type": "Array<Link>"
+        }    ];
 
     static getAttributeTypeMap() {
         return DistributionList.attributeTypeMap;

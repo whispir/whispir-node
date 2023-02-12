@@ -1,9 +1,9 @@
 
 import { RequestFile } from './models';
-import { CallbackCallEvent, CallbackCallEventWrite } from './callbackCallEvent';
-import { CallbackCallFrom, CallbackCallFromWrite } from './callbackCallFrom';
-import { CallbackCallResponseMessage, CallbackCallResponseMessageWrite } from './callbackCallResponseMessage';
+import { CallbackInvocation, CallbackInvocationWrite } from './callbackInvocation';
 import { Link, LinkWrite } from './link';
+import { Responder, ResponderWrite } from './responder';
+import { Response, ResponseWrite } from './response';
 
 
 export type CallbackCallWrite = {
@@ -11,9 +11,9 @@ export type CallbackCallWrite = {
     * The status of this particular callback attempt.
     */
     'status': 'SUCCESS' | 'FAILED';
-    'from'?: CallbackCallFromWrite;
-    'responseMessage'?: CallbackCallResponseMessageWrite;
-    'callback'?: CallbackCallEventWrite;
+    'from'?: ResponderWrite;
+    'responseMessage'?: ResponseWrite;
+    'callback'?: CallbackInvocationWrite;
 }
 
 /**
@@ -36,11 +36,11 @@ export class CallbackCall {
     * The fully qualified URL to the original message within Whispir
     */
     'messageLocation': string;
-    'from': CallbackCallFrom;
-    'responseMessage': CallbackCallResponseMessage;
-    'callback': CallbackCallEvent;
+    'from': Responder;
+    'responseMessage': Response;
+    'callback': CallbackInvocation;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -70,17 +70,17 @@ export class CallbackCall {
         {
             "name": "from",
             "baseName": "from",
-            "type": "CallbackCallFrom"
+            "type": "Responder"
         },
         {
             "name": "responseMessage",
             "baseName": "responseMessage",
-            "type": "CallbackCallResponseMessage"
+            "type": "Response"
         },
         {
             "name": "callback",
             "baseName": "callback",
-            "type": "CallbackCallEvent"
+            "type": "CallbackInvocation"
         },
         {
             "name": "link",

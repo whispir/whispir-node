@@ -1,7 +1,7 @@
 
 import { RequestFile } from './models';
 import { Link, LinkWrite } from './link';
-import { MessageResponseSummaryStatus, MessageResponseSummaryStatusWrite } from './messageResponseSummaryStatus';
+import { ResponseStatusSummary, ResponseStatusSummaryWrite } from './responseStatusSummary';
 
 
 export type MessageResponseSummaryWrite = {
@@ -14,9 +14,9 @@ export class MessageResponseSummary {
     /**
     * The message response statuses.
     */
-    'messageresponses': Set<MessageResponseSummaryStatus>;
+    'messageresponses': Set<ResponseStatusSummary>;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
 
@@ -26,7 +26,7 @@ export class MessageResponseSummary {
         {
             "name": "messageresponses",
             "baseName": "messageresponses",
-            "type": "Set<MessageResponseSummaryStatus>"
+            "type": "Set<ResponseStatusSummary>"
         },
         {
             "name": "link",
