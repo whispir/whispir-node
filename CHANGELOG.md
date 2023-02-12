@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/whispir/whispir-node/compare/v1.0.3...v1.1.0) (2023-02-12)
+
+
+### Features
+
+* Release Whispir OpenAPI specification v1.2.1 ([#37](https://github.com/whispir/whispir-node/issues/37)) ([af6576d](https://github.com/whispir/whispir-node/commit/af6576d9b7b1297a2ba2a46028495f19094e29b1))
+
+
+### Bug Fixes
+
+* Release Whispir OpenAPI specification v1.1.3 ([#34](https://github.com/whispir/whispir-node/issues/34)) ([04585ab](https://github.com/whispir/whispir-node/commit/04585ab44a83749b8776dd7d1b51a0396e0bc6be))
+
 ## [1.0.3](https://github.com/whispir/whispir-node/compare/v1.0.2...v1.0.3) (2022-11-22)
 
 
