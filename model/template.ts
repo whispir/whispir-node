@@ -1,12 +1,12 @@
 
 import { RequestFile } from './models';
+import { DeliveryReceipt, DeliveryReceiptWrite } from './deliveryReceipt';
+import { Email, EmailWrite } from './email';
+import { Features, FeaturesWrite } from './features';
 import { Link, LinkWrite } from './link';
-import { MessageDlr, MessageDlrWrite } from './messageDlr';
-import { MessageEmail, MessageEmailWrite } from './messageEmail';
-import { MessageFeatures, MessageFeaturesWrite } from './messageFeatures';
-import { MessageSocial, MessageSocialWrite } from './messageSocial';
-import { MessageVoice, MessageVoiceWrite } from './messageVoice';
-import { MessageWeb, MessageWebWrite } from './messageWeb';
+import { Social, SocialWrite } from './social';
+import { Voice, VoiceWrite } from './voice';
+import { Web, WebWrite } from './web';
 
 
 export type TemplateWrite = {
@@ -26,16 +26,16 @@ export type TemplateWrite = {
     * Specifies the content of the SMS message.
     */
     'body': string;
-    'email'?: MessageEmailWrite;
-    'voice'?: MessageVoiceWrite;
-    'web'?: MessageWebWrite;
-    'social'?: MessageSocialWrite;
+    'email'?: EmailWrite;
+    'voice'?: VoiceWrite;
+    'web'?: WebWrite;
+    'social'?: SocialWrite;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts)
     */
     'type'?: string;
-    'features'?: MessageFeaturesWrite;
-    'dlr'?: MessageDlrWrite;
+    'features'?: FeaturesWrite;
+    'dlr'?: DeliveryReceiptWrite;
 }
 
 /**
@@ -62,18 +62,18 @@ export class Template {
     * Specifies the content of the SMS message.
     */
     'body': string;
-    'email': MessageEmail;
-    'voice': MessageVoice;
-    'web': MessageWeb;
-    'social': MessageSocial;
+    'email': Email;
+    'voice': Voice;
+    'web': Web;
+    'social': Social;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts)
     */
     'type': string;
-    'features': MessageFeatures;
-    'dlr': MessageDlr;
+    'features': Features;
+    'dlr': DeliveryReceipt;
     /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
     /**
@@ -116,22 +116,22 @@ export class Template {
         {
             "name": "email",
             "baseName": "email",
-            "type": "MessageEmail"
+            "type": "Email"
         },
         {
             "name": "voice",
             "baseName": "voice",
-            "type": "MessageVoice"
+            "type": "Voice"
         },
         {
             "name": "web",
             "baseName": "web",
-            "type": "MessageWeb"
+            "type": "Web"
         },
         {
             "name": "social",
             "baseName": "social",
-            "type": "MessageSocial"
+            "type": "Social"
         },
         {
             "name": "type",
@@ -141,12 +141,12 @@ export class Template {
         {
             "name": "features",
             "baseName": "features",
-            "type": "MessageFeatures"
+            "type": "Features"
         },
         {
             "name": "dlr",
             "baseName": "dlr",
-            "type": "MessageDlr"
+            "type": "DeliveryReceipt"
         },
         {
             "name": "link",

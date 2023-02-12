@@ -2,76 +2,69 @@ import localVarRequest from 'request';
 
 export * from './activity';
 export * from './activityCollection';
+export * from './aliasOption';
 export * from './apiError';
+export * from './apns';
+export * from './attachment';
+export * from './attachments';
 export * from './auth';
 export * from './callback';
 export * from './callbackAuth';
 export * from './callbackCall';
 export * from './callbackCallCollection';
-export * from './callbackCallEvent';
-export * from './callbackCallFrom';
-export * from './callbackCallResponseMessage';
 export * from './callbackCollection';
-export * from './callbackEvent';
-export * from './callbackShort';
+export * from './callbackInvocation';
+export * from './callbackOptions';
+export * from './channel';
 export * from './contact';
 export * from './contactCollection';
-export * from './contactLocation';
-export * from './contactMessagingOption';
 export * from './customList';
 export * from './customListCollection';
-export * from './customListItem';
+export * from './deliveryCategory';
+export * from './deliveryReceipt';
+export * from './deliveryStatus';
 export * from './distributionList';
 export * from './distributionListCollection';
-export * from './distributionListDetails';
-export * from './distributionListDynamic';
-export * from './distributionListStatic';
+export * from './distributionListContacts';
+export * from './email';
 export * from './event';
 export * from './eventCollection';
-export * from './eventForm';
-export * from './eventFormField';
+export * from './fcm';
+export * from './features';
 export * from './fieldMapping';
+export * from './form';
+export * from './formField';
 export * from './import';
 export * from './link';
+export * from './listLabel';
+export * from './location';
 export * from './message';
-export * from './messageAttachment';
 export * from './messageCollection';
-export * from './messageDlr';
-export * from './messageEmail';
-export * from './messageEmailResources';
-export * from './messageFeatures';
-export * from './messageFeaturesAliasOption';
-export * from './messageFeaturesPushOptions';
-export * from './messageFeaturesPushOptionsAPNS';
-export * from './messageFeaturesPushOptionsFCM';
-export * from './messageResponse';
+export * from './messageResponseCollection';
 export * from './messageResponseDetailed';
-export * from './messageResponseDetailedStatus';
-export * from './messageResponseDetailedStatusFrom';
-export * from './messageResponseDetailedStatusResponseMessage';
 export * from './messageResponseSummary';
-export * from './messageResponseSummaryStatus';
-export * from './messageSocial';
-export * from './messageSocialChannel';
 export * from './messageStatus';
-export * from './messageStatusChannel';
-export * from './messageStatusSummary';
-export * from './messageStatusSummaryCategory';
-export * from './messageTemplateShort';
-export * from './messageVoice';
-export * from './messageVoiceResources';
-export * from './messageWeb';
+export * from './messageStatusCollection';
+export * from './messagingOption';
+export * from './pushOptions';
 export * from './resource';
 export * from './resourceCollection';
+export * from './responder';
+export * from './response';
 export * from './responseRule';
 export * from './responseRuleCollection';
-export * from './responseTemplatePattern';
+export * from './responseStatusDetailed';
+export * from './responseStatusSummary';
 export * from './scenario';
 export * from './scenarioCollection';
+export * from './social';
 export * from './template';
 export * from './templateCollection';
+export * from './templatePattern';
 export * from './user';
 export * from './userCollection';
+export * from './voice';
+export * from './web';
 export * from './workspace';
 export * from './workspaceCollection';
 
@@ -90,76 +83,71 @@ export type RequestFile = string | Buffer | fs.ReadStream | RequestDetailedFile;
 
 import { Activity } from './activity';
 import { ActivityCollection } from './activityCollection';
+import { AliasOption } from './aliasOption';
 import { ApiError } from './apiError';
+import { Apns } from './apns';
+import { Attachment } from './attachment';
+import { Attachments } from './attachments';
 import { Auth } from './auth';
 import { Callback } from './callback';
 import { CallbackAuth } from './callbackAuth';
 import { CallbackCall } from './callbackCall';
 import { CallbackCallCollection } from './callbackCallCollection';
-import { CallbackCallEvent } from './callbackCallEvent';
-import { CallbackCallFrom } from './callbackCallFrom';
-import { CallbackCallResponseMessage } from './callbackCallResponseMessage';
 import { CallbackCollection } from './callbackCollection';
-import { CallbackEvent } from './callbackEvent';
-import { CallbackShort } from './callbackShort';
+import { CallbackInvocation } from './callbackInvocation';
+import { CallbackOptions } from './callbackOptions';
+import { Channel } from './channel';
 import { Contact } from './contact';
 import { ContactCollection } from './contactCollection';
-import { ContactLocation } from './contactLocation';
-import { ContactMessagingOption } from './contactMessagingOption';
 import { CustomList } from './customList';
 import { CustomListCollection } from './customListCollection';
-import { CustomListItem } from './customListItem';
+import { DeliveryCategory } from './deliveryCategory';
+import { DeliveryReceipt } from './deliveryReceipt';
+import { DeliveryStatus } from './deliveryStatus';
 import { DistributionList } from './distributionList';
 import { DistributionListCollection } from './distributionListCollection';
-import { DistributionListDetails } from './distributionListDetails';
-import { DistributionListDynamic } from './distributionListDynamic';
-import { DistributionListStatic } from './distributionListStatic';
+import { DistributionListContacts } from './distributionListContacts';
+import { Email } from './email';
 import { Event } from './event';
 import { EventCollection } from './eventCollection';
-import { EventForm } from './eventForm';
-import { EventFormField } from './eventFormField';
+import { Fcm } from './fcm';
+import { Features } from './features';
 import { FieldMapping } from './fieldMapping';
+import { Form } from './form';
+import { FormField } from './formField';
 import { Import } from './import';
+import { Key } from './key';
+import { KeyCollection } from './keyCollection';
 import { Link } from './link';
+import { ListLabel } from './listLabel';
+import { Location } from './location';
 import { Message } from './message';
-import { MessageAttachment } from './messageAttachment';
 import { MessageCollection } from './messageCollection';
-import { MessageDlr } from './messageDlr';
-import { MessageEmail } from './messageEmail';
-import { MessageEmailResources } from './messageEmailResources';
-import { MessageFeatures } from './messageFeatures';
-import { MessageFeaturesAliasOption } from './messageFeaturesAliasOption';
-import { MessageFeaturesPushOptions } from './messageFeaturesPushOptions';
-import { MessageFeaturesPushOptionsAPNS } from './messageFeaturesPushOptionsAPNS';
-import { MessageFeaturesPushOptionsFCM } from './messageFeaturesPushOptionsFCM';
-import { MessageResponse } from './messageResponse';
+import { MessageResponseCollection } from './messageResponseCollection';
 import { MessageResponseDetailed } from './messageResponseDetailed';
-import { MessageResponseDetailedStatus } from './messageResponseDetailedStatus';
-import { MessageResponseDetailedStatusFrom } from './messageResponseDetailedStatusFrom';
-import { MessageResponseDetailedStatusResponseMessage } from './messageResponseDetailedStatusResponseMessage';
 import { MessageResponseSummary } from './messageResponseSummary';
-import { MessageResponseSummaryStatus } from './messageResponseSummaryStatus';
-import { MessageSocial } from './messageSocial';
-import { MessageSocialChannel } from './messageSocialChannel';
 import { MessageStatus } from './messageStatus';
-import { MessageStatusChannel } from './messageStatusChannel';
-import { MessageStatusSummary } from './messageStatusSummary';
-import { MessageStatusSummaryCategory } from './messageStatusSummaryCategory';
-import { MessageTemplateShort } from './messageTemplateShort';
-import { MessageVoice } from './messageVoice';
-import { MessageVoiceResources } from './messageVoiceResources';
-import { MessageWeb } from './messageWeb';
+import { MessageStatusCollection } from './messageStatusCollection';
+import { MessagingOption } from './messagingOption';
+import { PushOptions } from './pushOptions';
 import { Resource } from './resource';
 import { ResourceCollection } from './resourceCollection';
+import { Responder } from './responder';
+import { Response } from './response';
 import { ResponseRule } from './responseRule';
 import { ResponseRuleCollection } from './responseRuleCollection';
-import { ResponseTemplatePattern } from './responseTemplatePattern';
+import { ResponseStatusDetailed } from './responseStatusDetailed';
+import { ResponseStatusSummary } from './responseStatusSummary';
 import { Scenario } from './scenario';
 import { ScenarioCollection } from './scenarioCollection';
+import { Social } from './social';
 import { Template } from './template';
 import { TemplateCollection } from './templateCollection';
+import { TemplatePattern } from './templatePattern';
 import { User } from './user';
 import { UserCollection } from './userCollection';
+import { Voice } from './voice';
+import { Web } from './web';
 import { Workspace } from './workspace';
 import { WorkspaceCollection } from './workspaceCollection';
 
@@ -178,76 +166,71 @@ let primitives = [
 let typeMap: {[index: string]: any} = {
     "Activity": Activity,
     "ActivityCollection": ActivityCollection,
+    "AliasOption": AliasOption,
     "ApiError": ApiError,
+    "Apns": Apns,
+    "Attachment": Attachment,
+    "Attachments": Attachments,
     "Auth": Auth,
     "Callback": Callback,
     "CallbackAuth": CallbackAuth,
     "CallbackCall": CallbackCall,
     "CallbackCallCollection": CallbackCallCollection,
-    "CallbackCallEvent": CallbackCallEvent,
-    "CallbackCallFrom": CallbackCallFrom,
-    "CallbackCallResponseMessage": CallbackCallResponseMessage,
     "CallbackCollection": CallbackCollection,
-    "CallbackEvent": CallbackEvent,
-    "CallbackShort": CallbackShort,
+    "CallbackInvocation": CallbackInvocation,
+    "CallbackOptions": CallbackOptions,
+    "Channel": Channel,
     "Contact": Contact,
     "ContactCollection": ContactCollection,
-    "ContactLocation": ContactLocation,
-    "ContactMessagingOption": ContactMessagingOption,
     "CustomList": CustomList,
     "CustomListCollection": CustomListCollection,
-    "CustomListItem": CustomListItem,
+    "DeliveryCategory": DeliveryCategory,
+    "DeliveryReceipt": DeliveryReceipt,
+    "DeliveryStatus": DeliveryStatus,
     "DistributionList": DistributionList,
     "DistributionListCollection": DistributionListCollection,
-    "DistributionListDetails": DistributionListDetails,
-    "DistributionListDynamic": DistributionListDynamic,
-    "DistributionListStatic": DistributionListStatic,
+    "DistributionListContacts": DistributionListContacts,
+    "Email": Email,
     "Event": Event,
     "EventCollection": EventCollection,
-    "EventForm": EventForm,
-    "EventFormField": EventFormField,
+    "Fcm": Fcm,
+    "Features": Features,
     "FieldMapping": FieldMapping,
+    "Form": Form,
+    "FormField": FormField,
     "Import": Import,
+    "Key": Key,
+    "KeyCollection": KeyCollection,
     "Link": Link,
+    "ListLabel": ListLabel,
+    "Location": Location,
     "Message": Message,
-    "MessageAttachment": MessageAttachment,
     "MessageCollection": MessageCollection,
-    "MessageDlr": MessageDlr,
-    "MessageEmail": MessageEmail,
-    "MessageEmailResources": MessageEmailResources,
-    "MessageFeatures": MessageFeatures,
-    "MessageFeaturesAliasOption": MessageFeaturesAliasOption,
-    "MessageFeaturesPushOptions": MessageFeaturesPushOptions,
-    "MessageFeaturesPushOptionsAPNS": MessageFeaturesPushOptionsAPNS,
-    "MessageFeaturesPushOptionsFCM": MessageFeaturesPushOptionsFCM,
-    "MessageResponse": MessageResponse,
+    "MessageResponseCollection": MessageResponseCollection,
     "MessageResponseDetailed": MessageResponseDetailed,
-    "MessageResponseDetailedStatus": MessageResponseDetailedStatus,
-    "MessageResponseDetailedStatusFrom": MessageResponseDetailedStatusFrom,
-    "MessageResponseDetailedStatusResponseMessage": MessageResponseDetailedStatusResponseMessage,
     "MessageResponseSummary": MessageResponseSummary,
-    "MessageResponseSummaryStatus": MessageResponseSummaryStatus,
-    "MessageSocial": MessageSocial,
-    "MessageSocialChannel": MessageSocialChannel,
     "MessageStatus": MessageStatus,
-    "MessageStatusChannel": MessageStatusChannel,
-    "MessageStatusSummary": MessageStatusSummary,
-    "MessageStatusSummaryCategory": MessageStatusSummaryCategory,
-    "MessageTemplateShort": MessageTemplateShort,
-    "MessageVoice": MessageVoice,
-    "MessageVoiceResources": MessageVoiceResources,
-    "MessageWeb": MessageWeb,
+    "MessageStatusCollection": MessageStatusCollection,
+    "MessagingOption": MessagingOption,
+    "PushOptions": PushOptions,
     "Resource": Resource,
     "ResourceCollection": ResourceCollection,
+    "Responder": Responder,
+    "Response": Response,
     "ResponseRule": ResponseRule,
     "ResponseRuleCollection": ResponseRuleCollection,
-    "ResponseTemplatePattern": ResponseTemplatePattern,
+    "ResponseStatusDetailed": ResponseStatusDetailed,
+    "ResponseStatusSummary": ResponseStatusSummary,
     "Scenario": Scenario,
     "ScenarioCollection": ScenarioCollection,
+    "Social": Social,
     "Template": Template,
     "TemplateCollection": TemplateCollection,
+    "TemplatePattern": TemplatePattern,
     "User": User,
     "UserCollection": UserCollection,
+    "Voice": Voice,
+    "Web": Web,
     "Workspace": Workspace,
     "WorkspaceCollection": WorkspaceCollection,
 }

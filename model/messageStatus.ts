@@ -1,54 +1,78 @@
 
 import { RequestFile } from './models';
+import { DeliveryCategory, DeliveryCategoryWrite } from './deliveryCategory';
+import { DeliveryStatus, DeliveryStatusWrite } from './deliveryStatus';
 import { Link, LinkWrite } from './link';
-import { MessageStatusSummary, MessageStatusSummaryWrite } from './messageStatusSummary';
 
 
 export type MessageStatusWrite = {
     /**
-    * The object defining the message delivery status.
+    * Present when `view` is `summary`.
     */
-    'messageStatuses'?: Array<MessageStatusSummaryWrite>;
+    'categories'?: Array<DeliveryCategoryWrite>;
     /**
     * Present when `view` is `detailed`.
     */
-    'status'?: string;
+    'name'?: string;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'info'?: string;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'status'?: Array<DeliveryStatusWrite>;
 }
 
-/**
-* The message status object, describing the delivery of the sent message.
-*/
 export class MessageStatus {
     /**
-    * The object defining the message delivery status.
-    */
-    'messageStatuses': Set<MessageStatusSummary>;
-    /**
-    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link object, describing all discoverable resources in relation to the original request.
+    * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.
     */
     'link': Array<Link>;
     /**
+    * Present when `view` is `summary`.
+    */
+    'categories': Set<DeliveryCategory>;
+    /**
     * Present when `view` is `detailed`.
     */
-    'status': string;
+    'name': string;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'info': string;
+    /**
+    * Present when `view` is `detailed`.
+    */
+    'status': Set<DeliveryStatus>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            "name": "messageStatuses",
-            "baseName": "messageStatuses",
-            "type": "Set<MessageStatusSummary>"
-        },
         {
             "name": "link",
             "baseName": "link",
             "type": "Array<Link>"
         },
         {
+            "name": "categories",
+            "baseName": "categories",
+            "type": "Set<DeliveryCategory>"
+        },
+        {
+            "name": "name",
+            "baseName": "name",
+            "type": "string"
+        },
+        {
+            "name": "info",
+            "baseName": "info",
+            "type": "string"
+        },
+        {
             "name": "status",
             "baseName": "status",
-            "type": "string"
+            "type": "Set<DeliveryStatus>"
         }    ];
 
     static getAttributeTypeMap() {

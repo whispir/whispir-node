@@ -10,6 +10,7 @@ import { CustomListsApi } from './api/customListsApi';
 import { DistributionListsApi } from './api/distributionListsApi';
 import { EventsApi } from './api/eventsApi';
 import { ImportsApi } from './api/importsApi';
+import { KeysApi } from './api/keysApi';
 import { MessagesApi } from './api/messagesApi';
 import { ResourcesApi } from './api/resourcesApi';
 import { ResponseRulesApi } from './api/responseRulesApi';
@@ -61,6 +62,7 @@ const Client = (config: ClientConfig) => {
     const distributionLists = new DistributionListsApi(apiConfig);
     const events = new EventsApi(apiConfig);
     const imports = new ImportsApi(apiConfig);
+    const keys = new KeysApi(apiConfig);
     const messages = new MessagesApi(apiConfig);
     const resources = new ResourcesApi(apiConfig);
     const responseRules = new ResponseRulesApi(apiConfig);
@@ -78,6 +80,7 @@ const Client = (config: ClientConfig) => {
         distributionLists,
         events,
         imports,
+        keys,
         messages,
         resources,
         responseRules,
