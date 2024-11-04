@@ -1,6 +1,5 @@
 
-import { RequestFile } from './models';
-import { FieldMapping, FieldMappingWrite } from './fieldMapping';
+import { ImportOptions, ImportOptionsWrite } from './importOptions';
 
 
 export type ImportWrite = {
@@ -12,11 +11,7 @@ export type ImportWrite = {
     * This defines the resource that will be created through this import process.   *\'contact\'* is the only supported *importType* at this stage.
     */
     'importType': string;
-    'importOptions': FieldMappingWrite;
-    /**
-    * The type of contact import that is occurring.
-    */
-    'importMode': 'replace' | 'duplicate' | 'ignore';
+    'importOptions': ImportOptionsWrite
 }
 
 /**
@@ -31,11 +26,7 @@ export class Import {
     * This defines the resource that will be created through this import process.   *\'contact\'* is the only supported *importType* at this stage.
     */
     'importType': string;
-    'importOptions': FieldMapping;
-    /**
-    * The type of contact import that is occurring.
-    */
-    'importMode': 'replace' | 'duplicate' | 'ignore';
+    'importOptions': ImportOptions
 
     static discriminator: string | undefined = undefined;
 
@@ -53,13 +44,9 @@ export class Import {
         {
             "name": "importOptions",
             "baseName": "importOptions",
-            "type": "FieldMapping"
-        },
-        {
-            "name": "importMode",
-            "baseName": "importMode",
-            "type": "string"
-        }    ];
+            "type": "ImportOptions"
+        } 
+    ];
 
     static getAttributeTypeMap() {
         return Import.attributeTypeMap;

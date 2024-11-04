@@ -116,6 +116,7 @@ import { FieldMapping } from './fieldMapping';
 import { Form } from './form';
 import { FormField } from './formField';
 import { Import } from './import';
+import { ImportOptions } from './importOptions';
 import { Key } from './key';
 import { KeyCollection } from './keyCollection';
 import { Link } from './link';
@@ -199,6 +200,7 @@ let typeMap: {[index: string]: any} = {
     "Form": Form,
     "FormField": FormField,
     "Import": Import,
+    "ImportOptions": ImportOptions,
     "Key": Key,
     "KeyCollection": KeyCollection,
     "Link": Link,

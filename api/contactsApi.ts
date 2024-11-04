@@ -55,9 +55,9 @@ type ContactListParams = {
     */
     sortFields?: string;
     /**
-    * String Specifies the field name of the contact object. The field name could be any thing as long as it is a valid contact attribute.   Example: `http://api.whispir.com/contacts?firstName=Sam` 
+    * An object that represents contact fields with values to search on Example: { firstName: "Sam" } 
     */
-    fieldname?: string;
+    queryFields?: Partial<Contact>;
     /**
     * Custom Fields
     */
@@ -284,7 +284,7 @@ export class ContactsApi {
             offset = 0,
             sortOrder,
             sortFields,
-            fieldname,
+            queryFields,
             customFields,
         } = params || {};
 
@@ -306,8 +306,10 @@ export class ContactsApi {
         if (sortFields !== undefined) {
             localVarQueryParameters['sortFields'] = ObjectSerializer.serialize(sortFields, "string");
         }
-        if (fieldname !== undefined) {
-            localVarQueryParameters['fieldname'] = ObjectSerializer.serialize(fieldname, "string");
+        if (queryFields !== undefined) {
+            for (const prop in queryFields) {
+                localVarQueryParameters[prop] = ObjectSerializer.serialize(queryFields[prop as keyof typeof queryFields], "string");
+            }
         }
         if (customFields !== undefined) {
             localVarQueryParameters['customFields'] = ObjectSerializer.serialize(customFields, "boolean");
