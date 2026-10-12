@@ -1,6 +1,7 @@
 
 import { RequestFile } from './models';
 import { Attachments, AttachmentsWrite } from './attachments';
+import { OptOutOption, OptOutOptionWrite } from './optOutOption';
 
 
 export type EmailWrite = {
@@ -16,6 +17,7 @@ export type EmailWrite = {
     * The email Message content type.
     */
     'type'?: 'text/plain' | 'text/html';
+    'optOutOption'?: OptOutOptionWrite;
     'resources'?: AttachmentsWrite;
 }
 
@@ -35,6 +37,7 @@ export class Email {
     * The email Message content type.
     */
     'type': 'text/plain' | 'text/html';
+    'optOutOption': OptOutOption;
     'resources': Attachments;
 
     static discriminator: string | undefined = undefined;
@@ -54,6 +57,11 @@ export class Email {
             "name": "type",
             "baseName": "type",
             "type": "string"
+        },
+        {
+            "name": "optOutOption",
+            "baseName": "optOutOption",
+            "type": "OptOutOption"
         },
         {
             "name": "resources",

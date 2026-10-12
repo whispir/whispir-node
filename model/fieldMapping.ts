@@ -1,82 +1,25 @@
 
 import { RequestFile } from './models';
+import { FieldMappingFieldMapping, FieldMappingFieldMappingWrite } from './fieldMappingFieldMapping';
 
 
 export type FieldMappingWrite = {
-    /**
-    * First Name of the Contact. Value of this field is used to map the field within the resource.
-    */
-    'firstName': string;
-    /**
-    * Last Name of the Contact. Value of this field is used to map the field within the resource.
-    */
-    'lastName': string;
-    /**
-    * The mobile phone number of the Contact. Value of this field is used to map the field within the newly created resource.
-    */
-    'workMobilePhone1': string;
-    /**
-    * The country field of the contact. The value of this field is used to map to the field within the newly created contact.
-    */
-    'workCountry': string;
-    /**
-    * The timezone field of the contact. The value of this field is used to map to the timezone field within the newly created contact.
-    */
-    'timezone': string;
+    'fieldMapping': FieldMappingFieldMappingWrite;
 }
 
 /**
 * Mapping the data column in your resource file to the contact field value
 */
 export class FieldMapping {
-    /**
-    * First Name of the Contact. Value of this field is used to map the field within the resource.
-    */
-    'firstName': string;
-    /**
-    * Last Name of the Contact. Value of this field is used to map the field within the resource.
-    */
-    'lastName': string;
-    /**
-    * The mobile phone number of the Contact. Value of this field is used to map the field within the newly created resource.
-    */
-    'workMobilePhone1': string;
-    /**
-    * The country field of the contact. The value of this field is used to map to the field within the newly created contact.
-    */
-    'workCountry': string;
-    /**
-    * The timezone field of the contact. The value of this field is used to map to the timezone field within the newly created contact.
-    */
-    'timezone': string;
+    'fieldMapping': FieldMappingFieldMapping;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "firstName",
-            "baseName": "firstName",
-            "type": "string"
-        },
-        {
-            "name": "lastName",
-            "baseName": "lastName",
-            "type": "string"
-        },
-        {
-            "name": "workMobilePhone1",
-            "baseName": "workMobilePhone1",
-            "type": "string"
-        },
-        {
-            "name": "workCountry",
-            "baseName": "workCountry",
-            "type": "string"
-        },
-        {
-            "name": "timezone",
-            "baseName": "timezone",
-            "type": "string"
+            "name": "fieldMapping",
+            "baseName": "fieldMapping",
+            "type": "FieldMappingFieldMapping"
         }    ];
 
     static getAttributeTypeMap() {

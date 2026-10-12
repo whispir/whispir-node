@@ -24,6 +24,9 @@ export type MessageStatusWrite = {
     'status'?: Array<DeliveryStatusWrite>;
 }
 
+/**
+* The object describing the delivery status of the message.
+*/
 export class MessageStatus {
     /**
     * A [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS) link array, describing all discoverable resources in relation to the original request.

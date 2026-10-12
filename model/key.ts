@@ -4,13 +4,13 @@ import { RequestFile } from './models';
 
 export type KeyWrite = {
     /**
-    * Determine if this Key is enabled or disabled
-    */
-    'enabled': boolean;
-    /**
     * User provided description usually used for identifying usage
     */
     'description'?: string;
+    /**
+    * The authentication secret
+    */
+    'secret'?: string;
 }
 
 /**
@@ -24,23 +24,7 @@ export class Key {
     /**
     * The authentication type that this Key is used for
     */
-    'type': 'basic' | 'bearer';
-    /**
-    * The user identifier associated with this Key
-    */
-    'userId': string;
-    /**
-    * The company identifier (client). Provided by Auth0 Management API used to revoke client access during deletion.
-    */
-    'clientId': string;
-    /**
-    * Nextgen account id associated with this Key
-    */
-    'accountId': string;
-    /**
-    * Determine if this Key is enabled or disabled
-    */
-    'enabled': boolean;
+    'type': 'basic';
     /**
     * User provided description usually used for identifying usage
     */
@@ -53,6 +37,10 @@ export class Key {
     * Last Modified data and time
     */
     'lastModifiedTime': string;
+    /**
+    * The authentication secret
+    */
+    'secret': string;
 
     static discriminator: string | undefined = undefined;
 
@@ -68,26 +56,6 @@ export class Key {
             "type": "string"
         },
         {
-            "name": "userId",
-            "baseName": "userId",
-            "type": "string"
-        },
-        {
-            "name": "clientId",
-            "baseName": "clientId",
-            "type": "string"
-        },
-        {
-            "name": "accountId",
-            "baseName": "accountId",
-            "type": "string"
-        },
-        {
-            "name": "enabled",
-            "baseName": "enabled",
-            "type": "boolean"
-        },
-        {
             "name": "description",
             "baseName": "description",
             "type": "string"
@@ -100,6 +68,11 @@ export class Key {
         {
             "name": "lastModifiedTime",
             "baseName": "lastModifiedTime",
+            "type": "string"
+        },
+        {
+            "name": "secret",
+            "baseName": "secret",
             "type": "string"
         }    ];
 

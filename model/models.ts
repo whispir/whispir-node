@@ -4,6 +4,7 @@ export * from './activity';
 export * from './activityCollection';
 export * from './aliasOption';
 export * from './apiError';
+export * from './apiErrorNextGen';
 export * from './apns';
 export * from './attachment';
 export * from './attachments';
@@ -25,13 +26,16 @@ export * from './deliveryReceipt';
 export * from './deliveryStatus';
 export * from './distributionList';
 export * from './distributionListCollection';
+export * from './distributionListCollectionDistributionListsInner';
 export * from './distributionListContacts';
 export * from './email';
 export * from './event';
 export * from './eventCollection';
 export * from './fcm';
 export * from './features';
+export * from './featuresFallback';
 export * from './fieldMapping';
+export * from './fieldMappingFieldMapping';
 export * from './form';
 export * from './formField';
 export * from './import';
@@ -46,7 +50,22 @@ export * from './messageResponseSummary';
 export * from './messageStatus';
 export * from './messageStatusCollection';
 export * from './messagingOption';
+export * from './modelObject';
+export * from './object1';
+export * from './object2';
+export * from './object3';
+export * from './optOutOption';
+export * from './otp';
+export * from './otpLinks';
 export * from './pushOptions';
+export * from './rCS';
+export * from './rCSCard';
+export * from './rCSMedia';
+export * from './rCSRichCard';
+export * from './rCSSuggestion';
+export * from './rCSSuggestionDialAction';
+export * from './rCSSuggestionUrlAction';
+export * from './rCSSuggestionViewLocationAction';
 export * from './resource';
 export * from './resourceCollection';
 export * from './responder';
@@ -57,14 +76,20 @@ export * from './responseStatusDetailed';
 export * from './responseStatusSummary';
 export * from './scenario';
 export * from './scenarioCollection';
+export * from './sendCodeCreateRequest';
 export * from './social';
 export * from './template';
 export * from './templateCollection';
 export * from './templatePattern';
 export * from './user';
 export * from './userCollection';
+export * from './verifyCodeCreateRequest';
 export * from './voice';
+export * from './wAContent';
+export * from './wAContentButton';
+export * from './wAContentHeader';
 export * from './web';
+export * from './whatsApp';
 export * from './workspace';
 export * from './workspaceCollection';
 
@@ -85,6 +110,7 @@ import { Activity } from './activity';
 import { ActivityCollection } from './activityCollection';
 import { AliasOption } from './aliasOption';
 import { ApiError } from './apiError';
+import { ApiErrorNextGen } from './apiErrorNextGen';
 import { Apns } from './apns';
 import { Attachment } from './attachment';
 import { Attachments } from './attachments';
@@ -106,13 +132,16 @@ import { DeliveryReceipt } from './deliveryReceipt';
 import { DeliveryStatus } from './deliveryStatus';
 import { DistributionList } from './distributionList';
 import { DistributionListCollection } from './distributionListCollection';
+import { DistributionListCollectionDistributionListsInner } from './distributionListCollectionDistributionListsInner';
 import { DistributionListContacts } from './distributionListContacts';
 import { Email } from './email';
 import { Event } from './event';
 import { EventCollection } from './eventCollection';
 import { Fcm } from './fcm';
 import { Features } from './features';
+import { FeaturesFallback } from './featuresFallback';
 import { FieldMapping } from './fieldMapping';
+import { FieldMappingFieldMapping } from './fieldMappingFieldMapping';
 import { Form } from './form';
 import { FormField } from './formField';
 import { Import } from './import';
@@ -129,7 +158,22 @@ import { MessageResponseSummary } from './messageResponseSummary';
 import { MessageStatus } from './messageStatus';
 import { MessageStatusCollection } from './messageStatusCollection';
 import { MessagingOption } from './messagingOption';
+import { ModelObject } from './modelObject';
+import { Object1 } from './object1';
+import { Object2 } from './object2';
+import { Object3 } from './object3';
+import { OptOutOption } from './optOutOption';
+import { Otp } from './otp';
+import { OtpLinks } from './otpLinks';
 import { PushOptions } from './pushOptions';
+import { RCS } from './rCS';
+import { RCSCard } from './rCSCard';
+import { RCSMedia } from './rCSMedia';
+import { RCSRichCard } from './rCSRichCard';
+import { RCSSuggestion } from './rCSSuggestion';
+import { RCSSuggestionDialAction } from './rCSSuggestionDialAction';
+import { RCSSuggestionUrlAction } from './rCSSuggestionUrlAction';
+import { RCSSuggestionViewLocationAction } from './rCSSuggestionViewLocationAction';
 import { Resource } from './resource';
 import { ResourceCollection } from './resourceCollection';
 import { Responder } from './responder';
@@ -140,14 +184,20 @@ import { ResponseStatusDetailed } from './responseStatusDetailed';
 import { ResponseStatusSummary } from './responseStatusSummary';
 import { Scenario } from './scenario';
 import { ScenarioCollection } from './scenarioCollection';
+import { SendCodeCreateRequest } from './sendCodeCreateRequest';
 import { Social } from './social';
 import { Template } from './template';
 import { TemplateCollection } from './templateCollection';
 import { TemplatePattern } from './templatePattern';
 import { User } from './user';
 import { UserCollection } from './userCollection';
+import { VerifyCodeCreateRequest } from './verifyCodeCreateRequest';
 import { Voice } from './voice';
+import { WAContent } from './wAContent';
+import { WAContentButton } from './wAContentButton';
+import { WAContentHeader } from './wAContentHeader';
 import { Web } from './web';
+import { WhatsApp } from './whatsApp';
 import { Workspace } from './workspace';
 import { WorkspaceCollection } from './workspaceCollection';
 
@@ -168,6 +218,7 @@ let typeMap: {[index: string]: any} = {
     "ActivityCollection": ActivityCollection,
     "AliasOption": AliasOption,
     "ApiError": ApiError,
+    "ApiErrorNextGen": ApiErrorNextGen,
     "Apns": Apns,
     "Attachment": Attachment,
     "Attachments": Attachments,
@@ -189,13 +240,16 @@ let typeMap: {[index: string]: any} = {
     "DeliveryStatus": DeliveryStatus,
     "DistributionList": DistributionList,
     "DistributionListCollection": DistributionListCollection,
+    "DistributionListCollectionDistributionListsInner": DistributionListCollectionDistributionListsInner,
     "DistributionListContacts": DistributionListContacts,
     "Email": Email,
     "Event": Event,
     "EventCollection": EventCollection,
     "Fcm": Fcm,
     "Features": Features,
+    "FeaturesFallback": FeaturesFallback,
     "FieldMapping": FieldMapping,
+    "FieldMappingFieldMapping": FieldMappingFieldMapping,
     "Form": Form,
     "FormField": FormField,
     "Import": Import,
@@ -212,7 +266,22 @@ let typeMap: {[index: string]: any} = {
     "MessageStatus": MessageStatus,
     "MessageStatusCollection": MessageStatusCollection,
     "MessagingOption": MessagingOption,
+    "ModelObject": ModelObject,
+    "Object1": Object1,
+    "Object2": Object2,
+    "Object3": Object3,
+    "OptOutOption": OptOutOption,
+    "Otp": Otp,
+    "OtpLinks": OtpLinks,
     "PushOptions": PushOptions,
+    "RCS": RCS,
+    "RCSCard": RCSCard,
+    "RCSMedia": RCSMedia,
+    "RCSRichCard": RCSRichCard,
+    "RCSSuggestion": RCSSuggestion,
+    "RCSSuggestionDialAction": RCSSuggestionDialAction,
+    "RCSSuggestionUrlAction": RCSSuggestionUrlAction,
+    "RCSSuggestionViewLocationAction": RCSSuggestionViewLocationAction,
     "Resource": Resource,
     "ResourceCollection": ResourceCollection,
     "Responder": Responder,
@@ -223,14 +292,20 @@ let typeMap: {[index: string]: any} = {
     "ResponseStatusSummary": ResponseStatusSummary,
     "Scenario": Scenario,
     "ScenarioCollection": ScenarioCollection,
+    "SendCodeCreateRequest": SendCodeCreateRequest,
     "Social": Social,
     "Template": Template,
     "TemplateCollection": TemplateCollection,
     "TemplatePattern": TemplatePattern,
     "User": User,
     "UserCollection": UserCollection,
+    "VerifyCodeCreateRequest": VerifyCodeCreateRequest,
     "Voice": Voice,
+    "WAContent": WAContent,
+    "WAContentButton": WAContentButton,
+    "WAContentHeader": WAContentHeader,
     "Web": Web,
+    "WhatsApp": WhatsApp,
     "Workspace": Workspace,
     "WorkspaceCollection": WorkspaceCollection,
 }

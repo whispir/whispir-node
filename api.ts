@@ -17,6 +17,7 @@ import { ResponseRulesApi } from './api/responseRulesApi';
 import { ScenariosApi } from './api/scenariosApi';
 import { TemplatesApi } from './api/templatesApi';
 import { UsersApi } from './api/usersApi';
+import { VerifyApi } from './api/verifyApi';
 import { WorkspacesApi } from './api/workspacesApi';
 
 export type ClientConfig = {
@@ -69,6 +70,7 @@ const Client = (config: ClientConfig) => {
     const scenarios = new ScenariosApi(apiConfig);
     const templates = new TemplatesApi(apiConfig);
     const users = new UsersApi(apiConfig);
+    const verify = new VerifyApi(apiConfig);
     const workspaces = new WorkspacesApi(apiConfig);
 
     const apis = { 
@@ -87,6 +89,7 @@ const Client = (config: ClientConfig) => {
         scenarios,
         templates,
         users,
+        verify,
         workspaces,
     };
 

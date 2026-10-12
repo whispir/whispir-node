@@ -105,7 +105,6 @@ export class ScenariosApi {
      * A scenario is a combination of a message and contacts. So, its structure contains section for both message as well as contact information. API currently only supports creation of scenario with SMS as communication mode. 
      * @summary Create a scenario
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param scenario Scenario list object that needs to be create Scenario
@@ -180,7 +179,6 @@ export class ScenariosApi {
      * Deletes a Scenario object.
      * @summary Delete a scenario
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param scenarioId The id of the Scenarios to be deleted
      */
     public async delete(
@@ -247,7 +245,6 @@ export class ScenariosApi {
      * Returns a list of your scenarios.
      * @summary List scenarios
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param limit The number of records to be returned.
      * @param offset The record number to start returning from.
@@ -334,7 +331,6 @@ export class ScenariosApi {
      * Retrieves a Scenario object.
      * @summary Retrieve a scenario
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param scenarioId Enter Scenarios id.
      */
@@ -404,7 +400,6 @@ export class ScenariosApi {
      * Running a scenario triggers the communication to the intended recipients. The message (static or dynamic) will be sent on all the provided channels.  Running a scenario is very simple to do. The specific scenario has to called via a /POST request.  Step wise example: 1. Get all the scenarios 2. Pick the required scenario’s link attribute 3. Make a /POST call  Now invoking this scenario is just making a /POST call. 
      * @summary Run a scenario
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param scenarioId Enter Scenarios id.
@@ -475,7 +470,6 @@ export class ScenariosApi {
      * Updates a Scenario object.
      * @summary Update a scenario
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param scenarioId Enter Scenarios id.

@@ -33,9 +33,8 @@ export class AuthApi {
     }
 
     /**
-     * Create a JWT authentication token
+     * Create a JWT bearer token, authenticated with Basic Authentication and an `X-Api-Key`. This endpoint does not accept an existing Bearer token — you must authenticate with Basic Authentication and an `X-Api-Key` to obtain one.  The resulting bearer token can then be used in place of both the Basic Authentication header and the `X-Api-Key` header on subsequent requests (`Authorization: Bearer {token}`). Do not send `X-Api-Key` alongside a Bearer token — it is not required and is ignored.
      * @summary Create an auth token
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type
      * @param accept Application specific mime-type
      */
@@ -103,9 +102,8 @@ export class AuthApi {
         });
     }
     /**
-     * Verify a JWT authentication token
+     * Verify a previously issued bearer token (JWT) is still valid. Pass the token in the `Authorization: Bearer {token}` header; do not send `X-Api-Key` alongside it.
      * @summary Verify an auth token
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type
      */
     public async retrieveVerification(

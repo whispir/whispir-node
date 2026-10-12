@@ -94,7 +94,6 @@ export class ResponseRulesApi {
      * Returns a list of response rules.
      * @summary List response rules
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param limit The number of records to be returned.
      * @param offset The record number to start returning from.
@@ -181,7 +180,6 @@ export class ResponseRulesApi {
      * ## Response Template Patterns  Each Response Rule has a series of **Patterns** that allow the creator to specify what textual content should be matched in the response SMS or Email, and a number that should be entered when IVR (Voice) is being used.  Each Response Rule can specify as many Response Template Patterns as required.  Each of the Patterns specified will also dynamically create buttons within any Rich Message that is associated with the Response Rule.  This provides an out of the box capability to quickly gather feedback from the field using a Rich User interface, and leveraging SMS as the delivery mechanism. 
      * @summary Create a response rule
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param responseRule 
@@ -256,7 +254,6 @@ export class ResponseRulesApi {
      * Deletes a Response Rule object.
      * @summary Delete a response rule
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param responseRuleId Response Rule Id
      */
     public async delete(
@@ -323,7 +320,6 @@ export class ResponseRulesApi {
      * Retrieves a response rule object.
      * @summary Retrieve a response rule
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param responseRuleId Response Rule Id
      */
@@ -393,7 +389,6 @@ export class ResponseRulesApi {
      * Updates a Response Rule object.
      * @summary Update a response rule
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param responseRuleId Response Rule Id
