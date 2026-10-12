@@ -4,10 +4,12 @@ import { DeliveryReceipt, DeliveryReceiptWrite } from './deliveryReceipt';
 import { Email, EmailWrite } from './email';
 import { Features, FeaturesWrite } from './features';
 import { Link, LinkWrite } from './link';
+import { RCS, RCSWrite } from './rCS';
 import { Resource, ResourceWrite } from './resource';
 import { Social, SocialWrite } from './social';
 import { Voice, VoiceWrite } from './voice';
 import { Web, WebWrite } from './web';
+import { WhatsApp, WhatsAppWrite } from './whatsApp';
 
 
 export type MessageWrite = {
@@ -27,6 +29,8 @@ export type MessageWrite = {
     'voice'?: VoiceWrite;
     'web'?: WebWrite;
     'social'?: SocialWrite;
+    'whatsapp'?: WhatsAppWrite;
+    'rcs'?: RCSWrite;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts).  - `defaultNoReply`: Used to reject any replies to this message. - `noDlr`: Used to specify that DLRs should not be enabled for this message.
     */
@@ -108,6 +112,8 @@ export class Message {
     'voice': Voice;
     'web': Web;
     'social': Social;
+    'whatsapp': WhatsApp;
+    'rcs': RCS;
     /**
     * Allows the user to modify the message behaviour for replies and DLRs (delivery receipts).  - `defaultNoReply`: Used to reject any replies to this message. - `noDlr`: Used to specify that DLRs should not be enabled for this message.
     */
@@ -237,6 +243,16 @@ export class Message {
             "name": "social",
             "baseName": "social",
             "type": "Social"
+        },
+        {
+            "name": "whatsapp",
+            "baseName": "whatsapp",
+            "type": "WhatsApp"
+        },
+        {
+            "name": "rcs",
+            "baseName": "rcs",
+            "type": "RCS"
         },
         {
             "name": "type",

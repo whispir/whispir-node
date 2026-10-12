@@ -6,6 +6,9 @@ import { ResponseRule, ResponseRuleWrite } from './responseRule';
 export type ResponseRuleCollectionWrite = {
 }
 
+/**
+* A collection of Response Rules.
+*/
 export class ResponseRuleCollection {
     /**
     * Provides the total number of records fetched. This attribute may return \"No records found\" when there are no response rules available.

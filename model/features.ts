@@ -1,12 +1,14 @@
 
 import { RequestFile } from './models';
 import { AliasOption, AliasOptionWrite } from './aliasOption';
+import { FeaturesFallback, FeaturesFallbackWrite } from './featuresFallback';
 import { PushOptions, PushOptionsWrite } from './pushOptions';
 
 
 export type FeaturesWrite = {
     'pushOptions'?: PushOptionsWrite;
     'aliasOption'?: AliasOptionWrite;
+    'fallback'?: FeaturesFallbackWrite;
 }
 
 /**
@@ -15,6 +17,7 @@ export type FeaturesWrite = {
 export class Features {
     'pushOptions': PushOptions;
     'aliasOption': AliasOption;
+    'fallback': FeaturesFallback;
 
     static discriminator: string | undefined = undefined;
 
@@ -28,6 +31,11 @@ export class Features {
             "name": "aliasOption",
             "baseName": "aliasOption",
             "type": "AliasOption"
+        },
+        {
+            "name": "fallback",
+            "baseName": "fallback",
+            "type": "FeaturesFallback"
         }    ];
 
     static getAttributeTypeMap() {

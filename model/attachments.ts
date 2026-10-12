@@ -7,7 +7,7 @@ export type AttachmentsWrite = {
     /**
     * A list of attachments to attach to the Message.
     */
-    'attachments'?: Array<AttachmentWrite>;
+    'attachment'?: Array<AttachmentWrite>;
 }
 
 /**
@@ -17,14 +17,14 @@ export class Attachments {
     /**
     * A list of attachments to attach to the Message.
     */
-    'attachments': Array<Attachment>;
+    'attachment': Array<Attachment>;
 
     static discriminator: string | undefined = undefined;
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            "name": "attachments",
-            "baseName": "attachments",
+            "name": "attachment",
+            "baseName": "attachment",
             "type": "Array<Attachment>"
         }    ];
 

@@ -66,7 +66,6 @@ export class WorkspacesApi {
     /**
      * Note: There is no limit to the amount of workspaces each API user can create. 
      * @summary Create a workspace
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param workspace Create a workspace
@@ -139,7 +138,6 @@ export class WorkspacesApi {
     /**
      * Returns a list of your workspaces.
      * @summary List workspaces
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param limit The number of records to be returned.
      * @param offset The record number to start returning from.
@@ -223,7 +221,6 @@ export class WorkspacesApi {
     /**
      * Use GET on a Workspace Id to verify it is a valid Workspace ID, and see a list of all the other endpoint URIs in that workspace
      * @summary Retrieve a workspace
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param workspaceId The identifier for the workspace.
      */
@@ -290,7 +287,6 @@ export class WorkspacesApi {
     /**
      * Update a workspace endpoint
      * @summary Update a workspace
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param workspaceId The identifier for the workspace.

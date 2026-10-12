@@ -13,6 +13,7 @@ export * from './responseRulesApi';
 export * from './scenariosApi';
 export * from './templatesApi';
 export * from './usersApi';
+export * from './verifyApi';
 export * from './workspacesApi';
 import * as http from 'http';
 import { ApiError } from '../model/models';

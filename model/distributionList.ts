@@ -14,10 +14,6 @@ export type DistributionListWrite = {
     */
     'description'?: string;
     /**
-    * Total number of contacts in a Distribution List
-    */
-    'memberCount'?: string;
-    /**
     * Allows you to specify the access type for this DL  - Open: anyone can subscribe to this distribution list via the Whispir Contact Portal - ByApproval: anyone can subscribe using the Whispir Contact Portal. However, they are not officially on the list until their access is approved - Restricted: the distribution list is not visible in the Whispir Contact Portal
     */
     'access'?: string;
@@ -79,10 +75,6 @@ export class DistributionList {
     * Allows you to specify the visibility for this DL  - Public: Any user or active contact in any workspace can map themselves to this DL in the Whispir Contact Portal - Private: Only users or active contacts in the current workspace can map themselves to this DL
     */
     'visibility': string;
-    /**
-    * Comma separated list of Distribution List IDs that can be nested under this DL. This information can be provided at the time of the DL creation or later updated via a PUT request
-    */
-    'distListIds': string;
     /**
     * Details of Contacts included in the Distribution List
     */

@@ -94,7 +94,6 @@ export class TemplatesApi {
      * Create a message template, combining multi-channel content for use with the Message resource. The message template can be reused across multiple sent messages.
      * @summary Create a template
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param template Templates object that needs to be create Templates
@@ -170,7 +169,6 @@ export class TemplatesApi {
      * **Note:** When a template is DELETED, all the associated Scenarios, events, and references of template use in other endpoints will fail. So, ensure that the template is not used anywhere before it is deleted. Whispir **will not** do that check before it deletes the template. 
      * @summary Delete a template
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param templateId The identifier for the template.
@@ -241,7 +239,6 @@ export class TemplatesApi {
      * List all message templates for the workspace.  Pagination is available. 
      * @summary List templates
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param limit The number of records to be returned.
      * @param offset The record number to start returning from.
@@ -328,7 +325,6 @@ export class TemplatesApi {
      * Retrieves a message template
      * @summary Retrieve a template
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param accept Application specific mime-type.
      * @param templateId The identifier for the template.
      */
@@ -398,7 +394,6 @@ export class TemplatesApi {
      * **Note:** Currently users cannot update templates with the same name as a template that already exists in Whispir. Users can overcome this by saving the updated template with a new name, then either changing this back in a subsequent save, or retaining the updated name. 
      * @summary Update a template
      * @param workspaceId The identifier for the workspace.
-     * @param xApiKey The API key for authentication.
      * @param contentType Application specific mime-type.
      * @param accept Application specific mime-type.
      * @param templateId The identifier for the template.
